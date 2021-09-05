@@ -36,7 +36,7 @@ ruby&gt; s1 = &quot;forth&quot;&quot;forth&quot;ruby&gt; s1.chop! # This chang
     
   
   
-  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.8b5134b5440a43723b24b52304cbefacb592d30efeb3538b651d687fb003ef7dd8354693592ecb6b0e34eb36d6bcccc61fa3f966782aca126658cc75289dadeb.css" integrity="sha512-i1E0tUQKQ3I7JLUjBMvvrLWS0w7&#43;s1OLZR1of7AD733YNUaTWS7Law406zbWvMzGH6P5ZngqyhJmWMx1KJ2t6w=="> 
 
   
   
@@ -58,7 +58,6 @@ ruby&gt; s1 = &quot;forth&quot;&quot;forth&quot;ruby&gt; s1.chop! # This chang
 
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
-
   <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -207,10 +206,13 @@ ruby&gt; s1 = &quot;forth&quot;&quot;forth&quot;ruby&gt; s1.chop! # This chang
     </li>
   </ul>
 </nav>
+
+
     </div>
     
   </span>
 </div>
+
 
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -251,8 +253,8 @@ ruby&gt; s1 = &quot;forth&quot;&quot;forth&quot;ruby&gt; s1.chop! # This chang
     <div class="content" itemprop="articleBody">
       <h2 id="regular-expressions">regular expressions</h2>
 <p><code>=~</code>是用于正则表达式的匹配操作符。返回匹配到的字符串位置或nil。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#f1fa8c">&#34;abcdef&#34;</span> <span style="color:#ff79c6">=~</span> <span style="color:#f1fa8c">/d/</span> <span style="color:#6272a4"># return 3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#f1fa8c">&#34;aaaaaa&#34;</span> <span style="color:#ff79c6">=~</span> <span style="color:#f1fa8c">/d/</span> <span style="color:#6272a4"># return nil</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#48b685">&#34;abcdef&#34;</span> <span style="color:#5bc4bf">=~</span> <span style="color:#48b685">/d/</span> <span style="color:#776e71"># return 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#48b685">&#34;aaaaaa&#34;</span> <span style="color:#5bc4bf">=~</span> <span style="color:#48b685">/d/</span> <span style="color:#776e71"># return nil</span>
 </code></pre></div><!-- raw HTML omitted -->
 <h2 id="和">!和?</h2>
 <p>The exclamation point (!, sometimes pronounced aloud as &ldquo;bang!&quot;) indicates something potentially destructive, that is to say, something that can change the value of what it touches.</p>
@@ -275,69 +277,69 @@ ruby&gt; s1             # ... without disturbing s1.
 </ul>
 <h2 id="迭代器-iterator">迭代器 iterator</h2>
 <p>Ruby&rsquo;s String type has some useful iterators. <code>each_byte</code> is an iterator for each character in the string.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb<span style="color:#ff79c6">(</span>main<span style="color:#ff79c6">)</span>:001:0&gt; <span style="color:#f1fa8c">&#34;abc&#34;</span>.each_byte<span style="color:#ff79c6">{</span>|c| <span style="color:#8be9fd;font-style:italic">printf</span> <span style="color:#f1fa8c">&#34;&lt;%c&gt;&#34;</span>, c<span style="color:#ff79c6">}</span>; print <span style="color:#f1fa8c">&#34;\n&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb<span style="color:#5bc4bf">(</span>main<span style="color:#5bc4bf">)</span>:001:0&gt; <span style="color:#48b685">&#34;abc&#34;</span>.each_byte<span style="color:#5bc4bf">{</span>|c| printf <span style="color:#48b685">&#34;&lt;%c&gt;&#34;</span>, c<span style="color:#5bc4bf">}</span>; print <span style="color:#48b685">&#34;\n&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>&lt;a&gt;&lt;b&gt;&lt;c&gt;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#ff79c6">=</span>&gt; nil
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#5bc4bf">=</span>&gt; nil
 </code></pre></div><p>Another iterator of String is <code>each_line</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb<span style="color:#ff79c6">(</span>main<span style="color:#ff79c6">)</span>:002:0&gt; <span style="color:#f1fa8c">&#34;a\nb\nc\n&#34;</span>.each_line<span style="color:#ff79c6">{</span>|l| print l<span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb<span style="color:#5bc4bf">(</span>main<span style="color:#5bc4bf">)</span>:002:0&gt; <span style="color:#48b685">&#34;a\nb\nc\n&#34;</span>.each_line<span style="color:#5bc4bf">{</span>|l| print l<span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>a
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>b
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#8be9fd;font-style:italic">c</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#ff79c6">=</span>&gt; <span style="color:#f1fa8c">&#34;a\nb\nc\n&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#ef6155">c</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#5bc4bf">=</span>&gt; <span style="color:#48b685">&#34;a\nb\nc\n&#34;</span>
 </code></pre></div><p>ruby的 <code>for in</code> 也是一种迭代。We can use a control structure <code>retry</code> in conjunction with an iterated loop, and it will retry the loop from the beginning.</p>
 <h3 id="yield">yield</h3>
 <p><code>yield</code> occurs sometimes in a definition of an iterator. <code>yield</code> moves control to the block of code that is passed to the iterator (this will be explored in more detail in the chapter about procedure objects). The following example defines an iterator repeat, which repeats a block of code the number of times specified in an argument.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>irb(main):<span style="color:#bd93f9">003</span>:<span style="color:#bd93f9">0</span><span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">repeat</span>(num)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>irb(main):<span style="color:#bd93f9">004</span>:<span style="color:#bd93f9">1</span><span style="color:#ff79c6">&gt;</span>     <span style="color:#ff79c6">while</span> num <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>irb(main):<span style="color:#bd93f9">005</span>:<span style="color:#bd93f9">2</span><span style="color:#ff79c6">&gt;</span>         <span style="color:#ff79c6">yield</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>irb(main):<span style="color:#bd93f9">006</span>:<span style="color:#bd93f9">2</span><span style="color:#ff79c6">&gt;</span>         num <span style="color:#ff79c6">-=</span> <span style="color:#bd93f9">1</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>irb(main):<span style="color:#bd93f9">007</span>:<span style="color:#bd93f9">2</span><span style="color:#ff79c6">&gt;</span>     <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>irb(main):<span style="color:#bd93f9">00</span><span style="color:#bd93f9">8</span>:<span style="color:#bd93f9">1</span><span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">:repeat</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>irb(main):<span style="color:#bd93f9">00</span><span style="color:#bd93f9">9</span>:<span style="color:#bd93f9">0</span><span style="color:#ff79c6">&gt;</span> repeat(<span style="color:#bd93f9">3</span>) { <span style="color:#8be9fd;font-style:italic">puts</span> <span style="color:#f1fa8c">&#34;foo&#34;</span> }
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>irb(main):<span style="color:#f99b15">003</span>:<span style="color:#f99b15">0</span><span style="color:#5bc4bf">&gt;</span> <span style="color:#815ba4">def</span> <span style="color:#06b6ef">repeat</span>(num)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>irb(main):<span style="color:#f99b15">004</span>:<span style="color:#f99b15">1</span><span style="color:#5bc4bf">&gt;</span>     <span style="color:#815ba4">while</span> num <span style="color:#5bc4bf">&gt;</span> <span style="color:#f99b15">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>irb(main):<span style="color:#f99b15">005</span>:<span style="color:#f99b15">2</span><span style="color:#5bc4bf">&gt;</span>         <span style="color:#815ba4">yield</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>irb(main):<span style="color:#f99b15">006</span>:<span style="color:#f99b15">2</span><span style="color:#5bc4bf">&gt;</span>         num <span style="color:#5bc4bf">-=</span> <span style="color:#f99b15">1</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>irb(main):<span style="color:#f99b15">007</span>:<span style="color:#f99b15">2</span><span style="color:#5bc4bf">&gt;</span>     <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>irb(main):<span style="color:#f99b15">00</span><span style="color:#f99b15">8</span>:<span style="color:#f99b15">1</span><span style="color:#5bc4bf">&gt;</span> <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#5bc4bf">=&gt;</span> <span style="color:#48b685">:repeat</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>irb(main):<span style="color:#f99b15">00</span><span style="color:#f99b15">9</span>:<span style="color:#f99b15">0</span><span style="color:#5bc4bf">&gt;</span> repeat(<span style="color:#f99b15">3</span>) { puts <span style="color:#48b685">&#34;foo&#34;</span> }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>foo
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>foo
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>foo
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">nil</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#5bc4bf">=&gt;</span> <span style="color:#815ba4">nil</span>
 </code></pre></div><h2 id="class">class</h2>
 <h3 id="继承">继承</h3>
 <p>继承的格式为:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Superclass</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">breathe</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        <span style="color:#8be9fd;font-style:italic">puts</span> <span style="color:#f1fa8c">&#34;inhale and exhale&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">identify</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#8be9fd;font-style:italic">puts</span> <span style="color:#f1fa8c">&#34;I&#39;m super&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">speak</span>(word)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        <span style="color:#8be9fd;font-style:italic">puts</span> word
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ff79c6">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">Superclass</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">breathe</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        puts <span style="color:#48b685">&#34;inhale and exhale&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">identify</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        puts <span style="color:#48b685">&#34;I&#39;m super&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">speak</span>(word)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        puts word
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#815ba4">end</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Subclass</span><span style="color:#ff79c6">&lt;</span>Superclass
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#6272a4"># code...</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#ff79c6">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#815ba4">class</span> <span style="color:#fec418">Subclass</span><span style="color:#5bc4bf">&lt;</span><span style="color:#ef6155">Superclass</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#776e71"># code...</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#815ba4">end</span>
 </code></pre></div><p>可在在子类中重新声明基类方法，也可以使用<code>super</code>关键字来扩展基类方法。<code>super</code>也允许我们传递参数给基类方法。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Subclass</span><span style="color:#ff79c6">&lt;</span>Superclass
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">identify</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        <span style="color:#ff79c6">super</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#8be9fd;font-style:italic">puts</span> <span style="color:#f1fa8c">&#34;I&#39;m sub too&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">speak</span>(word)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#ff79c6">super</span>(<span style="color:#f1fa8c">&#34;this is from Superclass&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#8be9fd;font-style:italic">puts</span> <span style="color:#f1fa8c">&#34;now it&#39;s from Subclass: </span><span style="color:#f1fa8c">#{</span>word<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">Subclass</span><span style="color:#5bc4bf">&lt;</span><span style="color:#ef6155">Superclass</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">identify</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        <span style="color:#815ba4">super</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        puts <span style="color:#48b685">&#34;I&#39;m sub too&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">speak</span>(word)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#815ba4">super</span>(<span style="color:#48b685">&#34;this is from Superclass&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        puts <span style="color:#48b685">&#34;now it&#39;s from Subclass: </span><span style="color:#f99b15">#{</span>word<span style="color:#f99b15">}</span><span style="color:#48b685">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#815ba4">end</span>
 </code></pre></div><h3 id="初始化构造函数">初始化（构造函数）</h3>
 <p><code>ruby</code>使用<code>initialize</code>关键字来实现构造函数的功能。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Fruit</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">initialize</span>( k<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;apple&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>        <span style="color:#8be9fd;font-style:italic">@kind</span> <span style="color:#ff79c6">=</span> k
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        <span style="color:#8be9fd;font-style:italic">@condition</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ripe&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#ff79c6">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">Fruit</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">initialize</span>( k<span style="color:#5bc4bf">=</span><span style="color:#48b685">&#34;apple&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>        @kind <span style="color:#5bc4bf">=</span> k
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        @condition <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;ripe&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#815ba4">end</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>apple <span style="color:#ff79c6">=</span> Fruit<span style="color:#ff79c6">.</span>new <span style="color:#f1fa8c">&#34;apple&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>apple <span style="color:#5bc4bf">=</span> <span style="color:#ef6155">Fruit</span><span style="color:#5bc4bf">.</span>new <span style="color:#48b685">&#34;apple&#34;</span>
 </code></pre></div><h2 id="variables">variables</h2>
 <ul>
 <li><code>[a-z] or _</code> 本地变量</li>
@@ -347,9 +349,9 @@ ruby&gt; s1             # ... without disturbing s1.
 </ul>
 <h3 id="全局变量">全局变量</h3>
 <p>全局变量以 <code>$</code> 开头。初始化之前，全局变量的值为<code>nil</code>。可定义一段procedure来追踪全局变量。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#8be9fd;font-style:italic">$x</span> <span style="color:#6272a4">#return nil</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#8be9fd;font-style:italic">trace_var</span> :<span style="color:#8be9fd;font-style:italic">$x</span>, <span style="color:#8be9fd;font-style:italic">proc</span>{<span style="color:#8be9fd;font-style:italic">puts</span> <span style="color:#f1fa8c">&#34;$x is now </span><span style="color:#f1fa8c">#{</span><span style="color:#8be9fd;font-style:italic">$x</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#8be9fd;font-style:italic">$x</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span> <span style="color:#6272a4">#return $x is now 5</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>$x <span style="color:#776e71">#return nil</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>trace_var :$x, proc{puts <span style="color:#48b685">&#34;$x is now </span><span style="color:#f99b15">#{</span>$x<span style="color:#f99b15">}</span><span style="color:#48b685">&#34;</span>}
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>$x <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">5</span> <span style="color:#776e71">#return $x is now 5</span>
 </code></pre></div><p>一些特殊的变量（不一定是全局作用域）：</p>
 <ul>
 <li><code>$!</code>	latest error message</li>
@@ -372,42 +374,42 @@ ruby&gt; s1             # ... without disturbing s1.
 <p>Instance variables do not need to be declared. This indicates a flexible object structure; in fact, each instance variable is dynamically appended to an object when it is first assigned.</p>
 <h3 id="常量">常量</h3>
 <p>常量名以大写字母开头。给常量重新赋值会得到警告。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb<span style="color:#ff79c6">(</span>main<span style="color:#ff79c6">)</span>:009:0&gt; <span style="color:#8be9fd;font-style:italic">Wzr</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">1222</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ff79c6">=</span>&gt; <span style="color:#bd93f9">1222</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>irb<span style="color:#ff79c6">(</span>main<span style="color:#ff79c6">)</span>:010:0&gt; <span style="color:#8be9fd;font-style:italic">Wzr</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">1223</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#ff79c6">(</span>irb<span style="color:#ff79c6">)</span>:10: warning: already initialized constant Wzr
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#ff79c6">(</span>irb<span style="color:#ff79c6">)</span>:9: warning: previous definition of Wzr was <span style="color:#8be9fd;font-style:italic">here</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#ff79c6">=</span>&gt; <span style="color:#bd93f9">1223</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb<span style="color:#5bc4bf">(</span>main<span style="color:#5bc4bf">)</span>:009:0&gt; <span style="color:#ef6155">Wzr</span><span style="color:#5bc4bf">=</span><span style="color:#ef6155">1222</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#5bc4bf">=</span>&gt; <span style="color:#f99b15">1222</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>irb<span style="color:#5bc4bf">(</span>main<span style="color:#5bc4bf">)</span>:010:0&gt; <span style="color:#ef6155">Wzr</span><span style="color:#5bc4bf">=</span><span style="color:#f99b15">1223</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#5bc4bf">(</span>irb<span style="color:#5bc4bf">)</span>:10: warning: already initialized constant Wzr
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#5bc4bf">(</span>irb<span style="color:#5bc4bf">)</span>:9: warning: previous definition of Wzr was <span style="color:#ef6155">here</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#5bc4bf">=</span>&gt; <span style="color:#f99b15">1223</span>
 </code></pre></div><p>常量可以在类和模块中定义，并允许外部访问。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ConstClass</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>   C1<span style="color:#ff79c6">=</span><span style="color:#bd93f9">120</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#ff79c6">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">ConstClass</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>   <span style="color:#ef6155">C1</span><span style="color:#5bc4bf">=</span><span style="color:#f99b15">120</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#815ba4">end</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>ConstClass<span style="color:#ff79c6">::</span>C1 <span style="color:#6272a4"># return 120</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#ef6155">ConstClass</span><span style="color:#5bc4bf">::</span><span style="color:#ef6155">C1</span> <span style="color:#776e71"># return 120</span>
 </code></pre></div><h2 id="访问器accessor">访问器(accessor)</h2>
 <p>实例属性需要通过属性访问器访问。常规访问器有简化写法：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Fruit</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>   <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">kind</span><span style="color:#ff79c6">=</span>(k)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>       <span style="color:#8be9fd;font-style:italic">@kind</span> <span style="color:#ff79c6">=</span> k
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>   <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>   <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">kind</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>       <span style="color:#8be9fd;font-style:italic">@kind</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>   <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span> <span style="color:#ff79c6">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">Fruit</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>   <span style="color:#815ba4">def</span> <span style="color:#06b6ef">kind</span><span style="color:#5bc4bf">=</span>(k)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>       @kind <span style="color:#5bc4bf">=</span> k
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>   <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>   <span style="color:#815ba4">def</span> <span style="color:#06b6ef">kind</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>       @kind
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>   <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span> <span style="color:#815ba4">end</span>
 </code></pre></div><h3 id="inspect方法">inspect方法</h3>
 <p>当创建一个对象时解释器会返回一些信息：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb(main):<span style="color:#bd93f9">00</span><span style="color:#bd93f9">9</span>:<span style="color:#bd93f9">0</span><span style="color:#ff79c6">&gt;</span> apple <span style="color:#ff79c6">=</span> Fruit<span style="color:#ff79c6">.</span>new
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ff79c6">=&gt;</span> <span style="color:#6272a4">#&lt;Fruit:0x00000000a34f58&gt;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>irb(main):<span style="color:#bd93f9">010</span>:<span style="color:#bd93f9">0</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>irb(main):<span style="color:#f99b15">00</span><span style="color:#f99b15">9</span>:<span style="color:#f99b15">0</span><span style="color:#5bc4bf">&gt;</span> apple <span style="color:#5bc4bf">=</span> <span style="color:#ef6155">Fruit</span><span style="color:#5bc4bf">.</span>new
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#5bc4bf">=&gt;</span> <span style="color:#776e71">#&lt;Fruit:0x00000000a34f58&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>irb(main):<span style="color:#f99b15">010</span>:<span style="color:#f99b15">0</span><span style="color:#5bc4bf">&gt;</span>
 </code></pre></div><p>可以通过<code>inspect</code>关键字来改变这种默认行为。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Fruit</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">inspect</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>        <span style="color:#f1fa8c">&#34;a fruit is created&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    <span style="color:#ff79c6">end</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#ff79c6">end</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">Fruit</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">inspect</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>        <span style="color:#48b685">&#34;a fruit is created&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    <span style="color:#815ba4">end</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#815ba4">end</span>
 </code></pre></div><p><code>inspect</code>方法常用来调试，可通过下面两种方式显示调用：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#8be9fd;font-style:italic">p</span> anObject
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#8be9fd;font-style:italic">puts</span> anObject<span style="color:#ff79c6">.</span>inspect
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>p anObject
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>puts anObject<span style="color:#5bc4bf">.</span>inspect
 </code></pre></div><h3 id="shortcuts">shortcuts</h3>
 <p><code>Ruby</code>提供了访问器的一些简写形式：</p>
 <table>
@@ -439,10 +441,10 @@ ruby&gt; s1             # ... without disturbing s1.
 <h2 id="注释">注释</h2>
 <p>单行注释以<code>#</code>开头。
 块注释可使用<code>=begin</code> <code>=end</code>来标记。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">=begin
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4">这是一段注释块。This is a comment block.
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4">Egg, I dreamed I was old.
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#6272a4">=end</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#776e71">=begin
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#776e71">这是一段注释块。This is a comment block.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#776e71">Egg, I dreamed I was old.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#776e71">=end</span>
 </code></pre></div><h2 id="dynamic-dispatch">Dynamic Dispatch</h2>
 <h2 id="mixins">Mixins</h2>
 <p>Ruby has no multiple inheritance. But it has mixins.</p>
@@ -459,28 +461,123 @@ ruby&gt; s1             # ... without disturbing s1.
     </div>
   </article>
 
-  
-  
 
 
 
 
-  <div class="blog-post-comments">
-    
-      <div id="cactus-comments-thread">
-  <script>
-  initComments({
-    node: document.getElementById("cactus-comments-thread"),
-    defaultHomeserverUrl: 'https:\/\/matrix.cactus.chat:8448',
-    serverName: 'cactus.chat',
-    siteName: "your_cactus_comments_sitename",
-    commentSectionId: "\/posts\/2016-12-08-ruby-notes\/"
-  })
-</script>
-</div>
+      
 
-    
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>No notes link to this note</h4>
   </div>
+  
+
+
+
+  
+  
+  
+
+
+
 
 
 
@@ -653,4 +750,5 @@ ruby&gt; s1             # ... without disturbing s1.
 
 
 
+  
 </html>

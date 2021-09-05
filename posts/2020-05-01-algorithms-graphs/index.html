@@ -32,7 +32,7 @@
     
   
   
-  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.8b5134b5440a43723b24b52304cbefacb592d30efeb3538b651d687fb003ef7dd8354693592ecb6b0e34eb36d6bcccc61fa3f966782aca126658cc75289dadeb.css" integrity="sha512-i1E0tUQKQ3I7JLUjBMvvrLWS0w7&#43;s1OLZR1of7AD733YNUaTWS7Law406zbWvMzGH6P5ZngqyhJmWMx1KJ2t6w=="> 
 
   
   
@@ -54,7 +54,6 @@
 
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
-
   <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -174,31 +173,15 @@
         <li><a href="#adjacency-list-data-structure">Adjacency-list Data structure</a></li>
         <li><a href="#depth-first-search-dfs">Depth-first Search (DFS)</a></li>
         <li><a href="#breadth-first-search-bfs">Breadth-first Search (BFS)</a></li>
-        <li><a href="#applications-of-dfs">Applications of DFS</a>
-          <ul>
-            <li><a href="#connected-components">Connected components</a></li>
-            <li><a href="#cycle-detection">Cycle detection</a></li>
-            <li><a href="#two-colorability">Two-colorability</a></li>
-            <li><a href="#symbol-graphs">Symbol graphs</a></li>
-            <li><a href="#degrees-of-separation">Degrees of separation</a></li>
-          </ul>
-        </li>
+        <li><a href="#applications-of-dfs">Applications of DFS</a></li>
       </ul>
     </li>
     <li><a href="#directed-graphs">Directed Graphs</a>
       <ul>
         <li><a href="#representations-1">Representations</a></li>
         <li><a href="#digraph-search">Digraph search</a></li>
-        <li><a href="#topological-sort">Topological Sort</a>
-          <ul>
-            <li><a href="#directed-cycle-detection">Directed cycle detection</a></li>
-          </ul>
-        </li>
-        <li><a href="#strong-components">Strong components</a>
-          <ul>
-            <li><a href="#kosaraju-sharir-algorithm">Kosaraju-Sharir Algorithm</a></li>
-          </ul>
-        </li>
+        <li><a href="#topological-sort">Topological Sort</a></li>
+        <li><a href="#strong-components">Strong components</a></li>
       </ul>
     </li>
     <li><a href="#minimum-spanning-trees">Minimum Spanning Trees</a>
@@ -212,13 +195,7 @@
     <li><a href="#shortest-paths">Shortest Paths</a>
       <ul>
         <li><a href="#edge-weighted-digraph-data-strcuture">Edge-weighted digraph data strcuture</a></li>
-        <li><a href="#generic-single-source-shortest-paths">Generic Single-source Shortest paths</a>
-          <ul>
-            <li><a href="#relax-edge-e--v-w">Relax edge e = v-&gt;w</a></li>
-            <li><a href="#optimality-conditions">Optimality conditions</a></li>
-            <li><a href="#generic-algorithm">Generic algorithm</a></li>
-          </ul>
-        </li>
+        <li><a href="#generic-single-source-shortest-paths">Generic Single-source Shortest paths</a></li>
         <li><a href="#implement-1-dijkstras-algorithm">Implement 1: Dijkstra&rsquo;s algorithm</a></li>
         <li><a href="#implement-2-topological-sort-algorithm">Implement 2: Topological sort algorithm</a></li>
         <li><a href="#implement-3-bellman-ford-algorithm">Implement 3: Bellman-Ford algorithm</a></li>
@@ -226,10 +203,13 @@
     </li>
   </ul>
 </nav>
+
+
     </div>
     
   </span>
 </div>
+
 
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -327,27 +307,27 @@
 <li>Mark each visited vertex (and keep track of edge taken to visit it)</li>
 <li>Return (retrace steps) when no unvisited options</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DepthFirstPaths</span><span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#8be9fd;font-style:italic">private</span> blloean<span style="color:#ff79c6">[]</span> marked<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> edgeTO<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span> s<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">DepthFirstPaths</span><span style="color:#ff79c6">(</span>Graph G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> s<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#6272a4">// ...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4"></span>        dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> s<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">class</span> <span style="color:#fec418">DepthFirstPaths</span><span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">private</span> blloean<span style="color:#5bc4bf">[]</span> marked<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">int</span><span style="color:#5bc4bf">[]</span> edgeTO<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">int</span> s<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">DepthFirstPaths</span><span style="color:#5bc4bf">(</span>Graph G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> s<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#776e71">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#776e71"></span>        dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> s<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dfs</span><span style="color:#ff79c6">(</span>Graph Gm <span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> w <span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">])</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> w<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                edgeTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> v<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">dfs</span><span style="color:#5bc4bf">(</span>Graph Gm <span style="color:#fec418">int</span> v<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">true</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> w <span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">])</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> w<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                edgeTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> v<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>    <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><p>Propositions:</p>
 <ol>
 <li>DFS marks all vertices connected to s in time proportional to the sum of their degrees.</li>
@@ -364,31 +344,31 @@
 <li>Take the next vertex v from the queue and mark it</li>
 <li>Put onto the queue all unmarked vertices that are adjacent to v</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">BreadthFirstPaths</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[]</span> marked<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> edgeTo<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#6272a4">// ...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">bfs</span><span style="color:#ff79c6">(</span>Graph G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> s<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        Queue<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> q <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Queue<span style="color:#ff79c6">&lt;&gt;();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        q<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        marked<span style="color:#ff79c6">[</span>s<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> ture<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(!</span>q<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">())</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>            <span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> q<span style="color:#ff79c6">.</span><span style="color:#50fa7b">dequeue</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> w<span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">])</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                    q<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                    marked<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>                    edgeTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> v<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>                <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">class</span> <span style="color:#fec418">BreadthFirstPaths</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[]</span> marked<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">int</span><span style="color:#5bc4bf">[]</span> edgeTo<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#776e71">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#776e71"></span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">bfs</span><span style="color:#5bc4bf">(</span>Graph G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> s<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        Queue<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;</span> q <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> Queue<span style="color:#5bc4bf">&lt;&gt;();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        q<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">enqueue</span><span style="color:#5bc4bf">(</span>s<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        marked<span style="color:#5bc4bf">[</span>s<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> ture<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        <span style="color:#815ba4">while</span> <span style="color:#5bc4bf">(!</span>q<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">isEmpty</span><span style="color:#5bc4bf">())</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>            <span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> q<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">dequeue</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>            <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> w<span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>                <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">])</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                    q<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">enqueue</span><span style="color:#5bc4bf">(</span>w<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                    marked<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">true</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>                    edgeTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> v<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>                <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>    <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><p>Proposition:</p>
 <ol>
 <li>BFS computes shortest paths (fewest number of edges) from s to all other vertices in a graph in time proportional to E + V</li>
@@ -402,34 +382,34 @@
 <li>Symmetric: if v is connected to w, then w is connected to v</li>
 <li>Transitive: if v connected to w and w connected to x, then v connected to x</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">CC</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[]</span> marked<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> id<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span> count<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">class</span> <span style="color:#fec418">CC</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[]</span> marked<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">int</span><span style="color:#5bc4bf">[]</span> id<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">int</span> count<span style="color:#5bc4bf">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">CC</span><span style="color:#ff79c6">(</span>Graph G<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        marked <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        id <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">,</span> v <span style="color:#ff79c6">&lt;</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">();</span> v<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>                dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> v<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>                count<span style="color:#ff79c6">++;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">CC</span><span style="color:#5bc4bf">(</span>Graph G<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        marked <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        id <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">int</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">,</span> v <span style="color:#5bc4bf">&lt;</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">();</span> v<span style="color:#5bc4bf">++)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">])</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>                dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> v<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>                count<span style="color:#5bc4bf">++;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>    <span style="color:#6272a4">// ...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#6272a4"></span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dfs</span><span style="color:#ff79c6">(</span>Graph G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>        marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        id<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> count<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> w <span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>                dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> w<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>    <span style="color:#776e71">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#776e71"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">dfs</span><span style="color:#5bc4bf">(</span>Graph G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> v<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>        marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">true</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        id<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> count<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> w <span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">])</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>                dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> w<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>    <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><h4 id="cycle-detection">Cycle detection</h4>
 <p>Problem: Is a given graph acylic?</p>
 <p><strong>TODO</strong></p>
@@ -457,26 +437,26 @@
 <li>Based on iterating over vertices pointing from v</li>
 <li>Real-world digraphs tend to be sparse</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Digraph</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> V<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">final</span> Bag<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;[]</span> adj<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">class</span> <span style="color:#fec418">Digraph</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">private</span> <span style="color:#815ba4">final</span> <span style="color:#fec418">int</span> V<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#815ba4">private</span> <span style="color:#815ba4">final</span> Bag<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;[]</span> adj<span style="color:#5bc4bf">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">Digraph</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> V<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span> <span style="color:#ff79c6">=</span> V<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        adj <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>Bag<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;[])</span> <span style="color:#ff79c6">new</span> Bag<span style="color:#ff79c6">[</span>V<span style="color:#ff79c6">];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> v <span style="color:#ff79c6">&lt;</span> V<span style="color:#ff79c6">;</span> v<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            adj<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Bag<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;[];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">Digraph</span><span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> V<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#815ba4">this</span><span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span> <span style="color:#5bc4bf">=</span> V<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        adj <span style="color:#5bc4bf">=</span> <span style="color:#5bc4bf">(</span>Bag<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;[])</span> <span style="color:#815ba4">new</span> Bag<span style="color:#5bc4bf">[</span>V<span style="color:#5bc4bf">];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">;</span> v <span style="color:#5bc4bf">&lt;</span> V<span style="color:#5bc4bf">;</span> v<span style="color:#5bc4bf">++)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            adj<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> Bag<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;[];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">addEdge</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> w<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        adj<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">].</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#815ba4">public</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">addEdge</span><span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> w<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        adj<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">].</span><span style="color:#06b6ef">add</span><span style="color:#5bc4bf">(</span>w<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>    <span style="color:#8be9fd;font-style:italic">public</span> Iterable<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        <span style="color:#ff79c6">return</span> adj<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>    <span style="color:#815ba4">public</span> Iterable<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;</span> <span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        <span style="color:#815ba4">return</span> adj<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><h3 id="digraph-search">Digraph search</h3>
 <p>Reachabiliity problem: Find all vertices reachable from s along a directed path.</p>
 <p>We can use <a href="#Depth-first-Search-(DFS)">the same dfs method as for undirected graphs</a>.</p>
@@ -515,30 +495,30 @@
 Topological sort redraws DAG so all edges poitn upwards.</p>
 <p>use <strong>DFS</strong> again. It can be proved that reverse postorder of a DAG is a topological order.
 (check P578 for the definition of Preorder/Postorder)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DepthFirstOrder</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[]</span> marked<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#8be9fd;font-style:italic">private</span> Stack<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> reversePost<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">class</span> <span style="color:#fec418">DepthFirstOrder</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[]</span> marked<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#815ba4">private</span> Stack<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;</span> reversePost<span style="color:#5bc4bf">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    publiv <span style="color:#50fa7b">DepthFirstOrder</span><span style="color:#ff79c6">(</span>Digraph G<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        reversePost <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Stack<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        marked <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> v <span style="color:#ff79c6">&lt;</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">();</span> v<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">])</span> dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> v<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    publiv <span style="color:#06b6ef">DepthFirstOrder</span><span style="color:#5bc4bf">(</span>Digraph G<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        reversePost <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> Stack<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        marked <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">;</span> v <span style="color:#5bc4bf">&lt;</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">();</span> v<span style="color:#5bc4bf">++)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">])</span> dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> v<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dfs</span><span style="color:#ff79c6">(</span>Digrapg G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> w <span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">])</span> dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> w<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        reversePost<span style="color:#ff79c6">.</span><span style="color:#50fa7b">push</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">dfs</span><span style="color:#5bc4bf">(</span>Digrapg G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> v<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">true</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> w <span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">])</span> dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> w<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        reversePost<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">push</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><h4 id="directed-cycle-detection">Directed cycle detection</h4>
 <p>To find out if a given digraph is a DAG, we can try to find a directec cycle in the digraph.
 Use DFS and a stack to track the cycle.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">// TODO
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#776e71">// TODO
 </span></code></pre></div><p>Some very typical applications of directed cycle detection and topological sort:
 (A directed cycle means the problem is infeasible)</p>
 <ul>
@@ -564,42 +544,42 @@ Strong connectivity is an equvicalence relation.</p>
 </ul>
 <p>TODO: ADD Proof</p>
 <p><a href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/KosarajuSharirSCC.java.html">https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/KosarajuSharirSCC.java.html</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">KosarajuSharirSCC</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[]</span> marked<span style="color:#ff79c6">;</span>     <span style="color:#6272a4">// marked[v] = has vertex v been visited?
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> id<span style="color:#ff79c6">;</span>             <span style="color:#6272a4">// id[v] = id of strong component containing v
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">int</span> count<span style="color:#ff79c6">;</span>            <span style="color:#6272a4">// number of strongly-connected components
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4"></span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#6272a4">/**
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#6272a4">     * Computes the strong components of the digraph {@code G}.
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4">     * @param G the digraph
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4">     */</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">KosarajuSharirSCC</span><span style="color:#ff79c6">(</span>Digraph G<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">class</span> <span style="color:#fec418">KosarajuSharirSCC</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[]</span> marked<span style="color:#5bc4bf">;</span>     <span style="color:#776e71">// marked[v] = has vertex v been visited?
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#776e71"></span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">int</span><span style="color:#5bc4bf">[]</span> id<span style="color:#5bc4bf">;</span>             <span style="color:#776e71">// id[v] = id of strong component containing v
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#776e71"></span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">int</span> count<span style="color:#5bc4bf">;</span>            <span style="color:#776e71">// number of strongly-connected components
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#776e71"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#776e71">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#776e71">     * Computes the strong components of the digraph {@code G}.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#776e71">     * @param G the digraph
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#776e71">     */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">KosarajuSharirSCC</span><span style="color:#5bc4bf">(</span>Digraph G<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        <span style="color:#6272a4">// compute reverse postorder of reverse graph
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4"></span>        DepthFirstOrder dfs <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DepthFirstOrder<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">reverse</span><span style="color:#ff79c6">());</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        <span style="color:#776e71">// compute reverse postorder of reverse graph
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#776e71"></span>        DepthFirstOrder dfs <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> DepthFirstOrder<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">reverse</span><span style="color:#5bc4bf">());</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        <span style="color:#6272a4">// run DFS on G, using reverse postorder to guide calculation
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#6272a4"></span>        marked <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        id <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">:</span> dfs<span style="color:#ff79c6">.</span><span style="color:#50fa7b">reversePost</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>                dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> v<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>                count<span style="color:#ff79c6">++;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        <span style="color:#776e71">// run DFS on G, using reverse postorder to guide calculation
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#776e71"></span>        marked <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        id <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">int</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v <span style="color:#5bc4bf">:</span> dfs<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">reversePost</span><span style="color:#5bc4bf">())</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">])</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>                dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> v<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>                count<span style="color:#5bc4bf">++;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>    <span style="color:#6272a4">// DFS on graph G
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dfs</span><span style="color:#ff79c6">(</span>Digraph G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>        marked<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        id<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> count<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> w <span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>marked<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">])</span> dfs<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> w<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>    <span style="color:#776e71">// DFS on graph G
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span style="color:#776e71"></span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">dfs</span><span style="color:#5bc4bf">(</span>Digraph G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> v<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>        marked<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">true</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        id<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> count<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> w <span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>marked<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">])</span> dfs<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> w<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>    <span style="color:#6272a4">// ...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>    <span style="color:#776e71">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span style="color:#776e71"></span><span style="color:#5bc4bf">}</span>
 </code></pre></div><h2 id="minimum-spanning-trees">Minimum Spanning Trees</h2>
 <p>An edge-weighted-graph is a graph where we associate weight or costs with each edge.
 A spanning tree of an undirected edge-weighted graph G is a subgraph T that is both <strong>a tree (conneted and acyclic)</strong> and <strong>spanning (includes all of the vertices)</strong>.
@@ -715,13 +695,13 @@ If the graph is not connceted, we compute minimum spanning forest (MST of each c
 <li>esgeTo[w] is last edge on shortest known pathh from s to w</li>
 <li>if e = v-&gt;w gives shorter path to w through v, update both distTo[w] and edgeTo[w]</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">relax</span><span style="color:#ff79c6">(</span>DirectedEdge e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">from</span><span style="color:#ff79c6">(),</span> w <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">to</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&gt;</span> distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">weight</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">weight</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>        edgeTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">relax</span><span style="color:#5bc4bf">(</span>DirectedEdge e<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">from</span><span style="color:#5bc4bf">(),</span> w <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">to</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(</span>distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">&gt;</span> distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">+</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">weight</span><span style="color:#5bc4bf">())</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">+</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">weight</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>        edgeTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><h4 id="optimality-conditions">Optimality conditions</h4>
 <p>Given an edge-weighted digraph G, distTo[] are the shortest path distances from s <strong>iff</strong>:</p>
 <ul>
@@ -748,37 +728,37 @@ If the graph is not connceted, we compute minimum spanning forest (MST of each c
 <li>Consider vertices in increasing order of distance from s (non-tree vertex with the lowest distTo[] value)</li>
 <li>add vertex to tree and relax all edges pointing from that vertex</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DijkstraSP</span><span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>        <span style="color:#6272a4">// ...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">DijkstraSP</span><span style="color:#ff79c6">(</span>EdgeWeightedDigraph G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> s<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        edgeTo <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DirectedEdge<span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        distTo <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">double</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        pq <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> IndexMinPQ<span style="color:#ff79c6">&lt;</span>Double<span style="color:#ff79c6">&gt;(</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">());</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">class</span> <span style="color:#fec418">DijkstraSP</span><span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>        <span style="color:#776e71">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#776e71"></span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">DijkstraSP</span><span style="color:#5bc4bf">(</span>EdgeWeightedDigraph G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> s<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        edgeTo <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> DirectedEdge<span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        distTo <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">double</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        pq <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> IndexMinPQ<span style="color:#5bc4bf">&lt;</span>Double<span style="color:#5bc4bf">&gt;(</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">());</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> v <span style="color:#ff79c6">&lt;</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">();</span> v<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> Double<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        distTo<span style="color:#ff79c6">[</span>s<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">;</span> v <span style="color:#5bc4bf">&lt;</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">();</span> v<span style="color:#5bc4bf">++)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> Double<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">POSITIVE_INFINITY</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        distTo<span style="color:#5bc4bf">[</span>s<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">,</span> 0<span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#ff79c6">while</span><span style="color:#ff79c6">(!</span>pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">=</span> pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">delMin</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>DirectedEdge e <span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                relax<span style="color:#ff79c6">(</span>e<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        pq<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">insert</span><span style="color:#5bc4bf">(</span>s<span style="color:#5bc4bf">,</span> 0<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">0</span><span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#815ba4">while</span><span style="color:#5bc4bf">(!</span>pq<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">isEmpty</span><span style="color:#5bc4bf">())</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#fec418">int</span> v<span style="color:#5bc4bf">=</span> pq<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">delMin</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span>DirectedEdge e <span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                relax<span style="color:#5bc4bf">(</span>e<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">relax</span><span style="color:#ff79c6">(</span>DirectedEdge e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        <span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">from</span><span style="color:#ff79c6">(),</span> w <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">to</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&gt;</span> distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">weight</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>            distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">weight</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>            edgeTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">contains</span><span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">))</span> pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">decreaseKey</span><span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">,</span> distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>            <span style="color:#ff79c6">else</span> pq<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">,</span> distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>    <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">relax</span><span style="color:#5bc4bf">(</span>DirectedEdge e<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        <span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">from</span><span style="color:#5bc4bf">(),</span> w <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">to</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>        <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(</span>distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">&gt;</span> distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">+</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">weight</span><span style="color:#5bc4bf">())</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>            distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">+</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">weight</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>            edgeTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(</span>pq<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">contains</span><span style="color:#5bc4bf">(</span>w<span style="color:#5bc4bf">))</span> pq<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">decreaseKey</span><span style="color:#5bc4bf">(</span>w<span style="color:#5bc4bf">,</span> distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>            <span style="color:#815ba4">else</span> pq<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">insert</span><span style="color:#5bc4bf">(</span>w<span style="color:#5bc4bf">,</span> distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>    <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><p><strong>Compare to Prim&rsquo;s algorithm:</strong></p>
 <ul>
 <li>Both are computing a graph&rsquo;s spanning tree</li>
@@ -786,13 +766,13 @@ If the graph is not connceted, we compute minimum spanning forest (MST of each c
 </ul>
 <h3 id="implement-2-topological-sort-algorithm">Implement 2: Topological sort algorithm</h3>
 <p>When the graph is a DAG, we can consider vertices in topological order and do relaxing.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>    <span style="color:#6272a4">// ...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span>    Topological topological <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Topological<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">:</span> topological<span style="color:#ff79c6">.</span><span style="color:#50fa7b">order</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>DirectedEdge e <span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>            relax<span style="color:#ff79c6">(</span>e<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>    <span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>    <span style="color:#776e71">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#776e71"></span>    Topological topological <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> Topological<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v <span style="color:#5bc4bf">:</span> topological<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">order</span><span style="color:#5bc4bf">())</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span>DirectedEdge e <span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>            relax<span style="color:#5bc4bf">(</span>e<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>    <span style="color:#5bc4bf">}</span>
 </code></pre></div><p><strong><a href="https://en.wikipedia.org/wiki/Seam_carving">Seam carving</a></strong>: Resize an image without distortion.</p>
 <p><strong>Longest paths</strong>:</p>
 <ul>
@@ -825,43 +805,43 @@ We can use Bellman-Ford algorithm as long as there is no negative cycle in the g
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// ...
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">BellmanFordSP</span><span style="color:#ff79c6">(</span>EdgeWeightedDigraph G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> s<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        distTo  <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">double</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        edgeTo  <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> DirectedEdge<span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        onQueue <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">boolean</span><span style="color:#ff79c6">[</span>G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()];</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> v <span style="color:#ff79c6">&lt;</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">();</span> v<span style="color:#ff79c6">++)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>            distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> Double<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        distTo<span style="color:#ff79c6">[</span>s<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">.</span><span style="color:#50fa7b">0</span><span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#776e71">// ...
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#776e71"></span>    <span style="color:#815ba4">public</span> <span style="color:#06b6ef">BellmanFordSP</span><span style="color:#5bc4bf">(</span>EdgeWeightedDigraph G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> s<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>        distTo  <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">double</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        edgeTo  <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> DirectedEdge<span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        onQueue <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#fec418">boolean</span><span style="color:#5bc4bf">[</span>G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()];</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">;</span> v <span style="color:#5bc4bf">&lt;</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">();</span> v<span style="color:#5bc4bf">++)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>            distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> Double<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">POSITIVE_INFINITY</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        distTo<span style="color:#5bc4bf">[</span>s<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">0</span><span style="color:#5bc4bf">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#6272a4">// Bellman-Ford algorithm
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4"></span>        queue <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Queue<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        queue<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        onQueue<span style="color:#ff79c6">[</span>s<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(!</span>queue<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">!</span>hasNegativeCycle<span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> queue<span style="color:#ff79c6">.</span><span style="color:#50fa7b">dequeue</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            onQueue<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>            relax<span style="color:#ff79c6">(</span>G<span style="color:#ff79c6">,</span> v<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        <span style="color:#776e71">// Bellman-Ford algorithm
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#776e71"></span>        queue <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> Queue<span style="color:#5bc4bf">&lt;</span>Integer<span style="color:#5bc4bf">&gt;();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        queue<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">enqueue</span><span style="color:#5bc4bf">(</span>s<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        onQueue<span style="color:#5bc4bf">[</span>s<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">true</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        <span style="color:#815ba4">while</span> <span style="color:#5bc4bf">(!</span>queue<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">isEmpty</span><span style="color:#5bc4bf">()</span> <span style="color:#5bc4bf">&amp;&amp;</span> <span style="color:#5bc4bf">!</span>hasNegativeCycle<span style="color:#5bc4bf">())</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>            <span style="color:#fec418">int</span> v <span style="color:#5bc4bf">=</span> queue<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">dequeue</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            onQueue<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">false</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>            relax<span style="color:#5bc4bf">(</span>G<span style="color:#5bc4bf">,</span> v<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">relax</span><span style="color:#ff79c6">(</span>EdgeWeightedDigraph G<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> v<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>DirectedEdge e <span style="color:#ff79c6">:</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">adj</span><span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>            <span style="color:#8be9fd">int</span> w <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">to</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&gt;</span> distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">weight</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>                distTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> distTo<span style="color:#ff79c6">[</span>v<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> e<span style="color:#ff79c6">.</span><span style="color:#50fa7b">weight</span><span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>                edgeTo<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> e<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>onQueue<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>                    queue<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>                    onQueue<span style="color:#ff79c6">[</span>w<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>                <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(++</span>cost <span style="color:#ff79c6">%</span> G<span style="color:#ff79c6">.</span><span style="color:#50fa7b">V</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>                findNegativeCycle<span style="color:#ff79c6">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>hasNegativeCycle<span style="color:#ff79c6">())</span> <span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>  <span style="color:#6272a4">// found a negative cycle
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>        <span style="color:#ff79c6">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>    <span style="color:#815ba4">private</span> <span style="color:#fec418">void</span> <span style="color:#06b6ef">relax</span><span style="color:#5bc4bf">(</span>EdgeWeightedDigraph G<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> v<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>        <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span>DirectedEdge e <span style="color:#5bc4bf">:</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">adj</span><span style="color:#5bc4bf">(</span>v<span style="color:#5bc4bf">))</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>            <span style="color:#fec418">int</span> w <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">to</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(</span>distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">&gt;</span> distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">+</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">weight</span><span style="color:#5bc4bf">())</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>                distTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> distTo<span style="color:#5bc4bf">[</span>v<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">+</span> e<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">weight</span><span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>                edgeTo<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> e<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>                <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(!</span>onQueue<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">])</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>                    queue<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">enqueue</span><span style="color:#5bc4bf">(</span>w<span style="color:#5bc4bf">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>                    onQueue<span style="color:#5bc4bf">[</span>w<span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">true</span><span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>                <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>            <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(++</span>cost <span style="color:#5bc4bf">%</span> G<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">V</span><span style="color:#5bc4bf">()</span> <span style="color:#5bc4bf">==</span> 0<span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>                findNegativeCycle<span style="color:#5bc4bf">();</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>                <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(</span>hasNegativeCycle<span style="color:#5bc4bf">())</span> <span style="color:#815ba4">return</span><span style="color:#5bc4bf">;</span>  <span style="color:#776e71">// found a negative cycle
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span style="color:#776e71"></span>            <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>        <span style="color:#5bc4bf">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>    <span style="color:#5bc4bf">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>
 </code></pre></div><p>Bellman-Ford algorithm can also be used for finding a negative cycle.</p>
 <p>Negative cycle application: arbitrage detection.</p>
@@ -869,28 +849,123 @@ We can use Bellman-Ford algorithm as long as there is no negative cycle in the g
     </div>
   </article>
 
-  
-  
 
 
 
 
-  <div class="blog-post-comments">
-    
-      <div id="cactus-comments-thread">
-  <script>
-  initComments({
-    node: document.getElementById("cactus-comments-thread"),
-    defaultHomeserverUrl: 'https:\/\/matrix.cactus.chat:8448',
-    serverName: 'cactus.chat',
-    siteName: "your_cactus_comments_sitename",
-    commentSectionId: "\/posts\/2020-05-01-algorithms-graphs\/"
-  })
-</script>
-</div>
+      
 
-    
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>No notes link to this note</h4>
   </div>
+  
+
+
+
+  
+  
+  
+
+
+
 
 
 
@@ -922,31 +997,15 @@ We can use Bellman-Ford algorithm as long as there is no negative cycle in the g
         <li><a href="#adjacency-list-data-structure">Adjacency-list Data structure</a></li>
         <li><a href="#depth-first-search-dfs">Depth-first Search (DFS)</a></li>
         <li><a href="#breadth-first-search-bfs">Breadth-first Search (BFS)</a></li>
-        <li><a href="#applications-of-dfs">Applications of DFS</a>
-          <ul>
-            <li><a href="#connected-components">Connected components</a></li>
-            <li><a href="#cycle-detection">Cycle detection</a></li>
-            <li><a href="#two-colorability">Two-colorability</a></li>
-            <li><a href="#symbol-graphs">Symbol graphs</a></li>
-            <li><a href="#degrees-of-separation">Degrees of separation</a></li>
-          </ul>
-        </li>
+        <li><a href="#applications-of-dfs">Applications of DFS</a></li>
       </ul>
     </li>
     <li><a href="#directed-graphs">Directed Graphs</a>
       <ul>
         <li><a href="#representations-1">Representations</a></li>
         <li><a href="#digraph-search">Digraph search</a></li>
-        <li><a href="#topological-sort">Topological Sort</a>
-          <ul>
-            <li><a href="#directed-cycle-detection">Directed cycle detection</a></li>
-          </ul>
-        </li>
-        <li><a href="#strong-components">Strong components</a>
-          <ul>
-            <li><a href="#kosaraju-sharir-algorithm">Kosaraju-Sharir Algorithm</a></li>
-          </ul>
-        </li>
+        <li><a href="#topological-sort">Topological Sort</a></li>
+        <li><a href="#strong-components">Strong components</a></li>
       </ul>
     </li>
     <li><a href="#minimum-spanning-trees">Minimum Spanning Trees</a>
@@ -960,13 +1019,7 @@ We can use Bellman-Ford algorithm as long as there is no negative cycle in the g
     <li><a href="#shortest-paths">Shortest Paths</a>
       <ul>
         <li><a href="#edge-weighted-digraph-data-strcuture">Edge-weighted digraph data strcuture</a></li>
-        <li><a href="#generic-single-source-shortest-paths">Generic Single-source Shortest paths</a>
-          <ul>
-            <li><a href="#relax-edge-e--v-w">Relax edge e = v-&gt;w</a></li>
-            <li><a href="#optimality-conditions">Optimality conditions</a></li>
-            <li><a href="#generic-algorithm">Generic algorithm</a></li>
-          </ul>
-        </li>
+        <li><a href="#generic-single-source-shortest-paths">Generic Single-source Shortest paths</a></li>
         <li><a href="#implement-1-dijkstras-algorithm">Implement 1: Dijkstra&rsquo;s algorithm</a></li>
         <li><a href="#implement-2-topological-sort-algorithm">Implement 2: Topological sort algorithm</a></li>
         <li><a href="#implement-3-bellman-ford-algorithm">Implement 3: Bellman-Ford algorithm</a></li>
@@ -1102,4 +1155,5 @@ We can use Bellman-Ford algorithm as long as there is no negative cycle in the g
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
+  
 </html>

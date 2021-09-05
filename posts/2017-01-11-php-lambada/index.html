@@ -42,7 +42,7 @@
     
   
   
-  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.8b5134b5440a43723b24b52304cbefacb592d30efeb3538b651d687fb003ef7dd8354693592ecb6b0e34eb36d6bcccc61fa3f966782aca126658cc75289dadeb.css" integrity="sha512-i1E0tUQKQ3I7JLUjBMvvrLWS0w7&#43;s1OLZR1of7AD733YNUaTWS7Law406zbWvMzGH6P5ZngqyhJmWMx1KJ2t6w=="> 
 
   
   
@@ -64,7 +64,6 @@
 
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
-
   <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -176,10 +175,13 @@
     
     <div id="toc">
       <nav id="TableOfContents"></nav>
+
+
     </div>
     
   </span>
 </div>
+
 
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -220,115 +222,210 @@
     <div class="content" itemprop="articleBody">
       <p>闭包和匿名函数在<code>PHP 5.3.0</code>引入，并且PHP将两者视为相同的概念。闭包其实是伪装成函数的对象，它的实质其实是<code>Closure</code>实例。</p>
 <p>创建闭包非常简单：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#8be9fd;font-style:italic">$c</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">function</span>(<span style="color:#8be9fd;font-style:italic">$name</span>) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#ff79c6">return</span> sprintf(<span style="color:#f1fa8c">&#34;Hello World! Hello %s!&#34;</span>, <span style="color:#8be9fd;font-style:italic">$name</span>);
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ef6155">$c</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">function</span>(<span style="color:#ef6155">$name</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#815ba4">return</span> <span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;Hello World! Hello %s!&#34;</span>, <span style="color:#ef6155">$name</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#ff79c6">echo</span> <span style="color:#8be9fd;font-style:italic">$c</span>(<span style="color:#f1fa8c">&#39;PHP&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#815ba4">echo</span> <span style="color:#ef6155">$c</span>(<span style="color:#48b685">&#39;PHP&#39;</span>);
 </code></pre></div><p>使用<code>use</code>对闭包附加状态，多个参数使用<code>,</code>分隔：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">function</span> <span style="color:#50fa7b">callPerson</span>(<span style="color:#8be9fd;font-style:italic">$name</span>) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">function</span>(<span style="color:#8be9fd;font-style:italic">$about</span>) <span style="color:#ff79c6">use</span> (<span style="color:#8be9fd;font-style:italic">$name</span>) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>        <span style="color:#ff79c6">return</span> sprintf(<span style="color:#f1fa8c">&#34;%s, %s&#34;</span>, <span style="color:#8be9fd;font-style:italic">$name</span>, <span style="color:#8be9fd;font-style:italic">$about</span>);
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">function</span> <span style="color:#06b6ef">callPerson</span>(<span style="color:#ef6155">$name</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#815ba4">return</span> <span style="color:#815ba4">function</span>(<span style="color:#ef6155">$about</span>) <span style="color:#815ba4">use</span> (<span style="color:#ef6155">$name</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>        <span style="color:#815ba4">return</span> <span style="color:#06b6ef">sprintf</span>(<span style="color:#48b685">&#34;%s, %s&#34;</span>, <span style="color:#ef6155">$name</span>, <span style="color:#ef6155">$about</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#8be9fd;font-style:italic">$triver</span> <span style="color:#ff79c6">=</span> callPerson(<span style="color:#f1fa8c">&#39;Triver&#39;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#ff79c6">echo</span> <span style="color:#8be9fd;font-style:italic">$triver</span>(<span style="color:#f1fa8c">&#34;slow down, please!!&#34;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#ef6155">$triver</span> <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">callPerson</span>(<span style="color:#48b685">&#39;Triver&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#815ba4">echo</span> <span style="color:#ef6155">$triver</span>(<span style="color:#48b685">&#34;slow down, please!!&#34;</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span>
 </code></pre></div><p>附加的变量会被封装到闭包内，即使返回的闭包队形已经跳出了<code>callPerson()</code>的作用域也仍然会记住<code>$name</code>的值。</p>
 <p>闭包有一个有趣的<code>bindTo()</code>方法，可以将闭包的内部状态绑定到其他对象上，第二个参数指定了绑定闭包的对象所属的类，从而实现在闭包中访问绑定对象的私有方法和属性。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Bind</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#ff79c6">protected</span> <span style="color:#8be9fd;font-style:italic">$name</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;no name&#39;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd;font-style:italic">$change</span>;
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">Bind</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#815ba4">protected</span> <span style="color:#ef6155">$name</span> <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;no name&#39;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#815ba4">public</span> <span style="color:#ef6155">$change</span>;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">function</span> <span style="color:#50fa7b">addAction</span>(<span style="color:#8be9fd;font-style:italic">$action</span>) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">change</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">$action</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">bindTo</span>(<span style="color:#8be9fd;font-style:italic">$this</span>, __CLASS__);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#815ba4">public</span> <span style="color:#815ba4">function</span> <span style="color:#06b6ef">addAction</span>(<span style="color:#ef6155">$action</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">change</span> <span style="color:#5bc4bf">=</span> <span style="color:#ef6155">$action</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">bindTo</span>(<span style="color:#ef6155">$this</span>, <span style="color:#ef6155">__CLASS__</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#8be9fd;font-style:italic">$bind</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Bind();
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#8be9fd;font-style:italic">$bind</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">addAction</span>(<span style="color:#ff79c6">function</span>() {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">name</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;php&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">name</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ef6155">$bind</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#06b6ef">Bind</span>();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ef6155">$bind</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">addAction</span>(<span style="color:#815ba4">function</span>() {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">name</span> <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;php&#34;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#815ba4">return</span> <span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">name</span>;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    });
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#8be9fd;font-style:italic">$change</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">$bind</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">change</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#ff79c6">echo</span> <span style="color:#8be9fd;font-style:italic">$change</span>();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ef6155">$change</span> <span style="color:#5bc4bf">=</span> <span style="color:#ef6155">$bind</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">change</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#815ba4">echo</span> <span style="color:#ef6155">$change</span>();
 </code></pre></div><p>使用这个特性可以方便的为类添加方法并绑定：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">trait</span> MetaTrait
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">trait</span> <span style="color:#06b6ef">MetaTrait</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#6272a4">//定义$methods数组,用于保存方法（函数）的名字和地址。
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">private</span> <span style="color:#8be9fd;font-style:italic">$methods</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">array</span>();
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#6272a4">//定义addMethod方法，使用闭包类绑定匿名函数。
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">function</span> <span style="color:#50fa7b">addMethod</span>(<span style="color:#8be9fd;font-style:italic">$methodName</span>, <span style="color:#8be9fd;font-style:italic">$methodCallable</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#776e71">//定义$methods数组,用于保存方法（函数）的名字和地址。
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#776e71"></span>    <span style="color:#815ba4">private</span> <span style="color:#ef6155">$methods</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">array</span>();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#776e71">//定义addMethod方法，使用闭包类绑定匿名函数。
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#776e71"></span>    <span style="color:#815ba4">public</span> <span style="color:#815ba4">function</span> <span style="color:#06b6ef">addMethod</span>(<span style="color:#ef6155">$methodName</span>, <span style="color:#ef6155">$methodCallable</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>is_callable(<span style="color:#8be9fd;font-style:italic">$methodCallable</span>)) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> InvalidArgumentException(<span style="color:#f1fa8c">&#39;Second param must be callable&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#815ba4">if</span> (<span style="color:#5bc4bf">!</span><span style="color:#06b6ef">is_callable</span>(<span style="color:#ef6155">$methodCallable</span>)) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>            <span style="color:#815ba4">throw</span> <span style="color:#815ba4">new</span> <span style="color:#06b6ef">InvalidArgumentException</span>(<span style="color:#48b685">&#39;Second param must be callable&#39;</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        <span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">methods</span>[<span style="color:#8be9fd;font-style:italic">$methodName</span>] <span style="color:#ff79c6">=</span> Closure<span style="color:#ff79c6">::</span><span style="color:#50fa7b">bind</span>(<span style="color:#8be9fd;font-style:italic">$methodCallable</span>, <span style="color:#8be9fd;font-style:italic">$this</span>, get_class());
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        <span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">methods</span>[<span style="color:#ef6155">$methodName</span>] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">Closure</span><span style="color:#5bc4bf">::</span><span style="color:#06b6ef">bind</span>(<span style="color:#ef6155">$methodCallable</span>, <span style="color:#ef6155">$this</span>, <span style="color:#06b6ef">get_class</span>());
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#6272a4">//方法重载。为了避免当调用的方法不存在时产生错误，
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//可以使用 __call() 方法来避免。
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">function</span> __call(<span style="color:#8be9fd;font-style:italic">$methodName</span>, <span style="color:#ff79c6">array</span> <span style="color:#8be9fd;font-style:italic">$args</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#776e71">//方法重载。为了避免当调用的方法不存在时产生错误，
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#776e71"></span>    <span style="color:#776e71">//可以使用 __call() 方法来避免。
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#776e71"></span>    <span style="color:#815ba4">public</span> <span style="color:#815ba4">function</span> __call(<span style="color:#ef6155">$methodName</span>, <span style="color:#815ba4">array</span> <span style="color:#ef6155">$args</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>    {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        <span style="color:#ff79c6">if</span> (isset(<span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">methods</span>[<span style="color:#8be9fd;font-style:italic">$methodName</span>])) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>            <span style="color:#ff79c6">return</span> call_user_func_array(<span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">methods</span>[<span style="color:#8be9fd;font-style:italic">$methodName</span>], <span style="color:#8be9fd;font-style:italic">$args</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        <span style="color:#815ba4">if</span> (<span style="color:#06b6ef">isset</span>(<span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">methods</span>[<span style="color:#ef6155">$methodName</span>])) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>            <span style="color:#815ba4">return</span> <span style="color:#06b6ef">call_user_func_array</span>(<span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">methods</span>[<span style="color:#ef6155">$methodName</span>], <span style="color:#ef6155">$args</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>        }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        <span style="color:#ff79c6">throw</span> RunTimeException(<span style="color:#f1fa8c">&#39;There is no method with the given name to call&#39;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        <span style="color:#815ba4">throw</span> <span style="color:#06b6ef">RunTimeException</span>(<span style="color:#48b685">&#39;There is no method with the given name to call&#39;</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">HackThursday</span> {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>    <span style="color:#ff79c6">use</span> MetaTrait;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#815ba4">class</span> <span style="color:#fec418">HackThursday</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>    <span style="color:#815ba4">use</span> <span style="color:#06b6ef">MetaTrait</span>;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>    <span style="color:#ff79c6">private</span> <span style="color:#8be9fd;font-style:italic">$dayOfWeek</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Thursday&#39;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>    <span style="color:#815ba4">private</span> <span style="color:#ef6155">$dayOfWeek</span> <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;Thursday&#39;</span>;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span style="color:#8be9fd;font-style:italic">$test</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HackThursday();
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span style="color:#8be9fd;font-style:italic">$test</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">addMethod</span>(<span style="color:#f1fa8c">&#39;when&#39;</span>, <span style="color:#ff79c6">function</span> () {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">dayOfWeek</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span style="color:#ef6155">$test</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">new</span> <span style="color:#06b6ef">HackThursday</span>();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span style="color:#ef6155">$test</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">addMethod</span>(<span style="color:#48b685">&#39;when&#39;</span>, <span style="color:#815ba4">function</span> () {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>    <span style="color:#815ba4">return</span> <span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">dayOfWeek</span>;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>});
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#ff79c6">echo</span> <span style="color:#8be9fd;font-style:italic">$test</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">when</span>();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#815ba4">echo</span> <span style="color:#ef6155">$test</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">when</span>();
 </code></pre></div><p>php7 中增加了 <code>Closure::call()</code> 方法，可以更高效的绑定对象作用域并调用。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">A</span> {<span style="color:#ff79c6">private</span> <span style="color:#8be9fd;font-style:italic">$x</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;}
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">A</span> {<span style="color:#815ba4">private</span> <span style="color:#ef6155">$x</span> <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>;}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4">// Pre PHP 7 code
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">$getXCB</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">function</span>() {<span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">x</span>;};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#8be9fd;font-style:italic">$getX</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">$getXCB</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">bindTo</span>(<span style="color:#ff79c6">new</span> A, <span style="color:#f1fa8c">&#39;A&#39;</span>); <span style="color:#6272a4">// intermediate closure
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"></span><span style="color:#ff79c6">echo</span> <span style="color:#8be9fd;font-style:italic">$getX</span>();
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#776e71">// Pre PHP 7 code
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#776e71"></span><span style="color:#ef6155">$getXCB</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">function</span>() {<span style="color:#815ba4">return</span> <span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">x</span>;};
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#ef6155">$getX</span> <span style="color:#5bc4bf">=</span> <span style="color:#ef6155">$getXCB</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">bindTo</span>(<span style="color:#815ba4">new</span> <span style="color:#06b6ef">A</span>, <span style="color:#48b685">&#39;A&#39;</span>); <span style="color:#776e71">// intermediate closure
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#776e71"></span><span style="color:#815ba4">echo</span> <span style="color:#ef6155">$getX</span>();
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4">// PHP 7+ code
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">$getX</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">function</span>() {<span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">$this</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">x</span>;};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">echo</span> <span style="color:#8be9fd;font-style:italic">$getX</span><span style="color:#ff79c6">-&gt;</span><span style="color:#50fa7b">call</span>(<span style="color:#ff79c6">new</span> A);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#776e71">// PHP 7+ code
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#776e71"></span><span style="color:#ef6155">$getX</span> <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">function</span>() {<span style="color:#815ba4">return</span> <span style="color:#ef6155">$this</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">x</span>;};
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#815ba4">echo</span> <span style="color:#ef6155">$getX</span><span style="color:#5bc4bf">-&gt;</span><span style="color:#06b6ef">call</span>(<span style="color:#815ba4">new</span> <span style="color:#06b6ef">A</span>);
 </code></pre></div>
     </div>
   </article>
 
-  
-  
 
 
 
 
-  <div class="blog-post-comments">
-    
-      <div id="cactus-comments-thread">
-  <script>
-  initComments({
-    node: document.getElementById("cactus-comments-thread"),
-    defaultHomeserverUrl: 'https:\/\/matrix.cactus.chat:8448',
-    serverName: 'cactus.chat',
-    siteName: "your_cactus_comments_sitename",
-    commentSectionId: "\/posts\/2017-01-11-php-lambada\/"
-  })
-</script>
-</div>
+      
 
-    
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>No notes link to this note</h4>
   </div>
+  
+
+
+
+  
+  
+  
+
+
+
 
 
 
@@ -464,4 +561,5 @@
 
 
 
+  
 </html>

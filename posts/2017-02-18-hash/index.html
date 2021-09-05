@@ -40,7 +40,7 @@ b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
     
   
   
-  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.8b5134b5440a43723b24b52304cbefacb592d30efeb3538b651d687fb003ef7dd8354693592ecb6b0e34eb36d6bcccc61fa3f966782aca126658cc75289dadeb.css" integrity="sha512-i1E0tUQKQ3I7JLUjBMvvrLWS0w7&#43;s1OLZR1of7AD733YNUaTWS7Law406zbWvMzGH6P5ZngqyhJmWMx1KJ2t6w=="> 
 
   
   
@@ -62,7 +62,6 @@ b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
 
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
-
   <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -187,10 +186,13 @@ b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
     <li><a href="#装填因子">装填因子</a></li>
   </ul>
 </nav>
+
+
     </div>
     
   </span>
 </div>
+
 
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -236,7 +238,7 @@ b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
 <li><code>float</code> 类型的搜索键使用 <code>Float.floatToIntBits(key)</code> 作为散列码。</li>
 <li><code>long</code> 类型的搜索键会进行折叠操作，如下：</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>iny hashCode <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">(</span>key <span style="color:#ff79c6">^</span> <span style="color:#ff79c6">(</span>key <span style="color:#ff79c6">&gt;&gt;</span> 32<span style="color:#ff79c6">));</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>iny hashCode <span style="color:#5bc4bf">=</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span><span style="color:#5bc4bf">)</span> <span style="color:#5bc4bf">(</span>key <span style="color:#5bc4bf">^</span> <span style="color:#5bc4bf">(</span>key <span style="color:#5bc4bf">&gt;&gt;</span> 32<span style="color:#5bc4bf">));</span>
 </code></pre></div><ul>
 <li><code>double</code> 类型的搜索键会使用 <code>Double.doubleToLongBits(key)</code> 方法转换为 <code>long</code> 类型然后再进行折叠。</li>
 </ul>
@@ -244,19 +246,19 @@ b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
 <p>对于字符串一般使用多项式散列码进行计算，</p>
 <p><del>这里放个公式的图</del></p>
 <p>b的较好取值为31，33，37，39，41。在 java String 类中 <code>b</code> 取31。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">hash</span><span style="color:#ff79c6">(</span>String key<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> tableSize<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#8be9fd">int</span> hashVal <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">public</span> <span style="color:#815ba4">static</span> <span style="color:#fec418">int</span> <span style="color:#06b6ef">hash</span><span style="color:#5bc4bf">(</span>String key<span style="color:#5bc4bf">,</span> <span style="color:#fec418">int</span> tableSize<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#5bc4bf">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#fec418">int</span> hashVal <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> key<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">();</span> i<span style="color:#ff79c6">++)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        hashVal <span style="color:#ff79c6">=</span> 37<span style="color:#ff79c6">*</span>hashVal <span style="color:#ff79c6">+</span> key<span style="color:#ff79c6">.</span><span style="color:#50fa7b">charAt</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">);</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#815ba4">for</span> <span style="color:#5bc4bf">(</span><span style="color:#fec418">int</span> i <span style="color:#5bc4bf">=</span> 0<span style="color:#5bc4bf">;</span> i <span style="color:#5bc4bf">&lt;</span> key<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">length</span><span style="color:#5bc4bf">();</span> i<span style="color:#5bc4bf">++)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        hashVal <span style="color:#5bc4bf">=</span> 37<span style="color:#5bc4bf">*</span>hashVal <span style="color:#5bc4bf">+</span> key<span style="color:#5bc4bf">.</span><span style="color:#06b6ef">charAt</span><span style="color:#5bc4bf">(</span>i<span style="color:#5bc4bf">);</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    hashVal <span style="color:#ff79c6">%=</span> tableSize<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>hashVal <span style="color:#ff79c6">&lt;</span> 0<span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        hashVal <span style="color:#ff79c6">+=</span> tableSize<span style="color:#ff79c6">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    hashVal <span style="color:#5bc4bf">%=</span> tableSize<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#815ba4">if</span> <span style="color:#5bc4bf">(</span>hashVal <span style="color:#5bc4bf">&lt;</span> 0<span style="color:#5bc4bf">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        hashVal <span style="color:#5bc4bf">+=</span> tableSize<span style="color:#5bc4bf">;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#ff79c6">return</span> hashVal<span style="color:#ff79c6">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#815ba4">return</span> hashVal<span style="color:#5bc4bf">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#5bc4bf">}</span>
 </code></pre></div><h2 id="压缩散列码">压缩散列码</h2>
 <p>由于散列码可能是很大的正数，通常应该对其进行压缩以防止超出索引的范围。若索引范围为 <code>0 ~ n - 1</code> ，通常的做法是 <code>h(hashCode) = hashCode % N</code> ，选择N为大于2的素数。
 <code>java.util.HashMap</code> 的实现中，将N设置为2的幂值，这样可以使用位运算代替上述的取模：<code>h(hashCode) = hashCode &amp; (N - 1)</code> ，两者是完全等价的。</p>
@@ -276,28 +278,123 @@ b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
     </div>
   </article>
 
-  
-  
 
 
 
 
-  <div class="blog-post-comments">
-    
-      <div id="cactus-comments-thread">
-  <script>
-  initComments({
-    node: document.getElementById("cactus-comments-thread"),
-    defaultHomeserverUrl: 'https:\/\/matrix.cactus.chat:8448',
-    serverName: 'cactus.chat',
-    siteName: "your_cactus_comments_sitename",
-    commentSectionId: "\/posts\/2017-02-18-hash\/"
-  })
-</script>
-</div>
+      
 
-    
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>No notes link to this note</h4>
   </div>
+  
+
+
+
+  
+  
+  
+
+
+
 
 
 
@@ -446,4 +543,5 @@ b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
 
 
 
+  
 </html>

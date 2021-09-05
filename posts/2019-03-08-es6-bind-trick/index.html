@@ -34,7 +34,7 @@
     
   
   
-  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.8b5134b5440a43723b24b52304cbefacb592d30efeb3538b651d687fb003ef7dd8354693592ecb6b0e34eb36d6bcccc61fa3f966782aca126658cc75289dadeb.css" integrity="sha512-i1E0tUQKQ3I7JLUjBMvvrLWS0w7&#43;s1OLZR1of7AD733YNUaTWS7Law406zbWvMzGH6P5ZngqyhJmWMx1KJ2t6w=="> 
 
   
   
@@ -56,7 +56,6 @@
 
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
-
   <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -168,10 +167,13 @@
     
     <div id="toc">
       <nav id="TableOfContents"></nav>
+
+
     </div>
     
   </span>
 </div>
+
 
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -211,61 +213,156 @@
     
     <div class="content" itemprop="articleBody">
       <p>To bind specific (nth) arguments of a function, we can write a decorator instead of using <code>Function.bind()</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#8be9fd;font-style:italic">function</span> func(p1, p2, p3) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    console.log(p1, p2, p3);
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">function</span> <span style="color:#06b6ef">func</span>(<span style="color:#06b6ef">p1</span>, <span style="color:#06b6ef">p2</span>, <span style="color:#06b6ef">p3</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#06b6ef">console</span>.<span style="color:#06b6ef">log</span>(<span style="color:#06b6ef">p1</span>, <span style="color:#06b6ef">p2</span>, <span style="color:#06b6ef">p3</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">// the binding starts after however many are passed in.
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">function</span> decorator(...bound_args) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">function</span>(...args) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#ff79c6">return</span> func(...args, ...bound_args);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#776e71">// the binding starts after however many are passed in.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#776e71"></span><span style="color:#815ba4">function</span> <span style="color:#06b6ef">decorator</span>(...<span style="color:#06b6ef">bound_args</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#815ba4">return</span> <span style="color:#815ba4">function</span>(...<span style="color:#06b6ef">args</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#815ba4">return</span> <span style="color:#06b6ef">func</span>(...<span style="color:#06b6ef">args</span>, ...<span style="color:#06b6ef">bound_args</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    };
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4">// bind the last parameter
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">let</span> f <span style="color:#ff79c6">=</span> decorator(<span style="color:#f1fa8c">&#34;3&#34;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>f(<span style="color:#f1fa8c">&#34;a&#34;</span>, <span style="color:#f1fa8c">&#34;b&#34;</span>);  <span style="color:#6272a4">// a b 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#6272a4"></span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#6272a4">// bind the last two parameter
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">let</span> f2 <span style="color:#ff79c6">=</span> decorator(<span style="color:#f1fa8c">&#34;2&#34;</span>, <span style="color:#f1fa8c">&#34;3&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>f2(<span style="color:#f1fa8c">&#34;a&#34;</span>);  <span style="color:#6272a4">// a 2 3
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#776e71">// bind the last parameter
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#776e71"></span><span style="color:#815ba4">let</span> <span style="color:#06b6ef">f</span> <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">decorator</span>(<span style="color:#48b685">&#34;3&#34;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#06b6ef">f</span>(<span style="color:#48b685">&#34;a&#34;</span>, <span style="color:#48b685">&#34;b&#34;</span>);  <span style="color:#776e71">// a b 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#776e71"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#776e71">// bind the last two parameter
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#776e71"></span><span style="color:#815ba4">let</span> <span style="color:#06b6ef">f2</span> <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">decorator</span>(<span style="color:#48b685">&#34;2&#34;</span>, <span style="color:#48b685">&#34;3&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#06b6ef">f2</span>(<span style="color:#48b685">&#34;a&#34;</span>);  <span style="color:#776e71">// a 2 3
 </span></code></pre></div><p>Even if we want to bind just the nth argument, we can do as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// bind a specific (nth) argument
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">function</span> decoratorN(n, bound_arg) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">function</span>(...args) {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        args[n<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">=</span> bound_arg;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        <span style="color:#ff79c6">return</span> func(...args);
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#776e71">// bind a specific (nth) argument
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#776e71"></span><span style="color:#815ba4">function</span> <span style="color:#06b6ef">decoratorN</span>(<span style="color:#06b6ef">n</span>, <span style="color:#06b6ef">bound_arg</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#815ba4">return</span> <span style="color:#815ba4">function</span>(...<span style="color:#06b6ef">args</span>) {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#06b6ef">args</span>[<span style="color:#06b6ef">n</span><span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>] <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">bound_arg</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        <span style="color:#815ba4">return</span> <span style="color:#06b6ef">func</span>(...<span style="color:#06b6ef">args</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#8be9fd;font-style:italic">let</span> fN <span style="color:#ff79c6">=</span> decoratorN(<span style="color:#bd93f9">2</span>, <span style="color:#f1fa8c">&#34;2&#34;</span>);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>fN(<span style="color:#f1fa8c">&#34;a&#34;</span>,<span style="color:#f1fa8c">&#34;b&#34;</span>,<span style="color:#f1fa8c">&#34;c&#34;</span>); <span style="color:#6272a4">// a 2 c
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#815ba4">let</span> <span style="color:#06b6ef">fN</span> <span style="color:#5bc4bf">=</span> <span style="color:#06b6ef">decoratorN</span>(<span style="color:#f99b15">2</span>, <span style="color:#48b685">&#34;2&#34;</span>);
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#06b6ef">fN</span>(<span style="color:#48b685">&#34;a&#34;</span>,<span style="color:#48b685">&#34;b&#34;</span>,<span style="color:#48b685">&#34;c&#34;</span>); <span style="color:#776e71">// a 2 c
 </span></code></pre></div><p><a href="https://stackoverflow.com/questions/27699493/javascript-partially-applied-function-how-to-bind-only-the-2nd-parameter">https://stackoverflow.com/questions/27699493/javascript-partially-applied-function-how-to-bind-only-the-2nd-parameter</a></p>
 
     </div>
   </article>
 
-  
-  
 
 
 
 
-  <div class="blog-post-comments">
-    
-      <div id="cactus-comments-thread">
-  <script>
-  initComments({
-    node: document.getElementById("cactus-comments-thread"),
-    defaultHomeserverUrl: 'https:\/\/matrix.cactus.chat:8448',
-    serverName: 'cactus.chat',
-    siteName: "your_cactus_comments_sitename",
-    commentSectionId: "\/posts\/2019-03-08-es6-bind-trick\/"
-  })
-</script>
-</div>
+      
 
-    
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>No notes link to this note</h4>
   </div>
+  
+
+
+
+  
+  
+  
+
+
+
 
 
 
@@ -401,4 +498,5 @@
 
 
 
+  
 </html>
