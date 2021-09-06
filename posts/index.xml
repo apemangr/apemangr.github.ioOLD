@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Cactus theme example</title>
+    <title>Posts on Apemangr&#39;s Braindump</title>
     <link>https://apemangr.github.io/posts/</link>
-    <description>Recent content in Posts on Cactus theme example</description>
+    <description>Recent content in Posts on Apemangr&#39;s Braindump</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <copyright>You</copyright>
-    <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>apemangr</copyright>
+    <lastBuildDate>Sat, 04 Sep 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Propagación de ondas electromagnéticas</title>
+      <link>https://apemangr.github.io/posts/20210821192600-propa/</link>
+      <pubDate>Sat, 04 Sep 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/20210821192600-propa/</guid>
+      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Propa/Libros/Pozar.pdf c:/Users/apemangr/Desktop/Propa/Libros/Krauss.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Propa/Libros/Fleisch  Programa del curso  c:/Users/apemangr/Desktop/Propa/Programa.pdf  Apuntes de clases  Propa-Clase1 (Solo fechas de pruebas) Propa-Clase2 Propa-Clase3 Propa-Clase4  Unidades Unidad 1 - Ondas electromagnéticas    </description>
+    </item>
+    
     <item>
       <title>Code Block Test</title>
       <link>https://apemangr.github.io/posts/code-block-test/</link>
@@ -335,15 +344,6 @@ Oh what a thing to have done
 And it was all Yellow
 噢这过程充满不安羞怯和点滴暖意
 Your skin</description>
-    </item>
-    
-    <item>
-      <title>Propa</title>
-      <link>https://apemangr.github.io/posts/20210821192600-propa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/posts/20210821192600-propa/</guid>
-      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Propa/Libros/Pozar.pdf c:/Users/apemangr/Desktop/Propa/Libros/Krauss.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Propa/Libros/Fleisch  Programa del curso  c:/Users/apemangr/Desktop/Propa/Programa.pdf  Apuntes de clases  Propa-Clase1 (Solo fechas de pruebas) Propa-Clase2 Propa-Clase3 Propa-Clase4  Unidades Unidad 1 - Ondas electromagn�ticas    </description>
     </item>
     
     <item>

@@ -3,15 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://apemangr.github.io/</loc>
-    <lastmod>2021-06-27T09:00:00+00:00</lastmod>
+    <lastmod>2021-09-04T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://apemangr.github.io/posts/</loc>
+    <lastmod>2021-09-04T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://apemangr.github.io/posts/20210821192600-propa/</loc>
+    <lastmod>2021-09-04T09:00:00+00:00</lastmod>
   </url><url>
     <loc>https://apemangr.github.io/categories/</loc>
     <lastmod>2021-06-27T09:00:00+00:00</lastmod>
   </url><url>
     <loc>https://apemangr.github.io/posts/code-block-test/</loc>
-    <lastmod>2021-06-27T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://apemangr.github.io/posts/</loc>
     <lastmod>2021-06-27T09:00:00+00:00</lastmod>
   </url><url>
     <loc>https://apemangr.github.io/tags/</loc>
@@ -130,8 +133,6 @@
   </url><url>
     <loc>https://apemangr.github.io/about/</loc>
     <lastmod>2016-08-24T17:51:42+00:00</lastmod>
-  </url><url>
-    <loc>https://apemangr.github.io/posts/20210821192600-propa/</loc>
   </url><url>
     <loc>https://apemangr.github.io/posts/20210821215837-propa_clase2/</loc>
   </url><url>
