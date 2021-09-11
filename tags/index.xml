@@ -7,103 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://apemangr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://apemangr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>test</title>
-      <link>https://apemangr.github.io/tags/test/</link>
-      <pubDate>Sun, 27 Jun 2021 09:00:00 +0000</pubDate>
+      <title>Análisis y procesamiento de señales</title>
+      <link>https://apemangr.github.io/tags/an%C3%A1lisis-y-procesamiento-de-se%C3%B1ales/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://apemangr.github.io/tags/test/</guid>
+      <guid>https://apemangr.github.io/tags/an%C3%A1lisis-y-procesamiento-de-se%C3%B1ales/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Algorithms</title>
-      <link>https://apemangr.github.io/tags/algorithms/</link>
-      <pubDate>Sat, 06 Jun 2020 09:00:00 +0000</pubDate>
+      <title>Cálculo numérico</title>
+      <link>https://apemangr.github.io/tags/c%C3%A1lculo-num%C3%A9rico/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://apemangr.github.io/tags/algorithms/</guid>
+      <guid>https://apemangr.github.io/tags/c%C3%A1lculo-num%C3%A9rico/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>programming language</title>
-      <link>https://apemangr.github.io/tags/programming-language/</link>
-      <pubDate>Wed, 29 Apr 2020 09:00:00 +0000</pubDate>
+      <title>Propagación de onda electromagnéticas</title>
+      <link>https://apemangr.github.io/tags/propagaci%C3%B3n-de-onda-electromagn%C3%A9ticas/</link>
+      <pubDate>Sat, 04 Sep 2021 09:00:00 +0000</pubDate>
       
-      <guid>https://apemangr.github.io/tags/programming-language/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>racket</title>
-      <link>https://apemangr.github.io/tags/racket/</link>
-      <pubDate>Sat, 29 Feb 2020 09:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/racket/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SML</title>
-      <link>https://apemangr.github.io/tags/sml/</link>
-      <pubDate>Mon, 30 Dec 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/sml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RPA</title>
-      <link>https://apemangr.github.io/tags/rpa/</link>
-      <pubDate>Sat, 23 Nov 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/rpa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>https://apemangr.github.io/tags/javascript/</link>
-      <pubDate>Sun, 10 Nov 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vue.js</title>
-      <link>https://apemangr.github.io/tags/vue.js/</link>
-      <pubDate>Fri, 25 Jan 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/vue.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>php</title>
-      <link>https://apemangr.github.io/tags/php/</link>
-      <pubDate>Wed, 11 Jan 2017 18:39:17 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ruby</title>
-      <link>https://apemangr.github.io/tags/ruby/</link>
-      <pubDate>Thu, 08 Dec 2016 22:54:49 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/ruby/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://apemangr.github.io/tags/linux/</link>
-      <pubDate>Tue, 29 Nov 2016 21:08:52 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/tags/linux/</guid>
+      <guid>https://apemangr.github.io/tags/propagaci%C3%B3n-de-onda-electromagn%C3%A9ticas/</guid>
       <description></description>
     </item>
     
