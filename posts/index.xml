@@ -8,6 +8,27 @@
     <language>es</language>
     <copyright>apemangr</copyright><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Propa</title>
+      <link>https://apemangr.github.io/posts/20210821192600-propa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/20210821192600-propa/</guid>
+      <description>Libros Libros Obligatorios  /home/apemangr/Desktop/Propa/Libros/Pozar.pdf /home/apemangr/Desktop/Propa/Libros/Krauss.pdf  Libros Complementarios  /home/apemangr/Desktop/Propa/Libros/Fleisch  Programa del curso  /home/apemangr/Desktop/Propa/Programa.pdf  Apuntes de clases  Propa-Clase1 (Solo fechas de pruebas) Propagaci�n de ondas electromagn�ticas - Clase 2  Unidades Unidad 1 - Ondas electromagn�ticas    </description>
+    </item>
+    
+    <item>
+      <title>Propagación de ondas electromagnéticas - Clase 2</title>
+      <link>https://apemangr.github.io/posts/20211004201451-propagacion_de_ondas_electromagneticas_clase_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/20211004201451-propagacion_de_ondas_electromagneticas_clase_2/</guid>
+      <description>¿Cómo se escoge una frecuencia para un sistema?   Normativas: Los rangos de las frecuencias ya estan distribuidos, ya sea para investigación, ondas de radio, televisión, etc.
+  Ruido electrónico: Dependiendo de la frecuencia que se utilice el ruido va a variar.
+  Ganancia de las antenas: Para un tamaño dado, la ganancia aumenta con la frecuencia.
+  Ancho de banda: Mientras más alta la frecuencia mayor será el ancho de banda.</description>
+    </item>
+    
+    <item>
       <title>Teo2</title>
       <link>https://apemangr.github.io/posts/20210812200002-teo2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
