@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Teoría de circuitos 1 - Ayudantía 7</title>
+      <link>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_7/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_7/</guid>
+      <description>Circuitos de segundo orden Estos tipos de circuitos trabajan con ecuaciones diferenciles de segundo orden. Son circuitos que varían en el tiempo y pueden ser del tipo R-L-C en serie o paralelo. Al igual que los circuitos de primer orden estos se divididen en dos tipos
+ Circuitos de carga (estado 0): Poseen respuesta homogénea y particular Circuitso de descarda (entrada 0): Sólo posee respuesta homogénea  ¿Cómo resolver un circuito de segundo orden?</description>
+    </item>
+    
     <item>
       <title>Teoría de circuitos 1 - Ayudantía 6</title>
       <link>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_6/</link>
@@ -196,7 +206,7 @@ Aplicaciones del procesamiento de se�ales  Verificaci�n de la calidad del su
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://apemangr.github.io/posts/20210818231152-teo1/</guid>
-      <description>Libros Libros Obligatorios  Fundamentos de circuitos eléctricos - Sadiku Circuitos eléctricos - Dorf  Programa del curso  Programa  Unidades Unidad 1 Apuntes Clases Apuntes Ayudantía  Teoría de circuitos 1 - Ayudantía 5 Teoría de circuitos 1 - Ayudantía 6  </description>
+      <description>Libros Libros Obligatorios  Fundamentos de circuitos eléctricos - Sadiku Circuitos eléctricos - Dorf  Programa del curso  Programa  Unidades Unidad 1 Apuntes Clases Apuntes Ayudantía  Teoría de circuitos 1 - Ayudantía 5 Teoría de circuitos 1 - Ayudantía 6 Teoría de circuitos 1 - Ayudantía 7  </description>
     </item>
     
     <item>
