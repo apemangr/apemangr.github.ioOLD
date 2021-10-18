@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://apemangr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Teoría de circuitos 1 - Ayudantía 6</title>
+      <link>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_6/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_6/</guid>
+      <description>Circuitos de primer orden Características principales:
+ Trabajan con ecuaciones diferenciales de primer order Varían en el tiempo Solo pueden ser de tipo R-C o R-L Se tiende a buscar el valor del capacitor o inductor en el tiempo Se pueden dividir en dos tipos de circuitos  Circuitos de carga (estado 0), que presenta respuesta homogénea y particular Circuitos de descarga (entrada 0), que presentan sólo respuesta homogénea    Pasos para resolver un circuito de primer orden  Analizar el circuito con respecto a t&amp;lt;0 y calcular las condiciones iniciales Analizar el circuito con respecto a t&amp;gt;0 ya sea mediante LKV o LKC para de esta forma encontrar la ecuación diferencial Encontrar el valor de los exponentes que acompañan a la señal exponencial Encontrar la respuesta en el tiempo  Circuitos de entrada 0 Son los circuitos que al ser analizados para instantes de tiempo mayores a 0 (t&amp;gt;0) nos queda como un resistor conectado a un inductor o capacitor.</description>
+    </item>
+    
     <item>
       <title>Analisis</title>
       <link>https://apemangr.github.io/posts/20210830133321-analisis/</link>
