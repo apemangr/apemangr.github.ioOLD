@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://apemangr.github.io/</loc>
-    <lastmod>2021-10-18T00:00:00-03:00</lastmod>
+    <lastmod>2021-10-19T00:00:00-03:00</lastmod>
+  </url><url>
+    <loc>https://apemangr.github.io/posts/2021-clagisc_functions_and_data/</loc>
+    <lastmod>2021-10-19T00:00:00-03:00</lastmod>
   </url><url>
     <loc>https://apemangr.github.io/posts/</loc>
-    <lastmod>2021-10-18T00:00:00-03:00</lastmod>
+    <lastmod>2021-10-19T00:00:00-03:00</lastmod>
   </url><url>
     <loc>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_7/</loc>
     <lastmod>2021-10-18T00:00:00-03:00</lastmod>
@@ -74,6 +77,8 @@
     <loc>https://apemangr.github.io/posts/20210830183216-analisis_clase2/</loc>
   </url><url>
     <loc>https://apemangr.github.io/categories/</loc>
+  </url><url>
+    <loc>https://apemangr.github.io/posts/2021-common_lisp_a_gentle_introduction_to_symbolic_computation/</loc>
   </url><url>
     <loc>https://apemangr.github.io/posts/20210818231152-teo1/</loc>
   </url><url>

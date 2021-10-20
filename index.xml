@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CLAGISC: Functions and Data</title>
+      <link>https://apemangr.github.io/posts/2021-clagisc_functions_and_data/</link>
+      <pubDate>Tue, 19 Oct 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-clagisc_functions_and_data/</guid>
+      <description>1.1 Introducción En este capítulo se tratarán temas básicos acerca de el lenguaje, donde se veran algunas funciones básicas. Si se tienen conocimentos previos de programación este capitulo se puede saltar.
+1.2 Functions on numbers Las primeras funciones que se verán son las aritméticas, ya que son las más básicas. Tenemos la función de suma que se representa con un &amp;ldquo;+&amp;rdquo;. Aqui se tiene una representación gráfica.
+ A continuación una tabla con operaciones básicas</description>
+    </item>
+    
     <item>
       <title>Teoría de circuitos 1 - Ayudantía 7</title>
       <link>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_7/</link>
@@ -207,6 +218,15 @@ Aplicaciones del procesamiento de se�ales  Verificaci�n de la calidad del su
       <description>Una señal continua corresponde a una función f(x), donde f ∈ R, y está definida en el intervalo infinito 𝑡 ∈ [−∞, ∞].
  Una señal discreta corresponde a una función definida sólo en intervalos de tiempo discretos y fijos. 𝑡 = 𝑛 𝑇𝑠 ∀𝑛 ∈ ℤ 𝑇𝑠- Sampling Time
  Propiedades de las señales discretas Definición causalidad Una señal (función) discreta 𝑓[𝑛] de la forma: 𝑓 [𝑛] = … , 𝑓[−1] , 𝑓[0] , 𝑓[1] , … , 𝑓[𝑘] , … es causal si y solo si 𝑓[𝑛] = 0 para N &amp;lt; 0.</description>
+    </item>
+    
+    <item>
+      <title>Common Lisp: A Gentle Introduction to Symbolic Computation</title>
+      <link>https://apemangr.github.io/posts/2021-common_lisp_a_gentle_introduction_to_symbolic_computation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-common_lisp_a_gentle_introduction_to_symbolic_computation/</guid>
+      <description>Chapters CLAGISC: Functions and Data</description>
     </item>
     
     <item>
