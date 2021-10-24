@@ -171,6 +171,19 @@
     <li><a href="#1-dot-5-symbols">1.5 Symbols</a></li>
     <li><a href="#1-dot-6-the-special-symbols-t-and-nil">1.6 The special symbols T and NIL</a></li>
     <li><a href="#1-dot-7-some-simple-predicates">1.7 Some simple predicates</a></li>
+    <li><a href="#1-dot-8-the-equal-predicate">1.8 The equal predicate</a></li>
+    <li><a href="#1-dot-9-putting-functions-together">1.9 Putting functions together</a>
+      <ul>
+        <li><a href="#1-dot-9-dot-1-defining-add1">1.9.1 Defining ADD1</a></li>
+        <li><a href="#1-dot-9-dot-2-defining-add2">1.9.2 Defining ADD2</a></li>
+        <li><a href="#1-dot-9-dot-3-defining-twop">1.9.3 Defining TWOP</a></li>
+        <li><a href="#1-dot-9-dot-4-defining-onemorep">1.9.4 Defining ONEMOREP</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-dot-10-the-not-predicate">1.10 The NOT predicate</a></li>
+    <li><a href="#1-dot-11-negating-a-predicate">1.11 Negating a predicate</a></li>
+    <li><a href="#1-dot-12-number-of-inputs-to-a-function">1.12 Number of inputs to a function</a></li>
+    <li><a href="#1-dot-13-errors">1.13 Errors</a></li>
   </ul>
 </nav>
 
@@ -199,7 +212,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          3 minute read
+          5 minute read
         </div>
         
         
@@ -302,6 +315,51 @@
 <figure><img src="/ox-hugo/2021-10-19_22-38-13_screenshot.png"/>
 </figure>
 
+<h2 id="1-dot-8-the-equal-predicate">1.8 The equal predicate</h2>
+<p>El predicado EQUAL compara dos cosas y si estas son iguales retorna T sino NIL. Existen varios predicados parecidos como EQ, EQL, EQUALP, pero por ahora con EQUAL esta bien.</p>
+<figure><img src="/ox-hugo/2021-10-23_20-42-44_screenshot.png"/>
+</figure>
+
+<h2 id="1-dot-9-putting-functions-together">1.9 Putting functions together</h2>
+<p>Hasta el momento solo hemos visto funciones primitivas que vienen por defecto en Common Lisp. Crearemos nuevas funciones a partir de estas funciones primitivas.</p>
+<h3 id="1-dot-9-dot-1-defining-add1">1.9.1 Defining ADD1</h3>
+<p>Definamos una función llamada &ldquo;ADD1&rdquo; que lo único que hará será sumar 1 a la entrada.</p>
+<figure><img src="/ox-hugo/2021-10-23_20-46-39_screenshot.png"/>
+</figure>
+
+<h3 id="1-dot-9-dot-2-defining-add2">1.9.2 Defining ADD2</h3>
+<p>Ahora supongamos que queremos definir una función que sume dos a la entrada. En Lisp siempre hay varias formas de hacer las cosas, ya que podriamos hacer uso de la función ADD1 dos veces para crear ADD2.</p>
+<figure><img src="/ox-hugo/2021-10-23_20-49-57_screenshot.png"/>
+</figure>
+
+<h3 id="1-dot-9-dot-3-defining-twop">1.9.3 Defining TWOP</h3>
+<p>Ahora podemos crear nuestros conocimentos para crear predicados, en este caso uno que verifique si la entrada es igual a 2 y de ser así retorne T, sinó NIL.</p>
+<figure><img src="/ox-hugo/2021-10-23_20-51-55_screenshot.png"/>
+</figure>
+
+<h3 id="1-dot-9-dot-4-defining-onemorep">1.9.4 Defining ONEMOREP</h3>
+<p>Vamos a definir un predicado que tenga dos entradas y verifique si la primera entrada es exactamente 1 más grande que la segunda entrada.</p>
+<figure><img src="/ox-hugo/2021-10-23_20-55-25_screenshot.png"/>
+</figure>
+
+<h2 id="1-dot-10-the-not-predicate">1.10 The NOT predicate</h2>
+<p>NOT es el predicado opuesto. Transforma un T en un NIL y un NIL en un T. Es interesante ver todos los usos que se le puede dar, por ejemplo si queremos comprobar si un número no es igual a otro podriamos juntar un NOT y un EQUAL.</p>
+<h2 id="1-dot-11-negating-a-predicate">1.11 Negating a predicate</h2>
+<p>Ahora veremos de forma más gráfica a lo que se mencionó anteriormente. Para ver si un número no es igual a otro primero usamos un EQUAL y luego un NOT para negar la salida de este.</p>
+<figure><img src="/ox-hugo/2021-10-23_21-02-01_screenshot.png"/>
+</figure>
+
+<h2 id="1-dot-12-number-of-inputs-to-a-function">1.12 Number of inputs to a function</h2>
+<p>Hay algunas funciones que tienen un número fijo de argumentos como por ejemplo, ODDP o EQUAL. Sin embargo también existen funciones que pueden tomar cualquier número de argumentos. Como es el caso de los funciones de aritmética básica (+ - / *). En el caso de la multiplicación lo que hace es multiplicar los primeros dos argumentos y el resultado de estos multiplicarlo al tercer argumento.</p>
+<figure><img src="/ox-hugo/2021-10-23_21-09-26_screenshot.png"/>
+</figure>
+
+<p>Cuando utilizamos la función de resta &ldquo;-&rdquo; con un solo argumento lo que nos entregará será el inverso aditivo del número que hallamos ingresado, ya que a 0 le restará la entrada. Algo similar ocurre cuando utilizamos la función de división con un solo argumento, en este caso nos entrega el recíproco de la entrada, ya que a 1 lo dividirá entre la entrada.</p>
+<figure><img src="/ox-hugo/2021-10-23_21-11-55_screenshot.png"/>
+</figure>
+
+<h2 id="1-dot-13-errors">1.13 Errors</h2>
+<p>A la hora de crear nuestras funciones podemos cometer errores como por ejemplo asignar un tipo de dato incorrecto. En el caso de la función + que sólo acepta números, le podriamos pasar una cadena de texto, otro error es pasarle un número incorrecto de argumentos, como pasarle un argumento a la función EQUAL. Otro error común es cuando dividimos por 0, que por supuesto que también está mal.</p>
 
     </div>
   </article>
@@ -429,6 +487,19 @@
     <li><a href="#1-dot-5-symbols">1.5 Symbols</a></li>
     <li><a href="#1-dot-6-the-special-symbols-t-and-nil">1.6 The special symbols T and NIL</a></li>
     <li><a href="#1-dot-7-some-simple-predicates">1.7 Some simple predicates</a></li>
+    <li><a href="#1-dot-8-the-equal-predicate">1.8 The equal predicate</a></li>
+    <li><a href="#1-dot-9-putting-functions-together">1.9 Putting functions together</a>
+      <ul>
+        <li><a href="#1-dot-9-dot-1-defining-add1">1.9.1 Defining ADD1</a></li>
+        <li><a href="#1-dot-9-dot-2-defining-add2">1.9.2 Defining ADD2</a></li>
+        <li><a href="#1-dot-9-dot-3-defining-twop">1.9.3 Defining TWOP</a></li>
+        <li><a href="#1-dot-9-dot-4-defining-onemorep">1.9.4 Defining ONEMOREP</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-dot-10-the-not-predicate">1.10 The NOT predicate</a></li>
+    <li><a href="#1-dot-11-negating-a-predicate">1.11 Negating a predicate</a></li>
+    <li><a href="#1-dot-12-number-of-inputs-to-a-function">1.12 Number of inputs to a function</a></li>
+    <li><a href="#1-dot-13-errors">1.13 Errors</a></li>
   </ul>
 </nav>
     </div>
