@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Análisis y procesamiento de señales - Clase 3 | Apemangr&#39;s Braindump</title>
+  <link rel = 'canonical' href = 'https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/'>
+  <meta name="description" content="This is my personal site where I want to create a braindump.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Análisis y procesamiento de señales - Clase 3" />
+<meta property="og:description" content="Secuencias fundamentales A continuación se muestra como representar el escalón e impulso unitario en Matlab.
+Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n - n0) para n1 &lt;= n &lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) == 0]; % si la resta es = 0, genera un 1x = single(x); % convierte valor lógico a numéricoEscalón unitario function[x, n] = escalon(n0, n1, n2,A) % Genera x(n) = escalon(n - n0) para n1 &lt;= n &lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) &gt;= 0]; % si la resta es &gt;= 0, genera un 1x = A*single(x); % convierte valor lógico a numéricoSecuencias aleatorias Estas secuencias se utlizan para representar ruido, y se modelan mediante variables aleatorias de &ldquo;teoría de probabilidad&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/" /><meta property="article:section" content="posts" />
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Análisis y procesamiento de señales - Clase 3"/>
+<meta name="twitter:description" content="Secuencias fundamentales A continuación se muestra como representar el escalón e impulso unitario en Matlab.
+Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n - n0) para n1 &lt;= n &lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) == 0]; % si la resta es = 0, genera un 1x = single(x); % convierte valor lógico a numéricoEscalón unitario function[x, n] = escalon(n0, n1, n2,A) % Genera x(n) = escalon(n - n0) para n1 &lt;= n &lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) &gt;= 0]; % si la resta es &gt;= 0, genera un 1x = A*single(x); % convierte valor lógico a numéricoSecuencias aleatorias Estas secuencias se utlizan para representar ruido, y se modelan mediante variables aleatorias de &ldquo;teoría de probabilidad&rdquo;."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.0d57efe79ff2952f058efd368c6818ffc9d7b5ac53392290fdfd2b617f8393200db1c86f0353ebe338df201cf3dd48713b0fe8d813680dfffb79208b4e843b8b.css" integrity="sha512-DVfv55/ylS8Fjv02jGgY/8nXtaxTOSKQ/f0rYX&#43;DkyANschvA1Pr4zjfIBzz3UhxOw/o2BNoDf/7eSCLToQ7iw=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://apemangr.github.io/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://apemangr.github.io/posts/2021-common_lisp_a_gentle_introduction_to_symbolic_computation/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://apemangr.github.io/posts/20210830133321-analisis/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203&description=Secuencias%20fundamentales%20A%20continuaci%c3%b3n%20se%20muestra%20como%20representar%20el%20escal%c3%b3n%20e%20impulso%20unitario%20en%20Matlab.%0aImpulso%20unitario%20function%5bx%2c%20n%5d%20%3d%20impulso%28n0%2c%20n1%2c%20n2%29%20%25%20Genera%20x%28n%29%20%3d%20impulso%28n%20-%20n0%29%20para%20n1%20%26lt%3b%3d%20n%20%26lt%3b%3d%20n2n%20%3d%20%5bn1%20%3a%20n2%5d%3b%20%25%20genera%20vector%20n%20desde%20n1%20a%20n2x%20%3d%20%5b%28n%20-%20n0%29%20%3d%3d%200%5d%3b%20%25%20si%20la%20resta%20es%20%3d%200%2c%20genera%20un%201x%20%3d%20single%28x%29%3b%20%25%20convierte%20valor%20l%c3%b3gico%20a%20num%c3%a9ricoEscal%c3%b3n%20unitario%20function%5bx%2c%20n%5d%20%3d%20escalon%28n0%2c%20n1%2c%20n2%2cA%29%20%25%20Genera%20x%28n%29%20%3d%20escalon%28n%20-%20n0%29%20para%20n1%20%26lt%3b%3d%20n%20%26lt%3b%3d%20n2n%20%3d%20%5bn1%20%3a%20n2%5d%3b%20%25%20genera%20vector%20n%20desde%20n1%20a%20n2x%20%3d%20%5b%28n%20-%20n0%29%20%26gt%3b%3d%200%5d%3b%20%25%20si%20la%20resta%20es%20%26gt%3b%3d%200%2c%20genera%20un%201x%20%3d%20A%2asingle%28x%29%3b%20%25%20convierte%20valor%20l%c3%b3gico%20a%20num%c3%a9ricoSecuencias%20aleatorias%20Estas%20secuencias%20se%20utlizan%20para%20representar%20ruido%2c%20y%20se%20modelan%20mediante%20variables%20aleatorias%20de%20%26ldquo%3bteor%c3%ada%20de%20probabilidad%26rdquo%3b." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#secuencias-fundamentales">Secuencias fundamentales</a>
+      <ul>
+        <li><a href="#impulso-unitario">Impulso unitario</a></li>
+        <li><a href="#escalón-unitario">Escalón unitario</a></li>
+        <li><a href="#secuencias-aleatorias">Secuencias aleatorias</a></li>
+        <li><a href="#ejemplo">Ejemplo:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </div>
+    
+  </span>
+</div>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Análisis y procesamiento de señales - Clase 3
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          2 minute read
+        </div>
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="secuencias-fundamentales">Secuencias fundamentales</h2>
+<p>A continuación se muestra como representar el escalón e impulso unitario en Matlab.</p>
+<h3 id="impulso-unitario">Impulso unitario</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#815ba4">function</span>[x, n] = <span style="color:#06b6ef">impulso</span>(n0, n1, n2)
+<span style="color:#776e71">% Genera x(n) = impulso(n - n0) para n1 &lt;= n &lt;= n2</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>n = [n1 : n2]; <span style="color:#776e71">% genera vector n desde n1 a n2</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>x = [(n <span style="color:#5bc4bf">-</span> n0) <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">0</span>]; <span style="color:#776e71">% si la resta es = 0, genera un 1</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>x = single(x); <span style="color:#776e71">% convierte valor lógico a numérico</span><span style="color:#ef6155">
+</span></code></pre></div><h3 id="escalón-unitario">Escalón unitario</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#815ba4">function</span>[x, n] = <span style="color:#06b6ef">escalon</span>(n0, n1, n2,A)
+<span style="color:#776e71">% Genera x(n) = escalon(n - n0) para n1 &lt;= n &lt;= n2</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>n = [n1 : n2]; <span style="color:#776e71">% genera vector n desde n1 a n2</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>x = [(n <span style="color:#5bc4bf">-</span> n0) <span style="color:#5bc4bf">&gt;</span>= <span style="color:#f99b15">0</span>]; <span style="color:#776e71">% si la resta es &gt;= 0, genera un 1</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>x = A<span style="color:#5bc4bf">*</span>single(x); <span style="color:#776e71">% convierte valor lógico a numérico</span><span style="color:#ef6155">
+</span></code></pre></div><h3 id="secuencias-aleatorias">Secuencias aleatorias</h3>
+<p>Estas secuencias se utlizan para representar ruido, y se modelan mediante variables aleatorias de &ldquo;teoría de probabilidad&rdquo;. Para este tipo de secuencias, el valor RMS es más representativo que la amplitud. El valor RMS se puede calcular a partir de la distribución de probabilidad de la variable aleatoria que da origen a la secuencia.</p>
+<p>El valor RMS de una secuenencia \(r[n]\) de \(N\) muestras es: \(r_{RMS}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}r^2(i)}\)</p>
+<p>La desviación estándar experimental de una variable aleatoria X es:</p>
+<p>\[\sigma_{x}=\sqrt{\frac{1}{N-1} \sum_{i=1}^{N}\left(x_{i}-\overline{\bar{x}}\right)^{2}}\]</p>
+<p>Por otro lado, la desviación estándar teórica de una variable aleatoria continua en la amplitud está dada por:</p>
+<p>\[\sigma_{r}=\sqrt{\int_{-\infty}^{\infty} D( r)[r-E( r)]^{2} d r}, \quad E( r)=\int_{-\infty}^{\infty} D( r) r d r\]</p>
+<p>Siendo \(D( r)\) la distribución de probabilidad de la variable, y \(E( r)\) su valor esperado, una predicción del promedio experimental.</p>
+<p>Por lo tanto, se puede predecir el valor RMS de una secuencia de ruido si se conoce la distribución de probabilidad que da origen a la secuencia.</p>
+<p><code>Distribución plana</code>: La variable aleatoria &ldquo;r&rdquo; puede tomar cualquier valor comprendido entre -A y A con igual probabilidad.</p>
+<figure><img src="/ox-hugo/2021-10-05_13-21-26_screenshot.png"/>
+</figure>
+
+<p>El valor RMS de una secuencia aleatoria con una distribución plana y amplitud A está dado por:</p>
+<p>\[r_{R M S}=\frac{A}{\sqrt{3}} \approx 0.577 \mathrm{~A}\]</p>
+<p>La función <code>rand</code> en Matlab genera una secuencia aleatoria de <code>n</code> valores en un vector de fila, con distribución plana entrte 0 y 1. El &ldquo;1&rdquo; en la función <code>rand</code> especifíca el número de filas, no el límite de la distribución.</p>
+<h3 id="ejemplo">Ejemplo:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave">clc<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>x=<span style="color:#f99b15">2</span><span style="color:#5bc4bf">*</span>rand(<span style="color:#f99b15">1</span>,<span style="color:#f99b15">100</span>)<span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>;<span style="color:#ef6155">
+</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>fprintf(<span style="color:#48b685">&#39;Mínimo=\t %1.5f\n&#39;</span>, min(x))<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>fprintf(<span style="color:#48b685">&#39;Máximo=\t %1.5f\n&#39;</span>, max(x))<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>fprintf(<span style="color:#48b685">&#39;RMS=\t %1.5f\n&#39;</span>, std(x))<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>fprintf(<span style="color:#48b685">&#39;Media=\t %1.5f\n&#39;</span>, mean(x))<span style="color:#ef6155">
+</span><span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>n=<span style="color:#f99b15">1</span>:<span style="color:#f99b15">100</span>;<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>subplot <span style="color:#f99b15">211</span>;<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>plot(n,x);<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>subplot <span style="color:#f99b15">212</span>;<span style="color:#ef6155">
+</span><span style="color:#ef6155"></span>hist(x,<span style="color:#f99b15">100</span>);<span style="color:#ef6155">
+</span></code></pre></div>
+    </div>
+  </article>
+
+
+
+
+
+      
+
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      <ul>
+       
+          <li><a href="/posts/20210830133321-analisis/">Análisis y procesamiento de señales</a></li>
+       
+     </ul>
+    </div>
+  </div>
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#secuencias-fundamentales">Secuencias fundamentales</a>
+      <ul>
+        <li><a href="#impulso-unitario">Impulso unitario</a></li>
+        <li><a href="#escalón-unitario">Escalón unitario</a></li>
+        <li><a href="#secuencias-aleatorias">Secuencias aleatorias</a></li>
+        <li><a href="#ejemplo">Ejemplo:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203&description=Secuencias%20fundamentales%20A%20continuaci%c3%b3n%20se%20muestra%20como%20representar%20el%20escal%c3%b3n%20e%20impulso%20unitario%20en%20Matlab.%0aImpulso%20unitario%20function%5bx%2c%20n%5d%20%3d%20impulso%28n0%2c%20n1%2c%20n2%29%20%25%20Genera%20x%28n%29%20%3d%20impulso%28n%20-%20n0%29%20para%20n1%20%26lt%3b%3d%20n%20%26lt%3b%3d%20n2n%20%3d%20%5bn1%20%3a%20n2%5d%3b%20%25%20genera%20vector%20n%20desde%20n1%20a%20n2x%20%3d%20%5b%28n%20-%20n0%29%20%3d%3d%200%5d%3b%20%25%20si%20la%20resta%20es%20%3d%200%2c%20genera%20un%201x%20%3d%20single%28x%29%3b%20%25%20convierte%20valor%20l%c3%b3gico%20a%20num%c3%a9ricoEscal%c3%b3n%20unitario%20function%5bx%2c%20n%5d%20%3d%20escalon%28n0%2c%20n1%2c%20n2%2cA%29%20%25%20Genera%20x%28n%29%20%3d%20escalon%28n%20-%20n0%29%20para%20n1%20%26lt%3b%3d%20n%20%26lt%3b%3d%20n2n%20%3d%20%5bn1%20%3a%20n2%5d%3b%20%25%20genera%20vector%20n%20desde%20n1%20a%20n2x%20%3d%20%5b%28n%20-%20n0%29%20%26gt%3b%3d%200%5d%3b%20%25%20si%20la%20resta%20es%20%26gt%3b%3d%200%2c%20genera%20un%201x%20%3d%20A%2asingle%28x%29%3b%20%25%20convierte%20valor%20l%c3%b3gico%20a%20num%c3%a9ricoSecuencias%20aleatorias%20Estas%20secuencias%20se%20utlizan%20para%20representar%20ruido%2c%20y%20se%20modelan%20mediante%20variables%20aleatorias%20de%20%26ldquo%3bteor%c3%ada%20de%20probabilidad%26rdquo%3b." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f20211005122614-analisis_y_procesamiento_de_senales_clase_3%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%203" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  apemangr 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/&#43;DiW/UqRcLbRjq" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l&#43;B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd&#43;qj&#43;o24G5ZU2zJz" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+  
+</html>

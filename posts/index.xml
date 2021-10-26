@@ -233,6 +233,16 @@ Aplicaciones del procesamiento de se�ales  Verificaci�n de la calidad del su
     </item>
     
     <item>
+      <title>Análisis y procesamiento de señales - Clase 3</title>
+      <link>https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/</guid>
+      <description>Secuencias fundamentales A continuación se muestra como representar el escalón e impulso unitario en Matlab.
+Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n - n0) para n1 &amp;lt;= n &amp;lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) == 0]; % si la resta es = 0, genera un 1x = single(x); % convierte valor lógico a numéricoEscalón unitario function[x, n] = escalon(n0, n1, n2,A) % Genera x(n) = escalon(n - n0) para n1 &amp;lt;= n &amp;lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) &amp;gt;= 0]; % si la resta es &amp;gt;= 0, genera un 1x = A*single(x); % convierte valor lógico a numéricoSecuencias aleatorias Estas secuencias se utlizan para representar ruido, y se modelan mediante variables aleatorias de &amp;ldquo;teoría de probabilidad&amp;rdquo;.</description>
+    </item>
+    
+    <item>
       <title>Common Lisp: A Gentle Introduction to Symbolic Computation</title>
       <link>https://apemangr.github.io/posts/2021-common_lisp_a_gentle_introduction_to_symbolic_computation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
