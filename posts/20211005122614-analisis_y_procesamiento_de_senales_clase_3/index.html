@@ -34,7 +34,7 @@ Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n 
     
   
   
-  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.4a81b8fed1f940994dadc021061d674c75862e430a1d20d7f95a5fa25e37c2acd98068ab6888116a60ddbd70deb2d8acea28aa162b03c0fda78ff0d8285f62c2.css" integrity="sha512-SoG4/tH5QJlNrcAhBh1nTHWGLkMKHSDX&#43;Vpfol43wqzZgGiraIgRamDdvXDestis6iiqFisDwP2nj/DYKF9iwg=="> 
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.ac674bfc3e1c8a86cfb37893a5a8dddad04927ec79d533708cb47caaac9234dd5573ba082edd420161c38347a7aad95e8753e85b98084f6a1f024dfd1702c01b.css" integrity="sha512-rGdL/D4ciobPs3iTpajd2tBJJ&#43;x51TNwjLR8qqySNN1Vc7oILt1CAWHDg0enqtleh1PoW5gIT2ofAk39FwLAGw=="> 
 
   
   
@@ -210,17 +210,17 @@ Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n 
       <h2 id="secuencias-fundamentales">Secuencias fundamentales</h2>
 <p>A continuación se muestra como representar el escalón e impulso unitario en Matlab.</p>
 <h3 id="impulso-unitario">Impulso unitario</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#ff6ac1">function</span>[x, n] = <span style="color:#57c7ff">impulso</span>(n0, n1, n2)
-<span style="color:#78787e">% Genera x(n) = impulso(n - n0) para n1 &lt;= n &lt;= n2</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>n = [n1 : n2]; <span style="color:#78787e">% genera vector n desde n1 a n2</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>x = [(n <span style="color:#ff6ac1">-</span> n0) <span style="color:#ff6ac1">==</span> <span style="color:#ff9f43">0</span>]; <span style="color:#78787e">% si la resta es = 0, genera un 1</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>x = <span style="color:#ff5c57">single</span>(x); <span style="color:#78787e">% convierte valor lógico a numérico</span><span style="color:#ff5c57">
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#81a1c1;font-weight:bold">function</span>[x, n] <span style="color:#eceff4">=</span> <span style="color:#88c0d0">impulso</span><span style="color:#eceff4">(</span>n0, n1, n2<span style="color:#eceff4">)</span>
+<span style="color:#616e87;font-style:italic">% Genera x(n) = impulso(n - n0) para n1 &lt;= n &lt;= n2</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>n <span style="color:#eceff4">=</span> <span style="color:#eceff4">[</span>n1 <span style="color:#eceff4">:</span> n2<span style="color:#eceff4">];</span> <span style="color:#616e87;font-style:italic">% genera vector n desde n1 a n2</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>x <span style="color:#eceff4">=</span> <span style="color:#eceff4">[(</span>n <span style="color:#81a1c1">-</span> n0<span style="color:#eceff4">)</span> <span style="color:#81a1c1">==</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">];</span> <span style="color:#616e87;font-style:italic">% si la resta es = 0, genera un 1</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>x <span style="color:#eceff4">=</span> <span style="color:#81a1c1">single</span><span style="color:#eceff4">(</span>x<span style="color:#eceff4">);</span> <span style="color:#616e87;font-style:italic">% convierte valor lógico a numérico</span><span style="color:#bf616a">
 </span></code></pre></div><h3 id="escalón-unitario">Escalón unitario</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#ff6ac1">function</span>[x, n] = <span style="color:#57c7ff">escalon</span>(n0, n1, n2,A)
-<span style="color:#78787e">% Genera x(n) = escalon(n - n0) para n1 &lt;= n &lt;= n2</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>n = [n1 : n2]; <span style="color:#78787e">% genera vector n desde n1 a n2</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>x = [(n <span style="color:#ff6ac1">-</span> n0) <span style="color:#ff6ac1">&gt;</span>= <span style="color:#ff9f43">0</span>]; <span style="color:#78787e">% si la resta es &gt;= 0, genera un 1</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>x = A<span style="color:#ff6ac1">*</span><span style="color:#ff5c57">single</span>(x); <span style="color:#78787e">% convierte valor lógico a numérico</span><span style="color:#ff5c57">
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#81a1c1;font-weight:bold">function</span>[x, n] <span style="color:#eceff4">=</span> <span style="color:#88c0d0">escalon</span><span style="color:#eceff4">(</span>n0, n1, n2,A<span style="color:#eceff4">)</span>
+<span style="color:#616e87;font-style:italic">% Genera x(n) = escalon(n - n0) para n1 &lt;= n &lt;= n2</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>n <span style="color:#eceff4">=</span> <span style="color:#eceff4">[</span>n1 <span style="color:#eceff4">:</span> n2<span style="color:#eceff4">];</span> <span style="color:#616e87;font-style:italic">% genera vector n desde n1 a n2</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>x <span style="color:#eceff4">=</span> <span style="color:#eceff4">[(</span>n <span style="color:#81a1c1">-</span> n0<span style="color:#eceff4">)</span> <span style="color:#81a1c1">&gt;</span><span style="color:#eceff4">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">];</span> <span style="color:#616e87;font-style:italic">% si la resta es &gt;= 0, genera un 1</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>x <span style="color:#eceff4">=</span> A<span style="color:#81a1c1">*</span><span style="color:#81a1c1">single</span><span style="color:#eceff4">(</span>x<span style="color:#eceff4">);</span> <span style="color:#616e87;font-style:italic">% convierte valor lógico a numérico</span><span style="color:#bf616a">
 </span></code></pre></div><h3 id="secuencias-aleatorias">Secuencias aleatorias</h3>
 <p>Estas secuencias se utlizan para representar ruido, y se modelan mediante variables aleatorias de &ldquo;teoría de probabilidad&rdquo;. Para este tipo de secuencias, el valor RMS es más representativo que la amplitud. El valor RMS se puede calcular a partir de la distribución de probabilidad de la variable aleatoria que da origen a la secuencia.</p>
 <p>El valor RMS de una secuenencia \(r[n]\) de \(N\) muestras es: \(r_{RMS}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}r^2(i)}\)</p>
@@ -238,19 +238,19 @@ Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n 
 <p>\[r_{R M S}=\frac{A}{\sqrt{3}} \approx 0.577 \mathrm{~A}\]</p>
 <p>La función <code>rand</code> en Matlab genera una secuencia aleatoria de <code>n</code> valores en un vector de fila, con distribución plana entrte 0 y 1. El &ldquo;1&rdquo; en la función <code>rand</code> especifíca el número de filas, no el límite de la distribución.</p>
 <h3 id="ejemplo">Ejemplo:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#ff5c57">clc</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>x=<span style="color:#ff9f43">2</span><span style="color:#ff6ac1">*</span><span style="color:#ff5c57">rand</span>(<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">100</span>)<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>;<span style="color:#ff5c57">
-</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">fprintf</span>(<span style="color:#5af78e">&#39;Mínimo=\t %1.5f\n&#39;</span>, <span style="color:#ff5c57">min</span>(x))<span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">fprintf</span>(<span style="color:#5af78e">&#39;Máximo=\t %1.5f\n&#39;</span>, <span style="color:#ff5c57">max</span>(x))<span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">fprintf</span>(<span style="color:#5af78e">&#39;RMS=\t %1.5f\n&#39;</span>, <span style="color:#ff5c57">std</span>(x))<span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">fprintf</span>(<span style="color:#5af78e">&#39;Media=\t %1.5f\n&#39;</span>, <span style="color:#ff5c57">mean</span>(x))<span style="color:#ff5c57">
-</span><span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span>n=<span style="color:#ff9f43">1</span>:<span style="color:#ff9f43">100</span>;<span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">subplot</span> <span style="color:#ff9f43">211</span>;<span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">plot</span>(n,x);<span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">subplot</span> <span style="color:#ff9f43">212</span>;<span style="color:#ff5c57">
-</span><span style="color:#ff5c57"></span><span style="color:#ff5c57">hist</span>(x,<span style="color:#ff9f43">100</span>);<span style="color:#ff5c57">
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#81a1c1">clc</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>x<span style="color:#eceff4">=</span><span style="color:#b48ead">2</span><span style="color:#81a1c1">*</span><span style="color:#81a1c1">rand</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#eceff4">,</span><span style="color:#b48ead">100</span><span style="color:#eceff4">)</span><span style="color:#81a1c1">-</span><span style="color:#b48ead">1</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">fprintf</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;Mínimo=\t %1.5f\n&#39;</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">min</span><span style="color:#eceff4">(</span>x<span style="color:#eceff4">))</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">fprintf</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;Máximo=\t %1.5f\n&#39;</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">max</span><span style="color:#eceff4">(</span>x<span style="color:#eceff4">))</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">fprintf</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;RMS=\t %1.5f\n&#39;</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">std</span><span style="color:#eceff4">(</span>x<span style="color:#eceff4">))</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">fprintf</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;Media=\t %1.5f\n&#39;</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">mean</span><span style="color:#eceff4">(</span>x<span style="color:#eceff4">))</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>n<span style="color:#eceff4">=</span><span style="color:#b48ead">1</span><span style="color:#eceff4">:</span><span style="color:#b48ead">100</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">subplot</span> <span style="color:#b48ead">211</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">plot</span><span style="color:#eceff4">(</span>n<span style="color:#eceff4">,</span>x<span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">subplot</span> <span style="color:#b48ead">212</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">hist</span><span style="color:#eceff4">(</span>x<span style="color:#eceff4">,</span><span style="color:#b48ead">100</span><span style="color:#eceff4">);</span><span style="color:#bf616a">
 </span></code></pre></div>
     </div>
   </article>
