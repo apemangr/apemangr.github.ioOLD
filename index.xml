@@ -9,6 +9,16 @@
     <copyright>apemangr</copyright>
     <lastBuildDate>Tue, 26 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Análisis y procesamiento de señales - Clase 3</title>
+      <link>https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/</guid>
+      <description>Secuencias fundamentales A continuación se muestra como representar el escalón e impulso unitario en Matlab.
+Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n - n0) para n1 &amp;lt;= n &amp;lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) == 0]; % si la resta es = 0, genera un 1x = single(x); % convierte valor lógico a numéricoEscalón unitario function[x, n] = escalon(n0, n1, n2,A) % Genera x(n) = escalon(n - n0) para n1 &amp;lt;= n &amp;lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) &amp;gt;= 0]; % si la resta es &amp;gt;= 0, genera un 1x = A*single(x); % convierte valor lógico a numéricoSecuencias aleatorias Estas secuencias se utlizan para representar ruido, y se modelan mediante variables aleatorias de &amp;ldquo;teoría de probabilidad&amp;rdquo;.</description>
+    </item>
+    
+    <item>
       <title>Análisis y procesamiento de señales - Clase 5</title>
       <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_5/</link>
       <pubDate>Tue, 26 Oct 2021 00:00:00 -0300</pubDate>
@@ -239,16 +249,6 @@ Aplicaciones del procesamiento de se�ales  Verificaci�n de la calidad del su
       
       <guid>https://apemangr.github.io/posts/20210830133321-analisis/</guid>
       <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
-    </item>
-    
-    <item>
-      <title>Análisis y procesamiento de señales - Clase 3</title>
-      <link>https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/</guid>
-      <description>Secuencias fundamentales A continuación se muestra como representar el escalón e impulso unitario en Matlab.
-Impulso unitario function[x, n] = impulso(n0, n1, n2) % Genera x(n) = impulso(n - n0) para n1 &amp;lt;= n &amp;lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) == 0]; % si la resta es = 0, genera un 1x = single(x); % convierte valor lógico a numéricoEscalón unitario function[x, n] = escalon(n0, n1, n2,A) % Genera x(n) = escalon(n - n0) para n1 &amp;lt;= n &amp;lt;= n2n = [n1 : n2]; % genera vector n desde n1 a n2x = [(n - n0) &amp;gt;= 0]; % si la resta es &amp;gt;= 0, genera un 1x = A*single(x); % convierte valor lógico a numéricoSecuencias aleatorias Estas secuencias se utlizan para representar ruido, y se modelan mediante variables aleatorias de &amp;ldquo;teoría de probabilidad&amp;rdquo;.</description>
     </item>
     
     <item>

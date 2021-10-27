@@ -36,7 +36,7 @@ Estabilidad Un sistema es estable si cualquier entrada acotada produce una salid
     
   
   
-  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.0d57efe79ff2952f058efd368c6818ffc9d7b5ac53392290fdfd2b617f8393200db1c86f0353ebe338df201cf3dd48713b0fe8d813680dfffb79208b4e843b8b.css" integrity="sha512-DVfv55/ylS8Fjv02jGgY/8nXtaxTOSKQ/f0rYX&#43;DkyANschvA1Pr4zjfIBzz3UhxOw/o2BNoDf/7eSCLToQ7iw=="> 
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.4a81b8fed1f940994dadc021061d674c75862e430a1d20d7f95a5fa25e37c2acd98068ab6888116a60ddbd70deb2d8acea28aa162b03c0fda78ff0d8285f62c2.css" integrity="sha512-SoG4/tH5QJlNrcAhBh1nTHWGLkMKHSDX&#43;Vpfol43wqzZgGiraIgRamDdvXDestis6iiqFisDwP2nj/DYKF9iwg=="> 
 
   
   
@@ -84,6 +84,12 @@ Estabilidad Un sistema es estable si cualquier entrada acotada produce una salid
           </a>
         </li>
         
+        
+        <li>
+          <a class="icon" href="https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
         
         <li>
           <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
@@ -237,19 +243,19 @@ Vo(n)=0.1 \cdot V_{l}(n)+0.9 \cdot \operatorname{Vo}(n-1)
 <p>Ejemplo: Le ED de un SLI es: \(y(n)=4 x(n)+3 x(n-1)+2 x(n-2)-0.5 y(n-1)\)
 Calcular la salida para \(0 \leq n \leq 6\) con \(y(-1)=0\) si \(x(n)=\delta(n)+\delta(n-1)+\delta(n-2)\)</p>
 <p>MATLAB incluye la función <code>filter</code> para resolver las ED. Las instrucciones para el ejercicio anterior serian:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>x = [<span style="color:#f99b15">1</span> <span style="color:#f99b15">1</span> <span style="color:#f99b15">1</span> <span style="color:#f99b15">0</span> <span style="color:#f99b15">0</span> <span style="color:#f99b15">0</span> <span style="color:#f99b15">0</span>]; <span style="color:#776e71">% Entrada</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>a = [<span style="color:#f99b15">1</span> <span style="color:#f99b15">0.5</span>];         <span style="color:#776e71">% Coeficientes de y(n)</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>b = [<span style="color:#f99b15">4</span> <span style="color:#f99b15">3</span> <span style="color:#f99b15">2</span>];         <span style="color:#776e71">% Coeficientes de x(n)</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>y = filter(b, a, x)  <span style="color:#776e71">% Salida</span><span style="color:#ef6155">
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>x = [<span style="color:#ff9f43">1</span> <span style="color:#ff9f43">1</span> <span style="color:#ff9f43">1</span> <span style="color:#ff9f43">0</span> <span style="color:#ff9f43">0</span> <span style="color:#ff9f43">0</span> <span style="color:#ff9f43">0</span>]; <span style="color:#78787e">% Entrada</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>a = [<span style="color:#ff9f43">1</span> <span style="color:#ff9f43">0.5</span>];         <span style="color:#78787e">% Coeficientes de y(n)</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>b = [<span style="color:#ff9f43">4</span> <span style="color:#ff9f43">3</span> <span style="color:#ff9f43">2</span>];         <span style="color:#78787e">% Coeficientes de x(n)</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>y = <span style="color:#ff5c57">filter</span>(b, a, x)  <span style="color:#78787e">% Salida</span><span style="color:#ff5c57">
 </span></code></pre></div><p>Se puede agregar una condición inicial. Por ejemplo, si \(y(-1)=2\), el código sería:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>x = [<span style="color:#f99b15">1</span> <span style="color:#f99b15">1</span> <span style="color:#f99b15">1</span> <span style="color:#f99b15">0</span> <span style="color:#f99b15">0</span> <span style="color:#f99b15">0</span> <span style="color:#f99b15">0</span>];   <span style="color:#776e71">% Entrada</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>a = [<span style="color:#f99b15">1</span> <span style="color:#f99b15">0.5</span>];           <span style="color:#776e71">% Coeficientes de y(n)</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>b = [<span style="color:#f99b15">4</span> <span style="color:#f99b15">3</span> <span style="color:#f99b15">2</span>];           <span style="color:#776e71">% Coeficientes de x(n)</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>y = [<span style="color:#f99b15">2</span>];               <span style="color:#776e71">% Condición inicial y(-1)</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>z = filtic(b, a, y);   <span style="color:#776e71">% Calcula las condiciones iniciales para &#34;filter&#34;</span><span style="color:#ef6155">
-</span><span style="color:#ef6155"></span>y = filter(b, a, x, z) <span style="color:#776e71">% Salida</span><span style="color:#ef6155">
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>x = [<span style="color:#ff9f43">1</span> <span style="color:#ff9f43">1</span> <span style="color:#ff9f43">1</span> <span style="color:#ff9f43">0</span> <span style="color:#ff9f43">0</span> <span style="color:#ff9f43">0</span> <span style="color:#ff9f43">0</span>];   <span style="color:#78787e">% Entrada</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>a = [<span style="color:#ff9f43">1</span> <span style="color:#ff9f43">0.5</span>];           <span style="color:#78787e">% Coeficientes de y(n)</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>b = [<span style="color:#ff9f43">4</span> <span style="color:#ff9f43">3</span> <span style="color:#ff9f43">2</span>];           <span style="color:#78787e">% Coeficientes de x(n)</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>y = [<span style="color:#ff9f43">2</span>];               <span style="color:#78787e">% Condición inicial y(-1)</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>z = filtic(b, a, y);   <span style="color:#78787e">% Calcula las condiciones iniciales para &#34;filter&#34;</span><span style="color:#ff5c57">
+</span><span style="color:#ff5c57"></span>y = <span style="color:#ff5c57">filter</span>(b, a, x, z) <span style="color:#78787e">% Salida</span><span style="color:#ff5c57">
 </span></code></pre></div>
     </div>
   </article>
@@ -314,9 +320,9 @@ Calcular la salida para \(0 \leq n \leq 6\) con \(y(-1)=0\) si \(x(n)=\delta(n)+
    
 
    
-      
-   
 
+   
+      
    
 
    
