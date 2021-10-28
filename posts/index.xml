@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Tue, 26 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análisis y procesamiento de señales - Clase 6</title>
+      <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_6/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_6/</guid>
+      <description>Operador de corrimiento Se representa como \(\lambda^{-1}\), lo que hace es representar cuanto se ha corrido una señal a la izquierda.
+Ejemplo:
+\[a_{p}y[n-p]+\cdots+a_{1}y[n-1]+a_{0}y[n]=0\]
+Al aplicar el operador queda de la siguiente manera
+\[a_{p}\lambda^{-p}y[n]+\cdots+a_{1}\lambda^{-1}y[n]+a_{0}y[v]=0\]
+Ahora factorizamos el \(y[n]\)
+\[[a_{p}\lambda^{-p}+\cdots+a_{1}\lambda^{-1}+a_{0}]y[n]=0\]
+De la ecuación anterior se obtienen &amp;ldquo;p&amp;rdquo; soluciones \(\lambda_1, \lambda_2, \cdots, \lambda_p\) que corresponden a los valores propios de la ecuación en diferencia. Dependiendo de los valores propios que obtengamos tendremos dos casos.</description>
+    </item>
+    
     <item>
       <title>Análisis y procesamiento de señales - Clase 3</title>
       <link>https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/</link>
@@ -68,6 +84,15 @@ Estabilidad Un sistema es estable si cualquier entrada acotada produce una salid
       <guid>https://apemangr.github.io/posts/2021-teoria_de_circuitos_1_ayudantia_6/</guid>
       <description>Circuitos de primer orden Características principales:
  Trabajan con ecuaciones diferenciales de primer order Varían en el tiempo Solo pueden ser de tipo R-C o R-L Se tiende a buscar el valor del capacitor o inductor en el tiempo Se pueden dividir en dos tipos de circuitos  Circuitos de carga (estado 0), que presenta respuesta homogénea y particular Circuitos de descarga (entrada 0), que presentan sólo respuesta homogénea    Pasos para resolver un circuito de primer orden  Analizar el circuito con respecto a t&amp;lt;0 y calcular las condiciones iniciales Analizar el circuito con respecto a t&amp;gt;0 ya sea mediante LKV o LKC para de esta forma encontrar la ecuación diferencial Encontrar el valor de los exponentes que acompañan a la señal exponencial Encontrar la respuesta en el tiempo  Circuitos de entrada 0 Son los circuitos que al ser analizados para instantes de tiempo mayores a 0 (t&amp;gt;0) nos queda como un resistor conectado a un inductor o capacitor.</description>
+    </item>
+    
+    <item>
+      <title>Análisis y procesamiento de señales</title>
+      <link>https://apemangr.github.io/posts/20210830133321-analisis/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/20210830133321-analisis/</guid>
+      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5 Análisis y procesamiento de señales - Clase 6  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
     </item>
     
     <item>
@@ -231,15 +256,6 @@ Aplicaciones del procesamiento de se�ales  Verificaci�n de la calidad del su
       <description>Una señal continua corresponde a una función f(x), donde f ∈ R, y está definida en el intervalo infinito 𝑡 ∈ [−∞, ∞].
  Una señal discreta corresponde a una función definida sólo en intervalos de tiempo discretos y fijos. 𝑡 = 𝑛 𝑇𝑠 ∀𝑛 ∈ ℤ 𝑇𝑠- Sampling Time
  Propiedades de las señales discretas Definición causalidad Una señal (función) discreta 𝑓[𝑛] de la forma: 𝑓 [𝑛] = … , 𝑓[−1] , 𝑓[0] , 𝑓[1] , … , 𝑓[𝑘] , … es causal si y solo si 𝑓[𝑛] = 0 para N &amp;lt; 0.</description>
-    </item>
-    
-    <item>
-      <title>Análisis y procesamiento de señales</title>
-      <link>https://apemangr.github.io/posts/20210830133321-analisis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/posts/20210830133321-analisis/</guid>
-      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
     </item>
     
     <item>

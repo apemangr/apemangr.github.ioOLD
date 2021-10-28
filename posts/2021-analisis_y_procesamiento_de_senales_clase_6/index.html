@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Análisis y procesamiento de señales - Clase 6 | Apemangr&#39;s Braindump</title>
+  <link rel = 'canonical' href = 'https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_6/'>
+  <meta name="description" content="This is my personal site where I want to create a braindump.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Análisis y procesamiento de señales - Clase 6" />
+<meta property="og:description" content="Operador de corrimiento Se representa como \(\lambda^{-1}\), lo que hace es representar cuanto se ha corrido una señal a la izquierda.
+Ejemplo:
+\[a_{p}y[n-p]&#43;\cdots&#43;a_{1}y[n-1]&#43;a_{0}y[n]=0\]
+Al aplicar el operador queda de la siguiente manera
+\[a_{p}\lambda^{-p}y[n]&#43;\cdots&#43;a_{1}\lambda^{-1}y[n]&#43;a_{0}y[v]=0\]
+Ahora factorizamos el \(y[n]\)
+\[[a_{p}\lambda^{-p}&#43;\cdots&#43;a_{1}\lambda^{-1}&#43;a_{0}]y[n]=0\]
+De la ecuación anterior se obtienen &ldquo;p&rdquo; soluciones \(\lambda_1, \lambda_2, \cdots, \lambda_p\) que corresponden a los valores propios de la ecuación en diferencia. Dependiendo de los valores propios que obtengamos tendremos dos casos." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_6/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-28T00:00:00-03:00" />
+<meta property="article:modified_time" content="2021-10-28T00:00:00-03:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Análisis y procesamiento de señales - Clase 6"/>
+<meta name="twitter:description" content="Operador de corrimiento Se representa como \(\lambda^{-1}\), lo que hace es representar cuanto se ha corrido una señal a la izquierda.
+Ejemplo:
+\[a_{p}y[n-p]&#43;\cdots&#43;a_{1}y[n-1]&#43;a_{0}y[n]=0\]
+Al aplicar el operador queda de la siguiente manera
+\[a_{p}\lambda^{-p}y[n]&#43;\cdots&#43;a_{1}\lambda^{-1}y[n]&#43;a_{0}y[v]=0\]
+Ahora factorizamos el \(y[n]\)
+\[[a_{p}\lambda^{-p}&#43;\cdots&#43;a_{1}\lambda^{-1}&#43;a_{0}]y[n]=0\]
+De la ecuación anterior se obtienen &ldquo;p&rdquo; soluciones \(\lambda_1, \lambda_2, \cdots, \lambda_p\) que corresponden a los valores propios de la ecuación en diferencia. Dependiendo de los valores propios que obtengamos tendremos dos casos."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.ac674bfc3e1c8a86cfb37893a5a8dddad04927ec79d533708cb47caaac9234dd5573ba082edd420161c38347a7aad95e8753e85b98084f6a1f024dfd1702c01b.css" integrity="sha512-rGdL/D4ciobPs3iTpajd2tBJJ&#43;x51TNwjLR8qqySNN1Vc7oILt1CAWHDg0enqtleh1PoW5gIT2ofAk39FwLAGw=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://apemangr.github.io/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://apemangr.github.io/posts/20211005122614-analisis_y_procesamiento_de_senales_clase_3/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206&description=Operador%20de%20corrimiento%20Se%20representa%20como%20%5c%28%5clambda%5e%7b-1%7d%5c%29%2c%20lo%20que%20hace%20es%20representar%20cuanto%20se%20ha%20corrido%20una%20se%c3%b1al%20a%20la%20izquierda.%0aEjemplo%3a%0a%5c%5ba_%7bp%7dy%5bn-p%5d%2b%5ccdots%2ba_%7b1%7dy%5bn-1%5d%2ba_%7b0%7dy%5bn%5d%3d0%5c%5d%0aAl%20aplicar%20el%20operador%20queda%20de%20la%20siguiente%20manera%0a%5c%5ba_%7bp%7d%5clambda%5e%7b-p%7dy%5bn%5d%2b%5ccdots%2ba_%7b1%7d%5clambda%5e%7b-1%7dy%5bn%5d%2ba_%7b0%7dy%5bv%5d%3d0%5c%5d%0aAhora%20factorizamos%20el%20%5c%28y%5bn%5d%5c%29%0a%5c%5b%5ba_%7bp%7d%5clambda%5e%7b-p%7d%2b%5ccdots%2ba_%7b1%7d%5clambda%5e%7b-1%7d%2ba_%7b0%7d%5dy%5bn%5d%3d0%5c%5d%0aDe%20la%20ecuaci%c3%b3n%20anterior%20se%20obtienen%20%26ldquo%3bp%26rdquo%3b%20soluciones%20%5c%28%5clambda_1%2c%20%5clambda_2%2c%20%5ccdots%2c%20%5clambda_p%5c%29%20que%20corresponden%20a%20los%20valores%20propios%20de%20la%20ecuaci%c3%b3n%20en%20diferencia.%20Dependiendo%20de%20los%20valores%20propios%20que%20obtengamos%20tendremos%20dos%20casos." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#operador-de-corrimiento">Operador de corrimiento</a>
+      <ul>
+        <li><a href="#todos-los-valores-propios-distintos">Todos los valores propios distintos</a></li>
+        <li><a href="#todos-o-algunos-valores-propios-son-iguales">Todos o algunos valores propios son iguales</a></li>
+      </ul>
+    </li>
+    <li><a href="#ejemplo">Ejemplo</a></li>
+    <li><a href="#solución-particular">Solución particular</a>
+      <ul>
+        <li><a href="#ejemplo">Ejemplo</a></li>
+      </ul>
+    </li>
+    <li><a href="#resolución-por-recursividad">Resolución por recursividad</a></li>
+  </ul>
+</nav>
+
+
+    </div>
+    
+  </span>
+</div>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Análisis y procesamiento de señales - Clase 6
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-10-28 00:00:00 -0300 -0300" itemprop="datePublished">2021-10-28</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          2 minute read
+        </div>
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="operador-de-corrimiento">Operador de corrimiento</h2>
+<p>Se representa como \(\lambda^{-1}\), lo que hace es representar cuanto se ha corrido una señal a la izquierda.</p>
+<p>Ejemplo:</p>
+<p>\[a_{p}y[n-p]+\cdots+a_{1}y[n-1]+a_{0}y[n]=0\]</p>
+<p>Al aplicar el operador queda de la siguiente manera</p>
+<p>\[a_{p}\lambda^{-p}y[n]+\cdots+a_{1}\lambda^{-1}y[n]+a_{0}y[v]=0\]</p>
+<p>Ahora factorizamos el \(y[n]\)</p>
+<p>\[[a_{p}\lambda^{-p}+\cdots+a_{1}\lambda^{-1}+a_{0}]y[n]=0\]</p>
+<p>De la ecuación anterior se obtienen &ldquo;p&rdquo; soluciones \(\lambda_1, \lambda_2, \cdots, \lambda_p\)  que corresponden a los valores propios de la ecuación en diferencia. Dependiendo de los valores propios que obtengamos tendremos dos casos.</p>
+<h3 id="todos-los-valores-propios-distintos">Todos los valores propios distintos</h3>
+<ul>
+<li>
+<p>\(\lambda_1 \neq \lambda_2, \cdots, \lambda_{p-1} \neq \lambda_{p}\) la solución corresponde a:</p>
+<p>\[y_n[n]=\sum_{l=1}^{p}C_l \lambda_l^n\]</p>
+</li>
+</ul>
+<h3 id="todos-o-algunos-valores-propios-son-iguales">Todos o algunos valores propios son iguales</h3>
+<ul>
+<li>
+<p>\(\lambda_1 = \lambda_2 = \cdots = \lambda_k \neq \lambda_p\) la solución corresponde a:</p>
+<p>\[y_n[n]= \sum_{l=k+1}^{p}C_l\lambda_l^n+\sum_{l=1}^kC_ln^{(l-1)}\lambda^n\]</p>
+</li>
+</ul>
+<h2 id="ejemplo">Ejemplo</h2>
+<p>Tenemos la siguiente señal</p>
+<p>\[y[n-3]-y[n-2]-y[n-1]+y[n]=0\]</p>
+<p>Aplicamos el operador de corrimiento \(\lambda^-1\)</p>
+<p>\[[\lambda^{-3}-\lambda^{-2}-\lambda^{-1}+1]y[n]=0\]</p>
+<p>Ahora resolvemos la siguiente ecuación</p>
+<p>\[\lambda^{-3}-\lambda^{-2}-\lambda^{-1}+1 =0\]</p>
+<p>Ecuación que tiene las siguientes soluciones</p>
+<p>\[\lambda_1=-1, \quad \lambda_2=1, \quad \lambda_3=1\]</p>
+<p>De lo que podemos obtener que le grado del polinomio es 3, osea que \(m\) es igual a 3.</p>
+<p>Por lo tanto, la <code>solución homogénea</code> del polinomio queda de la siguiente manera</p>
+<p>\[y_n[n]= C_1(1)^n+C_2n(1)^n+C_3(-1)^n\]</p>
+<p>Como podemos observar \(C_1\) y \(C_2\) corresponden a los terminos que se repiten, mientras que \(C_3\) corresponde al termino que no.</p>
+<h2 id="solución-particular">Solución particular</h2>
+<p>Se puede obtener de la siguiente maneara</p>
+<p>\[\sum_{l=0}^{p}a_{l} y[n-l]=x[n]\]</p>
+<p>Podemos definir \(x[n]\) (entrada) como un polinomio en n:</p>
+<p>\[x[n]=P(n)A^n\]</p>
+<p>\(A\) constante, \(P(n)\) polinomio</p>
+<p>Para las ecuaciones en diferencia qudería expresado de la siguiente manera</p>
+<p>\[y_p[n]=Q[n]A^nn^m\]</p>
+<p>Con \(Q[n]\) como un polinomio del mismo grado que \(P[n]\)</p>
+<h3 id="ejemplo">Ejemplo</h3>
+<p>Tenemos la siguiente señal</p>
+<p>\[2y[n+2]+3y[n+1]-5y[n]=7n\]</p>
+<p>Podemos observar que \(7n\) corresponde a la entrada de la señal.</p>
+<p>Aplicamos el operador de corrimiento \(\lambda^-1\)</p>
+<p>\[2\lambda^2+3\lambda-5=0\]</p>
+<p>Obetiendo como soluciones \(\lambda_1=\frac{5}{2}, \quad \lambda_2=1\)</p>
+<p>\[y_n[n]=C_1\left(\frac{5}{2}\right)^n+C_2(1)^n\]</p>
+<p>Ahora expresamos la entrada como un polinomio</p>
+<p>\[x[n]=7n=\left\{   \begin{array}{ c l }
+P(n) = &amp;  \eq 7n \\<br>
+A^n &amp; \eq 1
+\end{array}
+\right.\]</p>
+<p>Reemplazando \(y_p[n]\) en la ED.</p>
+<p>\[y_p[n]= \frac{-11}{4}n+\frac{1}{2}n^2\]</p>
+<p><code>Solución</code></p>
+<p>\[y[n]=C_1\left(\frac{5}{2}\right)^n+C_2(1)^n-\frac{11}{4}n+\frac{1}{2}n^2\]</p>
+<h2 id="resolución-por-recursividad">Resolución por recursividad</h2>
+<p>En este caso la \(y[n]\) se puede obtener muestra a muestra</p>
+<p>\[\sum_{l=0}^{p}a_ly[n-l]=\sum_{l=0}^{m}b_lx[n-l]\]</p>
+<p>Se expande como</p>
+<p>\[y[n]=\frac{b_0}{a_0}x[n]+\frac{b_1}{a_0}x[n-1]+\cdots+\frac{b_m}{a_0}x[n-m]-\left(\frac{a_1}{a_0}y[n-1]+\cdots+\frac{a_p}{a_0}y[n-p]\right)\]</p>
+<p>Entonces ahora solo falta iterar para &ldquo;\(n\)&rdquo; y &ldquo;\(p\)&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave"><span style="color:#616e87;font-style:italic">% y[n] = y[n-1] + y[n-2] + x[n]</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#616e87;font-style:italic">% y[n] = 0 para n&lt;0</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#616e87;font-style:italic">% x[n] = impulso(n)</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>n <span style="color:#eceff4">=</span> <span style="color:#b48ead">20</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>y <span style="color:#eceff4">=</span> <span style="color:#81a1c1">zeros</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#eceff4">,</span>n<span style="color:#eceff4">);</span> <span style="color:#616e87;font-style:italic">% Desde 0</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>y<span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">=</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">;</span> <span style="color:#616e87;font-style:italic">% Condición inicial y[0]</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>y<span style="color:#eceff4">(</span><span style="color:#b48ead">2</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">=</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">;</span> <span style="color:#616e87;font-style:italic">% Condición inicial y[1]</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1;font-weight:bold">for</span> p<span style="color:#eceff4">=</span><span style="color:#b48ead">3</span><span style="color:#eceff4">:</span><span style="color:#b48ead">1</span><span style="color:#eceff4">:</span>n<span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>  <span style="color:#81a1c1;font-weight:bold">if</span> p <span style="color:#81a1c1">&gt;</span> <span style="color:#b48ead">1</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>    x<span style="color:#eceff4">(</span>p<span style="color:#eceff4">)=</span><span style="color:#b48ead">0</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>  <span style="color:#81a1c1;font-weight:bold">else</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>    x<span style="color:#eceff4">(</span>p<span style="color:#eceff4">)=</span><span style="color:#b48ead">1</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>  <span style="color:#81a1c1;font-weight:bold">end</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>  y<span style="color:#eceff4">(</span>p<span style="color:#eceff4">)</span> <span style="color:#eceff4">=</span> y<span style="color:#eceff4">(</span>p<span style="color:#81a1c1">-</span><span style="color:#b48ead">1</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">+</span> y<span style="color:#eceff4">(</span>p<span style="color:#81a1c1">-</span><span style="color:#b48ead">2</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">+</span> x<span style="color:#eceff4">(</span>p<span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1;font-weight:bold">end</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">stem</span><span style="color:#eceff4">(</span>y<span style="color:#eceff4">)</span><span style="color:#bf616a">
+</span></code></pre></div>
+    </div>
+  </article>
+
+
+
+
+
+      
+
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      <ul>
+       
+          <li><a href="/posts/20210830133321-analisis/">Análisis y procesamiento de señales</a></li>
+       
+     </ul>
+    </div>
+  </div>
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#operador-de-corrimiento">Operador de corrimiento</a>
+      <ul>
+        <li><a href="#todos-los-valores-propios-distintos">Todos los valores propios distintos</a></li>
+        <li><a href="#todos-o-algunos-valores-propios-son-iguales">Todos o algunos valores propios son iguales</a></li>
+      </ul>
+    </li>
+    <li><a href="#ejemplo">Ejemplo</a></li>
+    <li><a href="#solución-particular">Solución particular</a>
+      <ul>
+        <li><a href="#ejemplo">Ejemplo</a></li>
+      </ul>
+    </li>
+    <li><a href="#resolución-por-recursividad">Resolución por recursividad</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206&description=Operador%20de%20corrimiento%20Se%20representa%20como%20%5c%28%5clambda%5e%7b-1%7d%5c%29%2c%20lo%20que%20hace%20es%20representar%20cuanto%20se%20ha%20corrido%20una%20se%c3%b1al%20a%20la%20izquierda.%0aEjemplo%3a%0a%5c%5ba_%7bp%7dy%5bn-p%5d%2b%5ccdots%2ba_%7b1%7dy%5bn-1%5d%2ba_%7b0%7dy%5bn%5d%3d0%5c%5d%0aAl%20aplicar%20el%20operador%20queda%20de%20la%20siguiente%20manera%0a%5c%5ba_%7bp%7d%5clambda%5e%7b-p%7dy%5bn%5d%2b%5ccdots%2ba_%7b1%7d%5clambda%5e%7b-1%7dy%5bn%5d%2ba_%7b0%7dy%5bv%5d%3d0%5c%5d%0aAhora%20factorizamos%20el%20%5c%28y%5bn%5d%5c%29%0a%5c%5b%5ba_%7bp%7d%5clambda%5e%7b-p%7d%2b%5ccdots%2ba_%7b1%7d%5clambda%5e%7b-1%7d%2ba_%7b0%7d%5dy%5bn%5d%3d0%5c%5d%0aDe%20la%20ecuaci%c3%b3n%20anterior%20se%20obtienen%20%26ldquo%3bp%26rdquo%3b%20soluciones%20%5c%28%5clambda_1%2c%20%5clambda_2%2c%20%5ccdots%2c%20%5clambda_p%5c%29%20que%20corresponden%20a%20los%20valores%20propios%20de%20la%20ecuaci%c3%b3n%20en%20diferencia.%20Dependiendo%20de%20los%20valores%20propios%20que%20obtengamos%20tendremos%20dos%20casos." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_6%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%206" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  apemangr 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/&#43;DiW/UqRcLbRjq" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l&#43;B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd&#43;qj&#43;o24G5ZU2zJz" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+  
+</html>
