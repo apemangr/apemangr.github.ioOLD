@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Nov 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análisis y procesamiento de señales - Clase 7</title>
+      <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_7/</link>
+      <pubDate>Thu, 04 Nov 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_7/</guid>
+      <description>Convolución discreta Operación matemática entre \(x[n]\) (entrada) y su repuestal impulso, resultando en \(y[n]\).
+Sabemos que toda señal discreta se puede representar como un tren de impulsos desplazados.
+\[x[n] = \sum_{k=-\infty}^{\infty} x[k]\delta[n-k]\]
+También sabemos que la respuesta de un sistema a un impulso unitario es:
+\[x[n]=\delta[n]\]
+\[h[n]=T&amp;lt;\delta[n]&amp;gt;\]
+Si el operador T es LTI
+\[h[n-k]=T&amp;lt;\delta[n-k]&amp;gt;\]
+La respuesta del sistema \(y[n]\) a una entrada \(x[n]\)
+\[y[n]= T&amp;lt;x[n]&amp;gt;\] \[y[n]=T \left\langle \sum_{k=-\infty}^{\infty}x[k]\delta[n-k] \right\rangle\]
+Como el operador T sólo opera en n, podemos sacar la sumatoria de \(n[k]\).</description>
+    </item>
+    
     <item>
       <title>Análisis y procesamiento de señales - Clase 6</title>
       <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_6/</link>
@@ -92,7 +111,7 @@ Estabilidad Un sistema es estable si cualquier entrada acotada produce una salid
       <pubDate>Tue, 28 Sep 2021 00:00:00 -0300</pubDate>
       
       <guid>https://apemangr.github.io/posts/20210830133321-analisis/</guid>
-      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5 Análisis y procesamiento de señales - Clase 6  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
+      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5 Análisis y procesamiento de señales - Clase 6 Análisis y procesamiento de señales - Clase 7  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
     </item>
     
     <item>

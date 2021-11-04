@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Análisis y procesamiento de señales - Clase 7 | Apemangr&#39;s Braindump</title>
+  <link rel = 'canonical' href = 'https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_7/'>
+  <meta name="description" content="This is my personal site where I want to create a braindump.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Análisis y procesamiento de señales - Clase 7" />
+<meta property="og:description" content="Convolución discreta Operación matemática entre \(x[n]\) (entrada) y su repuestal impulso, resultando en \(y[n]\).
+Sabemos que toda señal discreta se puede representar como un tren de impulsos desplazados.
+\[x[n] = \sum_{k=-\infty}^{\infty} x[k]\delta[n-k]\]
+También sabemos que la respuesta de un sistema a un impulso unitario es:
+\[x[n]=\delta[n]\]
+\[h[n]=T&lt;\delta[n]&gt;\]
+Si el operador T es LTI
+\[h[n-k]=T&lt;\delta[n-k]&gt;\]
+La respuesta del sistema \(y[n]\) a una entrada \(x[n]\)
+\[y[n]= T&lt;x[n]&gt;\] \[y[n]=T \left\langle \sum_{k=-\infty}^{\infty}x[k]\delta[n-k] \right\rangle\]
+Como el operador T sólo opera en n, podemos sacar la sumatoria de \(n[k]\)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_7/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-04T00:00:00-03:00" />
+<meta property="article:modified_time" content="2021-11-04T00:00:00-03:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Análisis y procesamiento de señales - Clase 7"/>
+<meta name="twitter:description" content="Convolución discreta Operación matemática entre \(x[n]\) (entrada) y su repuestal impulso, resultando en \(y[n]\).
+Sabemos que toda señal discreta se puede representar como un tren de impulsos desplazados.
+\[x[n] = \sum_{k=-\infty}^{\infty} x[k]\delta[n-k]\]
+También sabemos que la respuesta de un sistema a un impulso unitario es:
+\[x[n]=\delta[n]\]
+\[h[n]=T&lt;\delta[n]&gt;\]
+Si el operador T es LTI
+\[h[n-k]=T&lt;\delta[n-k]&gt;\]
+La respuesta del sistema \(y[n]\) a una entrada \(x[n]\)
+\[y[n]= T&lt;x[n]&gt;\] \[y[n]=T \left\langle \sum_{k=-\infty}^{\infty}x[k]\delta[n-k] \right\rangle\]
+Como el operador T sólo opera en n, podemos sacar la sumatoria de \(n[k]\)."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.ac674bfc3e1c8a86cfb37893a5a8dddad04927ec79d533708cb47caaac9234dd5573ba082edd420161c38347a7aad95e8753e85b98084f6a1f024dfd1702c01b.css" integrity="sha512-rGdL/D4ciobPs3iTpajd2tBJJ&#43;x51TNwjLR8qqySNN1Vc7oILt1CAWHDg0enqtleh1PoW5gIT2ofAk39FwLAGw=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://apemangr.github.io/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_6/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207&description=Convoluci%c3%b3n%20discreta%20Operaci%c3%b3n%20matem%c3%a1tica%20entre%20%5c%28x%5bn%5d%5c%29%20%28entrada%29%20y%20su%20repuestal%20impulso%2c%20resultando%20en%20%5c%28y%5bn%5d%5c%29.%0aSabemos%20que%20toda%20se%c3%b1al%20discreta%20se%20puede%20representar%20como%20un%20tren%20de%20impulsos%20desplazados.%0a%5c%5bx%5bn%5d%20%3d%20%5csum_%7bk%3d-%5cinfty%7d%5e%7b%5cinfty%7d%20x%5bk%5d%5cdelta%5bn-k%5d%5c%5d%0aTambi%c3%a9n%20sabemos%20que%20la%20respuesta%20de%20un%20sistema%20a%20un%20impulso%20unitario%20es%3a%0a%5c%5bx%5bn%5d%3d%5cdelta%5bn%5d%5c%5d%0a%5c%5bh%5bn%5d%3dT%26lt%3b%5cdelta%5bn%5d%26gt%3b%5c%5d%0aSi%20el%20operador%20T%20es%20LTI%0a%5c%5bh%5bn-k%5d%3dT%26lt%3b%5cdelta%5bn-k%5d%26gt%3b%5c%5d%0aLa%20respuesta%20del%20sistema%20%5c%28y%5bn%5d%5c%29%20a%20una%20entrada%20%5c%28x%5bn%5d%5c%29%0a%5c%5by%5bn%5d%3d%20T%26lt%3bx%5bn%5d%26gt%3b%5c%5d%20%5c%5by%5bn%5d%3dT%20%5cleft%5clangle%20%5csum_%7bk%3d-%5cinfty%7d%5e%7b%5cinfty%7dx%5bk%5d%5cdelta%5bn-k%5d%20%5cright%5crangle%5c%5d%0aComo%20el%20operador%20T%20s%c3%b3lo%20opera%20en%20n%2c%20podemos%20sacar%20la%20sumatoria%20de%20%5c%28n%5bk%5d%5c%29." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#convolución-discreta">Convolución discreta</a></li>
+    <li><a href="#propiedades-de-la-convolución">Propiedades de la convolución</a></li>
+  </ul>
+</nav>
+
+
+    </div>
+    
+  </span>
+</div>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Análisis y procesamiento de señales - Clase 7
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-11-04 00:00:00 -0300 -0300" itemprop="datePublished">2021-11-04</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          1 minute read
+        </div>
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="convolución-discreta">Convolución discreta</h2>
+<p>Operación matemática entre \(x[n]\) (entrada) y su repuestal impulso, resultando en \(y[n]\).</p>
+<p>Sabemos que toda señal discreta se puede representar como un tren de impulsos desplazados.</p>
+<p>\[x[n] = \sum_{k=-\infty}^{\infty} x[k]\delta[n-k]\]</p>
+<p>También sabemos que la respuesta de un sistema a un impulso unitario es:</p>
+<p>\[x[n]=\delta[n]\]</p>
+<p>\[h[n]=T&lt;\delta[n]&gt;\]</p>
+<p>Si el operador <code>T</code> es LTI</p>
+<p>\[h[n-k]=T&lt;\delta[n-k]&gt;\]</p>
+<p>La respuesta del sistema \(y[n]\) a una entrada \(x[n]\)</p>
+<p>\[y[n]= T&lt;x[n]&gt;\]
+\[y[n]=T \left\langle \sum_{k=-\infty}^{\infty}x[k]\delta[n-k] \right\rangle\]</p>
+<p>Como el operador <code>T</code> sólo opera en <code>n</code>, podemos sacar la sumatoria de \(n[k]\).</p>
+<p>\[y[n]= \sum_{k=-\infty}^{\infty} x[k] T \left\langle \delta[n-k] \right\rangle\]</p>
+<p>\[y[n] = \sum_{k=-\infty}^{\infty} x[k] h[n-k]\]</p>
+<p>La expresión anterior se conoce como <code>producto de convolución</code> entre una entrada \(x[n]\) y una respuesta impulsa \(h[n]\)</p>
+<h2 id="propiedades-de-la-convolución">Propiedades de la convolución</h2>
+<ul>
+<li>Linealidad</li>
+<li>Conmutatividad</li>
+<li>Corrimiento</li>
+<li>Distribuitiva</li>
+<li>Asociativa</li>
+<li>Convolución con un impulso:
+Si se realiza la convolución con un impulso voy a obtener replicas escaladas y/o desplazadas.</li>
+</ul>
+
+    </div>
+  </article>
+
+
+
+
+
+      
+
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      <ul>
+       
+          <li><a href="/posts/20210830133321-analisis/">Análisis y procesamiento de señales</a></li>
+       
+     </ul>
+    </div>
+  </div>
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#convolución-discreta">Convolución discreta</a></li>
+    <li><a href="#propiedades-de-la-convolución">Propiedades de la convolución</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207&description=Convoluci%c3%b3n%20discreta%20Operaci%c3%b3n%20matem%c3%a1tica%20entre%20%5c%28x%5bn%5d%5c%29%20%28entrada%29%20y%20su%20repuestal%20impulso%2c%20resultando%20en%20%5c%28y%5bn%5d%5c%29.%0aSabemos%20que%20toda%20se%c3%b1al%20discreta%20se%20puede%20representar%20como%20un%20tren%20de%20impulsos%20desplazados.%0a%5c%5bx%5bn%5d%20%3d%20%5csum_%7bk%3d-%5cinfty%7d%5e%7b%5cinfty%7d%20x%5bk%5d%5cdelta%5bn-k%5d%5c%5d%0aTambi%c3%a9n%20sabemos%20que%20la%20respuesta%20de%20un%20sistema%20a%20un%20impulso%20unitario%20es%3a%0a%5c%5bx%5bn%5d%3d%5cdelta%5bn%5d%5c%5d%0a%5c%5bh%5bn%5d%3dT%26lt%3b%5cdelta%5bn%5d%26gt%3b%5c%5d%0aSi%20el%20operador%20T%20es%20LTI%0a%5c%5bh%5bn-k%5d%3dT%26lt%3b%5cdelta%5bn-k%5d%26gt%3b%5c%5d%0aLa%20respuesta%20del%20sistema%20%5c%28y%5bn%5d%5c%29%20a%20una%20entrada%20%5c%28x%5bn%5d%5c%29%0a%5c%5by%5bn%5d%3d%20T%26lt%3bx%5bn%5d%26gt%3b%5c%5d%20%5c%5by%5bn%5d%3dT%20%5cleft%5clangle%20%5csum_%7bk%3d-%5cinfty%7d%5e%7b%5cinfty%7dx%5bk%5d%5cdelta%5bn-k%5d%20%5cright%5crangle%5c%5d%0aComo%20el%20operador%20T%20s%c3%b3lo%20opera%20en%20n%2c%20podemos%20sacar%20la%20sumatoria%20de%20%5c%28n%5bk%5d%5c%29." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_7%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%207" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  apemangr 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/&#43;DiW/UqRcLbRjq" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l&#43;B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd&#43;qj&#43;o24G5ZU2zJz" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+  
+</html>
