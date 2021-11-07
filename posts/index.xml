@@ -7,7 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Thu, 04 Nov 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Nov 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análisis y procesamiento de señales - Clase 9</title>
+      <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_9/</link>
+      <pubDate>Sat, 06 Nov 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_9/</guid>
+      <description>Transformada discreta en el tiempo de Fourier (DTFT) Esta transformada nos genera apartir de una secuencia \(x[n]\) genera una representación en el dominio de la frecuencia.
+\[x[n] \longrightarrow X[\omega]\]
+\[X(\omega) = \sum_{n=-\infty}^{\infty}x[n]e^{-j \omega n}\]
+Recordando la identidad de Euler
+\[e^{-j \omega} = \cos(\omega) +j \sin(\omega)\]
+Ahora si utilizamos la identidad de Euler en la DTFT queda como
+\[X(\omega) = \sum_{n= -\infty}^{\infty} x[n] \cos(\omega n) - j \sum_{n= -\infty}^{\infty} x[n]\sin(\omega n)\]</description>
+    </item>
+    
+    <item>
+      <title>Análisis y procesamiento de señales - Clase 8</title>
+      <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_8/</link>
+      <pubDate>Fri, 05 Nov 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_8/</guid>
+      <description>Convolución mediante el método &amp;ldquo;Slidding strip&amp;rdquo; Este método analítico básicamente consiste en:
+   Voltear la señal más pequeña    Desplazarla en todo el intervalo de la muestra    Multiplicar las señales en sus puntos de intersección    Convolución mediante el método &amp;ldquo;Suma por columnas&amp;rdquo; Si tenemos las señales \(x[n]\) y \(h[n]\) con un soporte compacto y de largo \(L_h=M\), \(L_x=N\) se tiene que</description>
+    </item>
+    
     <item>
       <title>Análisis y procesamiento de señales - Clase 7</title>
       <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_7/</link>
@@ -111,7 +136,7 @@ Estabilidad Un sistema es estable si cualquier entrada acotada produce una salid
       <pubDate>Tue, 28 Sep 2021 00:00:00 -0300</pubDate>
       
       <guid>https://apemangr.github.io/posts/20210830133321-analisis/</guid>
-      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5 Análisis y procesamiento de señales - Clase 6 Análisis y procesamiento de señales - Clase 7  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
+      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5 Análisis y procesamiento de señales - Clase 6 Análisis y procesamiento de señales - Clase 7 Análisis y procesamiento de señales - Clase 8 Análisis y procesamiento de señales - Clase 9  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
     </item>
     
     <item>
@@ -255,7 +280,18 @@ Para un dialéctrico con N moléculas por unidad de volumen:
     </item>
     
     <item>
-      <title>Analisis-Clase1</title>
+      <title>Análisis y procesamiento de señales - Clase 2</title>
+      <link>https://apemangr.github.io/posts/20210830183216-analisis_clase2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/20210830183216-analisis_clase2/</guid>
+      <description>Una señal continua corresponde a una función f(x), donde f ∈ R, y está definida en el intervalo infinito 𝑡 ∈ [−∞, ∞].
+ Una señal discreta corresponde a una función definida sólo en intervalos de tiempo discretos y fijos. 𝑡 = 𝑛 𝑇𝑠 ∀𝑛 ∈ ℤ 𝑇𝑠- Sampling Time
+ Propiedades de las señales discretas Definición causalidad Una señal (función) discreta 𝑓[𝑛] de la forma: 𝑓 [𝑛] = … , 𝑓[−1] , 𝑓[0] , 𝑓[1] , … , 𝑓[𝑘] , … es causal si y solo si 𝑓[𝑛] = 0 para N &amp;lt; 0.</description>
+    </item>
+    
+    <item>
+      <title>An�lisis y procesamiento de se�ales - Clase 1</title>
       <link>https://apemangr.github.io/posts/20210830133538-analisis_clase1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -264,17 +300,6 @@ Para un dialéctrico con N moléculas por unidad de volumen:
 La voz, las ondas de radio, los electrocardiogramas son algunos ejemplos de se�ales en el tiempo. Las im�genes tambien son se�ales que dependen del espacio.
 Las se�ales pueden ser naturales (altura de mareas, radiaci�n electromagnetica del sol), o artificiales (radares, telefonos celulares).
 Aplicaciones del procesamiento de se�ales  Verificaci�n de la calidad del suministro el�ctrico Radar Sonar Medicina  Procesamiento an�logo y digital   Procesamiento an�logo: Actualmente se lleva a cabo mediante circuitos compuestos por resistores, capacitores, inductores, amplificadores, etc.</description>
-    </item>
-    
-    <item>
-      <title>Analisis-Clase2</title>
-      <link>https://apemangr.github.io/posts/20210830183216-analisis_clase2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://apemangr.github.io/posts/20210830183216-analisis_clase2/</guid>
-      <description>Una señal continua corresponde a una función f(x), donde f ∈ R, y está definida en el intervalo infinito 𝑡 ∈ [−∞, ∞].
- Una señal discreta corresponde a una función definida sólo en intervalos de tiempo discretos y fijos. 𝑡 = 𝑛 𝑇𝑠 ∀𝑛 ∈ ℤ 𝑇𝑠- Sampling Time
- Propiedades de las señales discretas Definición causalidad Una señal (función) discreta 𝑓[𝑛] de la forma: 𝑓 [𝑛] = … , 𝑓[−1] , 𝑓[0] , 𝑓[1] , … , 𝑓[𝑘] , … es causal si y solo si 𝑓[𝑛] = 0 para N &amp;lt; 0.</description>
     </item>
     
     <item>
