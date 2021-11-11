@@ -7,7 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>apemangr</copyright>
-    <lastBuildDate>Sun, 07 Nov 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Nov 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análisis y procesamiento de señales - Clase 11</title>
+      <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_11/</link>
+      <pubDate>Wed, 10 Nov 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_11/</guid>
+      <description>Respuesta en frecuencia de filtros digitales Los sistemas digitales invariantes (SLI) en tiempo discreto actúan como filtros digitales.
+Los filtros FIR (Finite Impulse Response) no tienen realimentación. Para el diseño de estos filtros lo que se hace es: Encontrar los coeficientes de su respuesta impulso \(h(n)\) a partir de la respuesta de frecuencia deseada.
+Los filtros IIR (Infinite Impulse Response) tienen realimentación. Para el diseño lo que se hace es: Encontrar los coeficientes de su ecuación en diferencia a partir de la respuesta de frecuencia deseada.</description>
+    </item>
+    
+    <item>
+      <title>Propagación de ondas electromagnéticas - Clase 4</title>
+      <link>https://apemangr.github.io/posts/2021-propagacion_de_ondas_electromagneticas_clase_4/</link>
+      <pubDate>Mon, 08 Nov 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-propagacion_de_ondas_electromagneticas_clase_4/</guid>
+      <description>Materiales dieléctricos Cargas positivas y negativas se desplazan cuando se aplica un campo eléctrico.
+   Para un dieléctrico con N molécluas por unidad de volumen:
+\[\vec{P}= N\vec{p}, \quad \textrm{Polarización eléctrica}\]
+  Si la polarización es uniforme, las cargas ligadas aparecen sólo en la superficie del material
+  Si la polarización varía en el dieléctrico: acumulación de cargas en el material
+  Densidad de carga volumétrica \(\rho_b= -\vec{\nabla} \cdot \vec{P} \quad , \quad \textrm{Densidad de cargas ligadas}\)</description>
+    </item>
+    
     <item>
       <title>Análisis y procesamiento de señales - Clase 10</title>
       <link>https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_10/</link>
@@ -152,7 +177,7 @@ Estabilidad Un sistema es estable si cualquier entrada acotada produce una salid
       <pubDate>Tue, 28 Sep 2021 00:00:00 -0300</pubDate>
       
       <guid>https://apemangr.github.io/posts/20210830133321-analisis/</guid>
-      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5 Análisis y procesamiento de señales - Clase 6 Análisis y procesamiento de señales - Clase 7 Análisis y procesamiento de señales - Clase 8 Análisis y procesamiento de señales - Clase 9 Análisis y procesamiento de señales - Clase 10  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
+      <description>Libros Libros Obligatorios  c:/Users/apemangr/Desktop/Analisis/Libros/Oppenheim.pdf c:/Users/apemangr/Desktop/Analisis/Libros/Proakis.pdf  Libros Complementarios  c:/Users/apemangr/Desktop/Analisis/Libros/Lyons.pdf  Programa del curso  c:/Users/apemangr/Desktop/Analisis/Programa.pdf  Apuntes de clases  Analisis-Clase1 Analisis-Clase2 Análisis y procesamiento de señales - Clase 3 Análisis y procesamiento de señales - Clase 4 Análisis y procesamiento de señales - Clase 5 Análisis y procesamiento de señales - Clase 6 Análisis y procesamiento de señales - Clase 7 Análisis y procesamiento de señales - Clase 8 Análisis y procesamiento de señales - Clase 9 Análisis y procesamiento de señales - Clase 10 Análisis y procesamiento de señales - Clase 11  Apuntes de ayudantias  Analisis-Ayudantia1 Analisis-Ayudantia2  Unidades Unidad 1 </description>
     </item>
     
     <item>

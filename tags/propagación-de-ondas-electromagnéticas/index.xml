@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Propagación de ondas electromagnéticas on Apemangr&#39;s Braindump</title>
+    <link>https://apemangr.github.io/tags/propagaci%C3%B3n-de-ondas-electromagn%C3%A9ticas/</link>
+    <description>Recent content in Propagación de ondas electromagnéticas on Apemangr&#39;s Braindump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>apemangr</copyright>
+    <lastBuildDate>Mon, 08 Nov 2021 00:00:00 -0300</lastBuildDate><atom:link href="https://apemangr.github.io/tags/propagaci%C3%B3n-de-ondas-electromagn%C3%A9ticas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Propagación de ondas electromagnéticas - Clase 4</title>
+      <link>https://apemangr.github.io/posts/2021-propagacion_de_ondas_electromagneticas_clase_4/</link>
+      <pubDate>Mon, 08 Nov 2021 00:00:00 -0300</pubDate>
+      
+      <guid>https://apemangr.github.io/posts/2021-propagacion_de_ondas_electromagneticas_clase_4/</guid>
+      <description>Materiales dieléctricos Cargas positivas y negativas se desplazan cuando se aplica un campo eléctrico.
+   Para un dieléctrico con N molécluas por unidad de volumen:
+\[\vec{P}= N\vec{p}, \quad \textrm{Polarización eléctrica}\]
+  Si la polarización es uniforme, las cargas ligadas aparecen sólo en la superficie del material
+  Si la polarización varía en el dieléctrico: acumulación de cargas en el material
+  Densidad de carga volumétrica \(\rho_b= -\vec{\nabla} \cdot \vec{P} \quad , \quad \textrm{Densidad de cargas ligadas}\)</description>
+    </item>
+    
+  </channel>
+</rss>

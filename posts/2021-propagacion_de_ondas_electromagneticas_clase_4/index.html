@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Propagación de ondas electromagnéticas - Clase 4 | Apemangr&#39;s Braindump</title>
+  <link rel = 'canonical' href = 'https://apemangr.github.io/posts/2021-propagacion_de_ondas_electromagneticas_clase_4/'>
+  <meta name="description" content="This is my personal site where I want to create a braindump.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Propagación de ondas electromagnéticas - Clase 4" />
+<meta property="og:description" content="Materiales dieléctricos Cargas positivas y negativas se desplazan cuando se aplica un campo eléctrico.
+   Para un dieléctrico con N molécluas por unidad de volumen:
+\[\vec{P}= N\vec{p}, \quad \textrm{Polarización eléctrica}\]
+  Si la polarización es uniforme, las cargas ligadas aparecen sólo en la superficie del material
+  Si la polarización varía en el dieléctrico: acumulación de cargas en el material
+  Densidad de carga volumétrica \(\rho_b= -\vec{\nabla} \cdot \vec{P} \quad , \quad \textrm{Densidad de cargas ligadas}\)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://apemangr.github.io/posts/2021-propagacion_de_ondas_electromagneticas_clase_4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-08T00:00:00-03:00" />
+<meta property="article:modified_time" content="2021-11-08T00:00:00-03:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Propagación de ondas electromagnéticas - Clase 4"/>
+<meta name="twitter:description" content="Materiales dieléctricos Cargas positivas y negativas se desplazan cuando se aplica un campo eléctrico.
+   Para un dieléctrico con N molécluas por unidad de volumen:
+\[\vec{P}= N\vec{p}, \quad \textrm{Polarización eléctrica}\]
+  Si la polarización es uniforme, las cargas ligadas aparecen sólo en la superficie del material
+  Si la polarización varía en el dieléctrico: acumulación de cargas en el material
+  Densidad de carga volumétrica \(\rho_b= -\vec{\nabla} \cdot \vec{P} \quad , \quad \textrm{Densidad de cargas ligadas}\)"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.ac674bfc3e1c8a86cfb37893a5a8dddad04927ec79d533708cb47caaac9234dd5573ba082edd420161c38347a7aad95e8753e85b98084f6a1f024dfd1702c01b.css" integrity="sha512-rGdL/D4ciobPs3iTpajd2tBJJ&#43;x51TNwjLR8qqySNN1Vc7oILt1CAWHDg0enqtleh1PoW5gIT2ofAk39FwLAGw=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://apemangr.github.io/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_10/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_11/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&text=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&title=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&is_video=false&description=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&title=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&title=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&name=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204&description=Materiales%20diel%c3%a9ctricos%20Cargas%20positivas%20y%20negativas%20se%20desplazan%20cuando%20se%20aplica%20un%20campo%20el%c3%a9ctrico.%0a%20%20%20Para%20un%20diel%c3%a9ctrico%20con%20N%20mol%c3%a9cluas%20por%20unidad%20de%20volumen%3a%0a%5c%5b%5cvec%7bP%7d%3d%20N%5cvec%7bp%7d%2c%20%5cquad%20%5ctextrm%7bPolarizaci%c3%b3n%20el%c3%a9ctrica%7d%5c%5d%0a%20%20Si%20la%20polarizaci%c3%b3n%20es%20uniforme%2c%20las%20cargas%20ligadas%20aparecen%20s%c3%b3lo%20en%20la%20superficie%20del%20material%0a%20%20Si%20la%20polarizaci%c3%b3n%20var%c3%ada%20en%20el%20diel%c3%a9ctrico%3a%20acumulaci%c3%b3n%20de%20cargas%20en%20el%20material%0a%20%20Densidad%20de%20carga%20volum%c3%a9trica%20%5c%28%5crho_b%3d%20-%5cvec%7b%5cnabla%7d%20%5ccdot%20%5cvec%7bP%7d%20%5cquad%20%2c%20%5cquad%20%5ctextrm%7bDensidad%20de%20cargas%20ligadas%7d%5c%29" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&t=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#materiales-dieléctricos">Materiales dieléctricos</a></li>
+    <li><a href="#qué-relación-tiene-esto-con-las-ecuaciones-de-maxwell">¿Qué relación tiene esto con las ecuaciones de Maxwell?</a></li>
+    <li><a href="#qué-significa-el-vector-d">¿Qué significa el vector D?</a></li>
+    <li><a href="#para-campos-eléctricos-tenemos-la-polarización">Para campos eléctricos tenemos la polarización</a></li>
+    <li><a href="#medio-conductor">Medio conductor</a></li>
+    <li><a href="#ecuaciones-de-maxwell-en-un-conductor--régimen-armónico">Ecuaciones de Maxwell en un conductor (régimen armónico)</a></li>
+    <li><a href="#régimen-armónico-campos-con-dependencia-sinusoidal">Régimen armónico: campos con dependencia sinusoidal</a></li>
+    <li><a href="#ecuaciones-de-maxwell-en-régimen-armónico">Ecuaciones de Maxwell en régimen armónico</a></li>
+    <li><a href="#ecuación-de-helmholtz-o-ecuación-de-onda">Ecuación de Helmholtz o ecuación de onda</a></li>
+    <li><a href="#supongamos-un-medio-sin-pérdidas">Supongamos un medio sin pérdidas</a></li>
+  </ul>
+</nav>
+
+
+    </div>
+    
+  </span>
+</div>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Propagación de ondas electromagnéticas - Clase 4
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-11-08 00:00:00 -0300 -0300" itemprop="datePublished">2021-11-08</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          3 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/propagaci%C3%B3n-de-ondas-electromagn%C3%A9ticas" rel="tag">Propagación de ondas electromagnéticas</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/academic" rel="tag">Academic</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="materiales-dieléctricos">Materiales dieléctricos</h2>
+<p>Cargas positivas y negativas se desplazan cuando se aplica un campo eléctrico.</p>
+<figure><img src="/ox-hugo/2021-11-08_17-24-53_screenshot.png"/>
+</figure>
+
+<ul>
+<li>
+<p>Para un dieléctrico con N molécluas por unidad de volumen:</p>
+<p>\[\vec{P}= N\vec{p}, \quad \textrm{Polarización eléctrica}\]</p>
+</li>
+<li>
+<p>Si la polarización es uniforme, las <code>cargas ligadas</code> aparecen sólo en la superficie del material</p>
+</li>
+<li>
+<p>Si la polarización varía en el dieléctrico: acumulación de cargas en el material</p>
+</li>
+<li>
+<p>Densidad de carga volumétrica \(\rho_b= -\vec{\nabla} \cdot \vec{P} \quad , \quad \textrm{Densidad de cargas ligadas}\)</p>
+</li>
+</ul>
+<h2 id="qué-relación-tiene-esto-con-las-ecuaciones-de-maxwell">¿Qué relación tiene esto con las ecuaciones de Maxwell?</h2>
+<p>Como podemos recordar Maxwell-Gauss es</p>
+<p>\[\vec{\nabla} \cdot \vec{E} = \frac{\rho}{\epsilon_{o}}\]</p>
+<p>En donde &ldquo;\(\rho\)&rdquo; representa la <code>densidad de carga total</code>, ahora vemos que esta densidad esta compuesta de &ldquo;cargas libres&rdquo; y &ldquo;cargas ligadas&rdquo;</p>
+<p>\[\rho=\rho_f + \rho_{b}\]</p>
+<p>\[\rho_{f}= \textrm{Cargas libres}\]
+\[\rho_{b} = \textrm{Cargas ligadas}\]</p>
+<p>Ahora si reemplazamos en la ecuación de Maxwell-Gauss</p>
+<p>\[\vec{\nabla} \cdot \vec{E} = \frac{\rho_f+\rho_b}{\epsilon_0}\]</p>
+<p>Ahora si reemplazamos la polarización de las cargas ligadas que vimos anteriormente</p>
+<p>\[\vec{\nabla} \cdot \epsilon_0 \vec{E} = \rho_f - \vec{\nabla}\cdot \vec{P}\]
+\[\vec{\nabla} \cdot \epsilon_0 \vec{E} + \vec{\nabla} \cdot \vec{P} = \rho_{f}\]
+\[\vec{\nabla} \cdot {(\epsilon_{0} \vec{E}+\vec{P})} = \rho_{f}\]
+\[\vec{\nabla} \cdot \vec{D}  = \rho_{f}\]</p>
+<h2 id="qué-significa-el-vector-d">¿Qué significa el vector D?</h2>
+<ul>
+<li>
+<p>Espacio libre: Proporcional al campo eléctrico, con la mismo dirección \(\vec{D} = \epsilon_{0}\vec{E}\)</p>
+</li>
+<li>
+<p>Materiales polarizables: El campo de desplazamiento puede variar. Puede tener rotacional si la polarización tiene.</p>
+</li>
+<li>
+<p>No se trata de una magnitud medible directamente: Es un campo auxiliar que facilita la formulación del problema eléctrico en presencia de medios polarizables.</p>
+</li>
+</ul>
+<h2 id="para-campos-eléctricos-tenemos-la-polarización">Para campos eléctricos tenemos la polarización</h2>
+<ul>
+<li>
+<p>Momento dipolo magnético por unidad de volumen en materiales magnéticos</p>
+</li>
+<li>
+<p><code>Corriente ligadas</code> actúan como fuente adicional de campos magnéticos</p>
+<p>\[\vec{J}_b= \vec{\nabla} \times \vec{P}_{m}\]</p>
+<p>\[\vec{J} \quad \textrm{Corrientes ligadas}\]
+\[\vec{P}_{m} \quad \textrm{Magnetización del material}\]</p>
+</li>
+<li>
+<p>Otra contribución a la densidad de corriente: razón de cambio de la polarización</p>
+<ul>
+<li>
+<p>Movimiento de cargas implica corriente</p>
+<p>\[\vec{J}_{p} = \frac{\partial \vec{P}}{\partial t}\]</p>
+<p>\[\vec{J} = \vec{J}_{f} + \vec{J}_b+ \vec{J}_{p}\]</p>
+<p>\[\vec{J}_{f} \quad
+\textrm{Corrientes libres}\]
+\[\vec{J}_{b} \quad \textrm{Corrientes ligadas}\]
+\[\vec{J}_{p} \quad \textrm{Corrientes de polarización}\]</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Por ende, ahora definimos la ecuación de Maxwell-Ampere con estas tres corrientes</p>
+<p>\[\vec{\nabla} \times \vec{B}=\mu_{0}\left(\vec{J}+\epsilon_{0} \frac{\partial \vec{E}}{\partial t}\right)\]
+\[\vec{\nabla} \times \vec{B}=\mu_{0}\left(\vec{J}_{f}+\vec{J}_{b}+\vec{J}_{p}+\epsilon_{0} \frac{\partial \vec{E}}{\partial t}\right)\]
+\[\vec{\nabla} \times \vec{B}=\mu_{0}\left(\vec{J}_{f}+\vec{\nabla} \times \overrightarrow{P_{m}}+\frac{\partial \vec{P}}{\partial t}+\epsilon_{0} \frac{\partial \vec{E}}{\partial t}\right)\]
+\[\vec{\nabla} \times\left(\frac{\vec{B}}{\mu_{0}}-\overrightarrow{P_{m}}\right)=\vec{J}_{f}+\frac{\partial\left(\vec{P}+\epsilon_{0} \vec{E}\right)}{\partial t}\]
+\[\vec{\nabla} \times \vec{H}=\vec{J}_{f}+\frac{\partial\left(\vec{P}+\epsilon_{0} \vec{E}\right)}{\partial t}\]</p>
+<ul>
+<li>Intensidad de campo magnético \(\vec{H}\): En espacio libre es proporcional al vector de inducción magnética
+<ul>
+<li>En cuerpos magnetizados cambia</li>
+</ul>
+</li>
+</ul>
+<h2 id="medio-conductor">Medio conductor</h2>
+<ul>
+<li>
+<p>Material caracterizado por presencia de cargas libresb</p>
+</li>
+<li>
+<p>La aplicación de un campo eléctrico estático pone en movimiento las cargas libres (de masa \(m\) y carga \(q\))</p>
+</li>
+</ul>
+<figure><img src="/ox-hugo/2021-11-08_18-26-29_screenshot.png"/>
+</figure>
+
+<p>Donde tenemos que</p>
+<p>\[\vec{v}=\frac{\tau q}{m} \vec{E}\]
+\[\vec{J} = \rho \vec{v} = N q \vec{v}\]
+\[\vec{J} = \sigma \vec{E}\]
+\[\sigma = N \frac{\tau q^2}{m}, \quad \textrm{Conductividad del material}\]</p>
+<p>\[N \quad \textrm{Número de partículas por unidad de volumen}\]</p>
+<ul>
+<li>La ley de Ohm microscópica: Más importante es la tensión aplicada, el campo en el conductor es más importante, y las cargas libres se desplazan rápidamente.
+<ul>
+<li>La densidad de corriente aumenta con el campo eléctrico</li>
+</ul>
+</li>
+</ul>
+<p>\[\vec{J} = \sigma \vec{E}\]</p>
+<ul>
+<li>
+<p>Para un material conductor homogéneo, isótropo y no dispersivo</p>
+<p>\[\vec{J}_{c}(\vec{r},t)=\sigma \vec{E} (\vec{r}, t)\]</p>
+</li>
+</ul>
+<h2 id="ecuaciones-de-maxwell-en-un-conductor--régimen-armónico">Ecuaciones de Maxwell en un conductor (régimen armónico)</h2>
+<p>\[\vec{\nabla} \times \vec{E}(\vec{r})=-j \omega \mu_{0} \vec{H}(\vec{r})\]
+\[\vec{\nabla} \times \vec{H}(\vec{r})=j \omega \epsilon_{0} \vec{E}(\vec{r})+\sigma \vec{E}+\vec{J}_{\text {exci }}(\vec{r})\]
+\[\vec{\nabla} \cdot \vec{E}(\vec{r})=\frac{\rho_{\text {exci }}(\vec{r})}{\epsilon_{0}}\]
+\[\vec{\nabla} \cdot \vec{H}(\vec{r})=0\]</p>
+<h2 id="régimen-armónico-campos-con-dependencia-sinusoidal">Régimen armónico: campos con dependencia sinusoidal</h2>
+<p>\[\vec{E}(\vec{r},t) = \Re \left[ \vec{E}(\vec{r})\cdot e^{j\omega t} \right]\]</p>
+<h2 id="ecuaciones-de-maxwell-en-régimen-armónico">Ecuaciones de Maxwell en régimen armónico</h2>
+<p>\[\vec{\nabla} \times \vec{E}(\vec{r}) =-j \omega \vec{B}(\vec{r})\]
+\[\vec{\nabla} \times \vec{H}(\vec{r}) = j \omega \vec{D}(\vec{r})+\vec{J}(\vec{r}) \]
+\[\vec{\nabla} \cdot \vec{D}(\vec{r}) =\rho(\vec{r}) \]
+\[\vec{\nabla} \cdot \vec{B}(\vec{r}) = 0 \]</p>
+<h2 id="ecuación-de-helmholtz-o-ecuación-de-onda">Ecuación de Helmholtz o ecuación de onda</h2>
+<p>Fuentes al infinito \(\vec{J}(\vec{r}) = 0\) y \(\rho(\vec{r})=0\) en un medio lineal, isótropo y homogéneo</p>
+<p>\[\nabla^{2} \vec{H}(\vec{r})+\omega^{2} \mu \varepsilon \vec{H}(\vec{r})=0\]
+\[\nabla^{2} \vec{E}(\vec{r})+\omega^{2} \mu \varepsilon \vec{E}(\vec{r})=0\]
+\[k = \omega \sqrt{\mu\epsilon}\]</p>
+<h2 id="supongamos-un-medio-sin-pérdidas">Supongamos un medio sin pérdidas</h2>
+<p>Con \(\chi\) y \(\mu\) reales</p>
+<p>Solución de onda plana básica con campo eléctrico en una sola dirección (ninguna variación en ejes \(Ox\) y \(Oy\))</p>
+<p>\[\frac{\partial^{2} E_{x}(z)}{\partial z^{2}}+k^{2} E_{x}(z)=0\]</p>
+<ul>
+<li>
+<p>Solución régimen armónico
+\[E_{x}(z)=E^{+} e^{-j k z}+E^{-} e^{+j k z}\]</p>
+</li>
+<li>
+<p>Solución temporal</p>
+</li>
+</ul>
+<p>\[E_{x}(z, t)=E^{+} \cos (\omega t-k z)+E^{-} \cos (\omega t+k z)\]</p>
+
+    </div>
+  </article>
+
+
+
+
+
+      
+
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>No notes link to this note</h4>
+  </div>
+  
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#materiales-dieléctricos">Materiales dieléctricos</a></li>
+    <li><a href="#qué-relación-tiene-esto-con-las-ecuaciones-de-maxwell">¿Qué relación tiene esto con las ecuaciones de Maxwell?</a></li>
+    <li><a href="#qué-significa-el-vector-d">¿Qué significa el vector D?</a></li>
+    <li><a href="#para-campos-eléctricos-tenemos-la-polarización">Para campos eléctricos tenemos la polarización</a></li>
+    <li><a href="#medio-conductor">Medio conductor</a></li>
+    <li><a href="#ecuaciones-de-maxwell-en-un-conductor--régimen-armónico">Ecuaciones de Maxwell en un conductor (régimen armónico)</a></li>
+    <li><a href="#régimen-armónico-campos-con-dependencia-sinusoidal">Régimen armónico: campos con dependencia sinusoidal</a></li>
+    <li><a href="#ecuaciones-de-maxwell-en-régimen-armónico">Ecuaciones de Maxwell en régimen armónico</a></li>
+    <li><a href="#ecuación-de-helmholtz-o-ecuación-de-onda">Ecuación de Helmholtz o ecuación de onda</a></li>
+    <li><a href="#supongamos-un-medio-sin-pérdidas">Supongamos un medio sin pérdidas</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&text=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&title=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&is_video=false&description=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&title=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&title=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&name=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204&description=Materiales%20diel%c3%a9ctricos%20Cargas%20positivas%20y%20negativas%20se%20desplazan%20cuando%20se%20aplica%20un%20campo%20el%c3%a9ctrico.%0a%20%20%20Para%20un%20diel%c3%a9ctrico%20con%20N%20mol%c3%a9cluas%20por%20unidad%20de%20volumen%3a%0a%5c%5b%5cvec%7bP%7d%3d%20N%5cvec%7bp%7d%2c%20%5cquad%20%5ctextrm%7bPolarizaci%c3%b3n%20el%c3%a9ctrica%7d%5c%5d%0a%20%20Si%20la%20polarizaci%c3%b3n%20es%20uniforme%2c%20las%20cargas%20ligadas%20aparecen%20s%c3%b3lo%20en%20la%20superficie%20del%20material%0a%20%20Si%20la%20polarizaci%c3%b3n%20var%c3%ada%20en%20el%20diel%c3%a9ctrico%3a%20acumulaci%c3%b3n%20de%20cargas%20en%20el%20material%0a%20%20Densidad%20de%20carga%20volum%c3%a9trica%20%5c%28%5crho_b%3d%20-%5cvec%7b%5cnabla%7d%20%5ccdot%20%5cvec%7bP%7d%20%5cquad%20%2c%20%5cquad%20%5ctextrm%7bDensidad%20de%20cargas%20ligadas%7d%5c%29" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-propagacion_de_ondas_electromagneticas_clase_4%2f&t=Propagaci%c3%b3n%20de%20ondas%20electromagn%c3%a9ticas%20-%20Clase%204" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  apemangr 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/&#43;DiW/UqRcLbRjq" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l&#43;B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd&#43;qj&#43;o24G5ZU2zJz" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+  
+</html>

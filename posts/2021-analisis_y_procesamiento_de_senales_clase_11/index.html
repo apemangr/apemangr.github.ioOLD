@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Análisis y procesamiento de señales - Clase 11 | Apemangr&#39;s Braindump</title>
+  <link rel = 'canonical' href = 'https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_11/'>
+  <meta name="description" content="This is my personal site where I want to create a braindump.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Análisis y procesamiento de señales - Clase 11" />
+<meta property="og:description" content="Respuesta en frecuencia de filtros digitales Los sistemas digitales invariantes (SLI) en tiempo discreto actúan como filtros digitales.
+Los filtros FIR (Finite Impulse Response) no tienen realimentación. Para el diseño de estos filtros lo que se hace es: Encontrar los coeficientes de su respuesta impulso \(h(n)\) a partir de la respuesta de frecuencia deseada.
+Los filtros IIR (Infinite Impulse Response) tienen realimentación. Para el diseño lo que se hace es: Encontrar los coeficientes de su ecuación en diferencia a partir de la respuesta de frecuencia deseada." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://apemangr.github.io/posts/2021-analisis_y_procesamiento_de_senales_clase_11/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-10T00:00:00-03:00" />
+<meta property="article:modified_time" content="2021-11-10T00:00:00-03:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Análisis y procesamiento de señales - Clase 11"/>
+<meta name="twitter:description" content="Respuesta en frecuencia de filtros digitales Los sistemas digitales invariantes (SLI) en tiempo discreto actúan como filtros digitales.
+Los filtros FIR (Finite Impulse Response) no tienen realimentación. Para el diseño de estos filtros lo que se hace es: Encontrar los coeficientes de su respuesta impulso \(h(n)\) a partir de la respuesta de frecuencia deseada.
+Los filtros IIR (Infinite Impulse Response) tienen realimentación. Para el diseño lo que se hace es: Encontrar los coeficientes de su ecuación en diferencia a partir de la respuesta de frecuencia deseada."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://apemangr.github.io/css/styles.ac674bfc3e1c8a86cfb37893a5a8dddad04927ec79d533708cb47caaac9234dd5573ba082edd420161c38347a7aad95e8753e85b98084f6a1f024dfd1702c01b.css" integrity="sha512-rGdL/D4ciobPs3iTpajd2tBJJ&#43;x51TNwjLR8qqySNN1Vc7oILt1CAWHDg0enqtleh1PoW5gIT2ofAk39FwLAGw=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://apemangr.github.io/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://apemangr.github.io/posts/2021-propagacion_de_ondas_electromagneticas_clase_4/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011&description=Respuesta%20en%20frecuencia%20de%20filtros%20digitales%20Los%20sistemas%20digitales%20invariantes%20%28SLI%29%20en%20tiempo%20discreto%20act%c3%baan%20como%20filtros%20digitales.%0aLos%20filtros%20FIR%20%28Finite%20Impulse%20Response%29%20no%20tienen%20realimentaci%c3%b3n.%20Para%20el%20dise%c3%b1o%20de%20estos%20filtros%20lo%20que%20se%20hace%20es%3a%20Encontrar%20los%20coeficientes%20de%20su%20respuesta%20impulso%20%5c%28h%28n%29%5c%29%20a%20partir%20de%20la%20respuesta%20de%20frecuencia%20deseada.%0aLos%20filtros%20IIR%20%28Infinite%20Impulse%20Response%29%20tienen%20realimentaci%c3%b3n.%20Para%20el%20dise%c3%b1o%20lo%20que%20se%20hace%20es%3a%20Encontrar%20los%20coeficientes%20de%20su%20ecuaci%c3%b3n%20en%20diferencia%20a%20partir%20de%20la%20respuesta%20de%20frecuencia%20deseada." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#respuesta-en-frecuencia-de-filtros-digitales">Respuesta en frecuencia de filtros digitales</a></li>
+    <li><a href="#respuesta-de-frecuencia-en-función-de-h-n">Respuesta de frecuencia en función de h[n]</a></li>
+  </ul>
+</nav>
+
+
+    </div>
+    
+  </span>
+</div>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Análisis y procesamiento de señales - Clase 11
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-11-10 00:00:00 -0300 -0300" itemprop="datePublished">2021-11-10</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          2 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/an%C3%A1lisis-y-procesamiento-de-se%C3%B1ales" rel="tag">Análisis y procesamiento de señales</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/academic" rel="tag">Academic</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="respuesta-en-frecuencia-de-filtros-digitales">Respuesta en frecuencia de filtros digitales</h2>
+<p>Los sistemas digitales invariantes (SLI) en tiempo discreto actúan como <code>filtros digitales</code>.</p>
+<p>Los filtros <code>FIR</code> (Finite Impulse Response) no tienen realimentación. Para el <code>diseño</code> de estos filtros lo que se hace es: Encontrar los coeficientes de su respuesta impulso \(h(n)\) a partir de la respuesta de frecuencia deseada.</p>
+<p>Los filtros <code>IIR</code> (Infinite Impulse Response) tienen realimentación. Para el <code>diseño</code> lo que se hace es: Encontrar los coeficientes de su ecuación en diferencia a partir de la respuesta de frecuencia deseada.</p>
+<p><code>Tip de diseño</code>: Verificar la respuesta de frecuencia obtenida para determinar el cumplimiento de las especificaciones originales.</p>
+<h2 id="respuesta-de-frecuencia-en-función-de-h-n">Respuesta de frecuencia en función de h[n]</h2>
+<p>Si ingresamos una sinusoide en un SLI, su salida en estado estacionario también es una sinusoide de igual frecuencia.</p>
+<p>\[\textrm{Sinusoide} \longrightarrow SLI \longrightarrow \textrm{Estado estacionario}\]</p>
+<p>Por ejemplo si tenemos la siguiente señal</p>
+<p>\[y[n] = \sum_{k=-\infty}^{\infty} h[k] x[n-k]\]</p>
+<p>En donde, su entrada \(x[n]\) es</p>
+<p>\[x[n]=e^{j\omega n}\]</p>
+<p>Entonces nuestra señal queda como</p>
+<p>\[y[n] = \sum_{k=-\infty}^{\infty} h[k] e^{j\omega (n-k)}\]
+\[y[n]= \sum_{k=-\infty}^{\infty} h[k] e^{j\omega n} e^{-j\omega k}\]
+\[y[n]= e^{j\omega n} \sum_{k=-\infty}^{\infty} h[k]e^{j \omega k}\]</p>
+<p>Quedando la entrada afuera de la sumatoria, y siendo la sumatoria la <code>&quot;Respuesta de frecuencia del sistema con respuesta impulso&quot;</code> que también se puede denotar como \(H(\omega)\).</p>
+<p>Por la tanto \(H(\omega)\) se puede expresar como</p>
+<p>\[H(\omega)= \sum_{k=-\infty}^{\infty} h[k]e^{-j \omega k}\]</p>
+<p><code>Ejemplo</code></p>
+<p>Si se quiere determinar la magnitud y el ángulo para de \(H(\omega)\) para \(h[n] = 0.9^{n} u[n]\)</p>
+<p>\[H(\omega) = \textrm{DTFT}\left\{ h[n] \right\} = \sum_{n=-\infty}^{\infty}h[n]e^{-j \omega n}\]
+\[H(\omega)= \sum_{n=0}^{\infty} 0.9^n e^{-j\omega n} = \sum_{n=0}^{\infty} \left( 0.9e^{-j\omega} \right)^{n}\]
+\[H(\omega) = \frac{1}{1-0.9e^{-j\omega}}\]</p>
+<p>Lo pasamos a coordenas trigonométricas</p>
+<p>\[H(\omega) = \frac{1}{(1-0.9\cos(\omega))+j(0.9\sin(\omega))}\]</p>
+<p>Ahora para calcular su magnitud</p>
+<p>\[|H(\omega)| = \sqrt{\frac{1}{(1-0.9\cos(\omega))^{2}+(0.9\sin(\omega))^{2}}\]
+\[|H(\omega)|=\frac{1}{1.81-1.8 \cos(\omega)}\]</p>
+<p>Ahora para el ángulo procedemos de la siguiente manera</p>
+<p>\[\angle H(\omega)= -\tan^{-1}\left[ \frac{0.9\sin(\omega)}{1-0.9\cos(\omega)} \right]\]</p>
+<p>Podemos representar esta señal de la siguiente forma en MATLAB</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave">n <span style="color:#eceff4">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">:</span><span style="color:#b48ead">40</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>h <span style="color:#eceff4">=</span> <span style="color:#b48ead">0.9</span><span style="color:#81a1c1">.^</span>n<span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">stem</span><span style="color:#eceff4">(</span>n<span style="color:#eceff4">,</span>h<span style="color:#eceff4">)</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">title</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#34;h[n]&#34;</span><span style="color:#eceff4">)</span><span style="color:#bf616a">
+</span></code></pre></div><figure><img src="/ox-hugo/2021-11-10_23-08-32_screenshot.png"/>
+</figure>
+
+<p>Y para obtener su ángulo y magnitud</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-octave" data-lang="octave">w <span style="color:#eceff4">=</span> <span style="color:#eceff4">[</span><span style="color:#b48ead">0</span> <span style="color:#eceff4">:</span> <span style="color:#b48ead">0.001</span> <span style="color:#eceff4">:</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">]</span> <span style="color:#81a1c1">*</span> <span style="color:#81a1c1">pi</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#616e87;font-style:italic">% Mag y Ang Teóricos</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>MT <span style="color:#eceff4">=</span> <span style="color:#b48ead">1</span> <span style="color:#81a1c1">./</span> <span style="color:#81a1c1">sqrt</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1.81</span> <span style="color:#81a1c1">-</span> <span style="color:#b48ead">1.8</span><span style="color:#81a1c1">*</span><span style="color:#81a1c1">cos</span><span style="color:#eceff4">(</span>w<span style="color:#eceff4">));</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>AT <span style="color:#eceff4">=</span> <span style="color:#81a1c1">-</span> <span style="color:#eceff4">(</span><span style="color:#b48ead">180</span><span style="color:#81a1c1">/</span><span style="color:#81a1c1">pi</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">*</span> <span style="color:#81a1c1">atan</span><span style="color:#eceff4">((</span><span style="color:#b48ead">0.9</span> <span style="color:#81a1c1">*</span> <span style="color:#81a1c1">sin</span><span style="color:#eceff4">(</span>w<span style="color:#eceff4">))</span> <span style="color:#81a1c1">./</span> <span style="color:#eceff4">(</span><span style="color:#b48ead">1</span> <span style="color:#81a1c1">-</span> <span style="color:#eceff4">(</span><span style="color:#b48ead">0.9</span> <span style="color:#81a1c1">*</span> <span style="color:#81a1c1">cos</span><span style="color:#eceff4">(</span>w<span style="color:#eceff4">))));</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#616e87;font-style:italic">% Mag y Ang Numéricos</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>n <span style="color:#eceff4">=</span> <span style="color:#b48ead">0</span> <span style="color:#eceff4">:</span> <span style="color:#b48ead">20</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>h <span style="color:#eceff4">=</span> <span style="color:#b48ead">0.9</span> <span style="color:#81a1c1">.^</span> n<span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>H <span style="color:#eceff4">=</span> dtft<span style="color:#eceff4">(</span>h<span style="color:#eceff4">,</span> n<span style="color:#eceff4">,</span> w<span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>MN <span style="color:#eceff4">=</span> <span style="color:#81a1c1">abs</span><span style="color:#eceff4">(</span>H<span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span>AN <span style="color:#eceff4">=</span> <span style="color:#eceff4">(</span><span style="color:#b48ead">180</span><span style="color:#81a1c1">/</span><span style="color:#81a1c1">pi</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">*</span> <span style="color:#81a1c1">angle</span><span style="color:#eceff4">(</span>H<span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">subplot</span> <span style="color:#b48ead">121</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">plot</span><span style="color:#eceff4">(</span>w<span style="color:#81a1c1">/</span><span style="color:#81a1c1">pi</span><span style="color:#eceff4">,</span> MT<span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;b&#39;</span><span style="color:#eceff4">,</span> w<span style="color:#81a1c1">/</span><span style="color:#81a1c1">pi</span><span style="color:#eceff4">,</span> MN<span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;r&#39;</span><span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">title</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;Mag Azul: teórica Rojo: numérica&#39;</span><span style="color:#eceff4">)</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">xlabel</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;w / Pi [rad/m]&#39;</span><span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">grid</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">subplot</span> <span style="color:#b48ead">122</span><span style="color:#eceff4">;</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">plot</span><span style="color:#eceff4">(</span>w<span style="color:#81a1c1">/</span><span style="color:#81a1c1">pi</span><span style="color:#eceff4">,</span> AT<span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;b&#39;</span><span style="color:#eceff4">,</span> w<span style="color:#81a1c1">/</span><span style="color:#81a1c1">pi</span><span style="color:#eceff4">,</span> AN<span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;r&#39;</span><span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">title</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;Ang[°] Azul: teórico Rojo: numérico&#39;</span><span style="color:#eceff4">)</span><span style="color:#bf616a">
+</span><span style="color:#bf616a"></span><span style="color:#81a1c1">xlabel</span><span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;w / Pi [rad/m]&#39;</span><span style="color:#eceff4">);</span><span style="color:#bf616a">
+</span></code></pre></div><figure><img src="/ox-hugo/2021-11-10_23-09-20_screenshot.png"/>
+</figure>
+
+<p><code>Ejemplo</code></p>
+<p>Calcular la respuesta impulso de un filtro digital pasabajos ideal con \(\omega_{c}\)</p>
+<p>\[H(\omega)= \left\{ 1 \quad |\omega| \le \omega_{c}, \quad 0 \quad \omega_{c} \lt |\omega| &lt; \pi \right\}\]</p>
+<p>\[h[n] = \textrm{IDTFT}[H(\omega)] = \frac{1}{2\pi} = \frac{1}{2\pi}\int\limits_{-\pi}^{\pi}H(\omega)e^{-j\omega n} d\omega\]
+\[h[n]=\frac{1}{2\pi}\int\limits_{-\omega_{c}}^{\omega^{c}}e^{-j \omega n} d\omega\]
+\[h[n] = \frac{e^{j\omega_{c}n} - e^{-j\omega_{c}n}}{j2\pi n}\]
+\[h[n]= \frac{\sin(\omega_{c}n)}{\pi n}\]</p>
+
+    </div>
+  </article>
+
+
+
+
+
+      
+
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+<hr>
+
+  <div class="b1-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      <ul>
+       
+          <li><a href="/posts/20210830133321-analisis/">Análisis y procesamiento de señales</a></li>
+       
+     </ul>
+    </div>
+  </div>
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#respuesta-en-frecuencia-de-filtros-digitales">Respuesta en frecuencia de filtros digitales</a></li>
+    <li><a href="#respuesta-de-frecuencia-en-función-de-h-n">Respuesta de frecuencia en función de h[n]</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&text=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&is_video=false&description=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011&body=Check out this article: https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&title=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&name=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011&description=Respuesta%20en%20frecuencia%20de%20filtros%20digitales%20Los%20sistemas%20digitales%20invariantes%20%28SLI%29%20en%20tiempo%20discreto%20act%c3%baan%20como%20filtros%20digitales.%0aLos%20filtros%20FIR%20%28Finite%20Impulse%20Response%29%20no%20tienen%20realimentaci%c3%b3n.%20Para%20el%20dise%c3%b1o%20de%20estos%20filtros%20lo%20que%20se%20hace%20es%3a%20Encontrar%20los%20coeficientes%20de%20su%20respuesta%20impulso%20%5c%28h%28n%29%5c%29%20a%20partir%20de%20la%20respuesta%20de%20frecuencia%20deseada.%0aLos%20filtros%20IIR%20%28Infinite%20Impulse%20Response%29%20tienen%20realimentaci%c3%b3n.%20Para%20el%20dise%c3%b1o%20lo%20que%20se%20hace%20es%3a%20Encontrar%20los%20coeficientes%20de%20su%20ecuaci%c3%b3n%20en%20diferencia%20a%20partir%20de%20la%20respuesta%20de%20frecuencia%20deseada." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fapemangr.github.io%2fposts%2f2021-analisis_y_procesamiento_de_senales_clase_11%2f&t=An%c3%a1lisis%20y%20procesamiento%20de%20se%c3%b1ales%20-%20Clase%2011" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  apemangr 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/&#43;DiW/UqRcLbRjq" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l&#43;B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd&#43;qj&#43;o24G5ZU2zJz" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+  
+</html>
